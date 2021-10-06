@@ -8,15 +8,20 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html{
+    font-size: 16px;
+}
+
 body{
     position: relative;
     min-height: 100vh;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .sidebar{
     position: fixed;
+    z-index: 999;
     top: 0;
     left: 0;
     height: 100%;
@@ -47,7 +52,7 @@ body{
 }
 
 .logo_content .logo .logo_name{
-    font-size: 15px;
+    font-size: 1em;
     font-weight: bolder;
 }
 
@@ -270,12 +275,13 @@ body{
     color: #fff;
 }
 
-/*----Karyawan container-------*/
+/*----container header-------*/
 .card{
-    margin-top: 7em;
+    margin-top: 2em;
     margin-left: 16em;
-    position: relative;
-    width: 20em;
+    position: absolute;
+    width: 27em;
+    height: 11em;
     padding: 20px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 40px !important;
@@ -284,10 +290,7 @@ body{
 
 .Title{
     text-align: center;
-}
-
-.desk {
-    text-align: center;
+    font-size:bolder;
 }
 
 .image{
@@ -295,21 +298,151 @@ body{
 
 }
 
-.button2{
-    padding: 5px 20px;
-    border: 1px solid;
-    border-radius: 40em;
+.Title1{
     text-align: center;
-    color: black;
-    text-decoration: none;
-    top: 6em;
-    left: 70em;
-    background: #FFEBAD;
-    transition-duration: 200ms;
 }
 
-.button2:hover{
-    background-color: #f0cc02;
-    color: #fff;
+/*----container job list-------*/
+
+.container1{
+    margin-top: -11.5rem;
+    margin-left: 61em;
+    position: absolute;
+    width: 23em;
+    padding: 18px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px !important;
+    background: #F2F5FE!important;
 }
+.container2{
+    margin-top: -3rem;
+    margin-left: 61em;
+    position: absolute;
+    width: 23em;
+    padding: 18px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px !important;
+    background: #F2F5FE!important;
+}
+.Title2{
+    align-items: center;
+}
+
+.Day{
+    position: absolute; /*absolute awal*/
+    top: .1em;
+    height: 100%;
+    width: calc(100% - 250px);
+    left: 61em;
+    transition: all 0.5s ease;
+}
+
+.Day .text3{
+    margin: 12px;
+    font-size: 25px;
+    font-weight: bolder;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #11101d;
+}
+
+
+/*----Employee Box-------*/
+
+.absence-container{
+    width: 27em;
+    height: 30em;
+    left: 16em;
+    bottom: -4em;
+    position: relative;
+    box-sizing: border-box; 
+}
+
+/*
+.container3 div{
+    width: 10em;
+    height: 10em;
+    float: left;
+    background-color: #F2F5FE;
+    border-radius: 2em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+ 
+    
+}
+*/
+
+.card1{
+    background-color: #F2F5FE;
+    height:14em;
+    margin-bottom: 2em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 2em;
+    text-align: center;
+    padding-top: 1.5em;
+    
+}
+
+.info{
+    padding: 1.5em;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.image2{
+    width: 5em;
+    text-align: center;
+
+}
+
+
+
+.absence{
+    position: absolute; /*absolute awal*/
+    top: 16em;
+    height: 100%;
+    width: calc(100% - 250px);
+    left: 250px;
+    transition: all 0.5s ease;
+}
+
+.absence .text2{
+    margin: 12px;
+    font-size: 25px;
+    font-weight: bolder;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #11101d;
+}
+
+
+/*---------Employee Report-------------*/
+
+.Report{
+    position: absolute; /*absolute awal*/
+    top: 20em;
+    height: 100%;
+    width: calc(100% - 250px);
+    left: 61em;
+    transition: all 0.5s ease;
+}
+
+.Report .text3{
+    margin: 12px;
+    font-size: 25px;
+    font-weight: bolder;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #11101d;
+}
+
+.container4{
+    margin-top: -22em;
+    margin-left: 61em;
+    position: absolute;
+    width: 30em;
+    height: 20em;
+    padding: 18px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px !important;
+    background: #F2F5FE!important;
+}
+
+
    

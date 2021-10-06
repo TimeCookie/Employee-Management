@@ -12,11 +12,12 @@ body{
     position: relative;
     min-height: 100vh;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .sidebar{
     position: fixed;
+    z-index: 999;
     top: 0;
     left: 0;
     height: 100%;
@@ -282,20 +283,37 @@ body{
     background: #F2F5FE!important;
 }
 
+
 .Title{
     text-align: center;
-    font-size:bolder;
 }
 
-
+.desk {
+    text-align: center;
+}
 
 .image{
     width: 100px;
 
 }
 
-.Title1{
+.button2{
+    padding: 5px 20px;
+    border: 1px solid;
+    border-radius: 40em;
     text-align: center;
+    color: black;
+    text-decoration: none;
+    top: 6em;
+    left: 70em;
+    background: #FFEBAD;
+    transition-duration: 200ms;
 }
+
+.button2:hover{
+    background-color: #f0cc02;
+    color: #fff;
+}
+
 
    

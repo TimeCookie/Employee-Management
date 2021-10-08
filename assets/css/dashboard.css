@@ -304,29 +304,31 @@ body{
 
 /*----container job list-------*/
 
-.container1{
-    margin-top: -11.5rem;
-    margin-left: 61em;
-    position: absolute;
+.job-container1{
     width: 23em;
-    padding: 18px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 40px !important;
-    background: #F2F5FE!important;
-}
-.container2{
-    margin-top: -3rem;
-    margin-left: 61em;
+    height: 17em;
+    margin-top: -11em;
     position: absolute;
-    width: 23em;
-    padding: 18px;
+    left: 61em;
+}
+
+.job2{
+    background-color: #F2F5FE;
+    position: relative;
+    height:7em;
+    margin-bottom: 2em;
+    width: 21.5em;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 40px !important;
-    background: #F2F5FE!important;
+    border-radius: 2em;
+    text-align: center;
+    padding-top: 1.5em;  
 }
-.Title2{
-    align-items: center;
+
+.info2{
+ text-align: left;
 }
+
+
 
 .Day{
     position: absolute; /*absolute awal*/
@@ -352,9 +354,10 @@ body{
     width: 27em;
     height: 30em;
     left: 16em;
-    bottom: -4em;
+    bottom: -5em;
     position: relative;
     box-sizing: border-box; 
+    
 }
 
 /*
@@ -392,8 +395,6 @@ body{
     text-align: center;
 
 }
-
-
 
 .absence{
     position: absolute; /*absolute awal*/

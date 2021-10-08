@@ -350,15 +350,17 @@ body{
 .button2{
     position: absolute;
     padding: 5px 20px;
-    border: 1px solid;
     border-radius: 40em;
     text-align: center;
     color: black;
     text-decoration: none;
-    bottom: 3.5em;
-    left: 75em;
+    width: 10em;
+    height: 2.5em;
+    bottom: 6em;
+    left: 73em;
     background: #FFEBAD;
     transition-duration: 200ms;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .button2:hover{

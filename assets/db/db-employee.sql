@@ -1,5 +1,6 @@
 -- MySQL Script
 -- Employee Management System
+-- 3SIMD
 
 CREATE DATABASE dbemployee;
 

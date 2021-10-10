@@ -1,2 +1,0 @@
--- Sample database
--- Create a new one from PhpMyAdmin

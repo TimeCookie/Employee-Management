@@ -308,8 +308,8 @@ body{
     width: 23em;
     height: 17em;
     margin-top: -11em;
-    position: absolute;
-    left: 61em;
+    position: relative;
+    left: 55em;
 }
 
 .job2{
@@ -332,10 +332,10 @@ body{
 
 .Day{
     position: absolute; /*absolute awal*/
-    top: .1em;
+    top: 1em;
     height: 100%;
     width: calc(100% - 250px);
-    left: 61em;
+    left: 55em;
     transition: all 0.5s ease;
 }
 
@@ -348,12 +348,15 @@ body{
 }
 
 
+
+
 /*----Employee Box-------*/
 
 .absence-container{
     width: 27em;
     height: 30em;
     left: 16em;
+    top: -1em;
     bottom: -5em;
     position: relative;
     box-sizing: border-box; 
@@ -421,7 +424,7 @@ body{
     top: 20em;
     height: 100%;
     width: calc(100% - 250px);
-    left: 61em;
+    left: 55em;
     transition: all 0.5s ease;
 }
 
@@ -434,10 +437,10 @@ body{
 }
 
 .container4{
-    margin-top: -22em;
-    margin-left: 61em;
+    margin-top: -27em;
+    margin-left: 55em;
     position: absolute;
-    width: 30em;
+    width: 23em;
     height: 20em;
     padding: 18px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

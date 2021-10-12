@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+
+if (!isset($_SESSION['adminId'])) {
+
+    header("location: ../index.php?status=unauthorized");
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

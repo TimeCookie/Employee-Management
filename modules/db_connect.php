@@ -1,5 +1,11 @@
 <?php
 // Database connection goes here
-// Use connection string method to connect to database
 
+$dbName = "dbemployee";
+
+$con = mysqli_connect("localhost","root", "", $dbName);
+
+if(!$con) {
+    echo mysqli_connect_errno();
+} 
 ?>

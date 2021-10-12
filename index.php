@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -22,23 +22,36 @@
                 <div class="col-lg-7 px-5 pt-5">
                     <h1 class="font-weight-bold py-3">LOGO</h1>
                     <h4>Sign into your account</h4>
-                    <form>
+                    <!-- FORM BEGINS HERE -->
+                    <form method="POST" action="modules/login-check.php">
+                        <?php
+                        if(isset($_GET['status'])) {
+                            if ($_GET['status'] == "unauthorized") {
+                        ?>
+                        <div class="unauthorized-user">
+                            <p>User not authorized!</p>
+                        </div>
+                        <?php
+                            }
+                        }
+                        ?>
                         <div class="form-row">
                             <div class="col-lg-7">
-                                <input type="Username" placeholder="Username" class="form-control my-3 p-4">
+                                <input type="text" name="username" placeholder="Username" class="form-control my-3 p-4">
                             </div>
                             <div class="form-row">
                                 <div class="col-lg-7">
-                                    <input type="password" placeholder="password" class="form-control my-3 p-4">
+                                    <input type="password" name="password" placeholder="Password" class="form-control my-3 p-4">
                                 </div>
                                 <div class="form-row">
                                     <div class="col-lg-7">
-                                        <button type="button" class="btn1 mt-3 mb-5">LOGIN</button>
+                                        <input type="submit" class="btn1 mt-3 mb-5" value="Login"></input>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </form>
+                    <!--FORM ENDS HERE-->
                 </div>
             </div>
         </div>

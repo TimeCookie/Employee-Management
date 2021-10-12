@@ -2,7 +2,7 @@
 -- Employee Management System
 -- 3SIMD
 
-CREATE DATABASE dbemployee;
+-- CREATE DATABASE dbemployee;
 
 CREATE TABLE Project (
     project_id int NOT NULL,

@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $readQuery = "SELECT * FROM admin WHERE username = '$username' AND password = '$password' LIMIT 1";
+    $readQuery = "SELECT * FROM Admin WHERE username = '$username' AND password = '$password' LIMIT 1";
     $res = mysqli_query($con, $readQuery);
 
     if (mysqli_num_rows($res) > 0) {

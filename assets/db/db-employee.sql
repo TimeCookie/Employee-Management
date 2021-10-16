@@ -5,21 +5,21 @@
 -- CREATE DATABASE dbemployee;
 
 CREATE TABLE Project (
-    project_id int NOT NULL,
+    project_id int NOT NULL AUTO_INCREMENT,
     project_title text NOT NULL,
     project_desc text NOT NULL,
     PRIMARY KEY(project_id)
 );
 
 CREATE TABLE Department (
-    department_id int NOT NULL,
+    department_id int NOT NULL AUTO_INCREMENT,
     department_name varchar(100) NOT NULL,
     department_loaction varchar(100) NOT NULL,
     PRIMARY KEY(department_id)
 );
 
 CREATE TABLE Division (
-    division_id int NOT NULL,
+    division_id int NOT NULL AUTO_INCREMENT,
     division_name varchar(100) NOT NULL,
     project_id int NOT NULL, -- FOREIGN KEY REFERENCES Project(project_id)
     department_id int NOT NULL, -- FOREIGN KEY REFERENCES Department(department_id)
@@ -29,7 +29,7 @@ CREATE TABLE Division (
 );
 
 CREATE TABLE Employee (
-    employee_id int NOT NULL,
+    employee_id int NOT NULL AUTO_INCREMENT,
     employee_name varchar(100) NOT NULL,
     sex varchar(1) NOT NULL,
     date_of_birth date NOT NULL,
@@ -40,14 +40,14 @@ CREATE TABLE Employee (
 );
 
 CREATE TABLE Shift (
-    employee_id int NOT NULL,
+    employee_id int NOT NULL AUTO_INCREMENT,
     admission_time datetime,
     time_out datetime,
     FOREIGN KEY(employee_id) REFERENCES Employee(employee_id)
 );
 
 CREATE TABLE Admin (
-    id int,
+    id int AUTO_INCREMENT,
     username varchar(255) NOT NULL,
     password varchar(255) NOT NULL,
     PRIMARY KEY(id)

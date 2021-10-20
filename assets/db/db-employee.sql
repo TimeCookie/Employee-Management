@@ -1,8 +1,3 @@
--- MySQL Script
--- Employee Management System
--- 3SIMD
-
--- CREATE DATABASE dbemployee;
 
 CREATE TABLE Project (
     project_id int NOT NULL AUTO_INCREMENT,
@@ -14,15 +9,15 @@ CREATE TABLE Project (
 CREATE TABLE Department (
     department_id int NOT NULL AUTO_INCREMENT,
     department_name varchar(100) NOT NULL,
-    department_loaction varchar(100) NOT NULL,
+    department_location varchar(100) NOT NULL,
     PRIMARY KEY(department_id)
 );
 
 CREATE TABLE Division (
     division_id int NOT NULL AUTO_INCREMENT,
     division_name varchar(100) NOT NULL,
-    project_id int NOT NULL, -- FOREIGN KEY REFERENCES Project(project_id)
-    department_id int NOT NULL, -- FOREIGN KEY REFERENCES Department(department_id)
+    project_id int NOT NULL, FOREIGN KEY REFERENCES Project(project_id)
+    department_id int NOT NULL, FOREIGN KEY REFERENCES Department(department_id)
     PRIMARY KEY(division_id),
     FOREIGN KEY(project_id) REFERENCES Project(project_id),
     FOREIGN KEY(department_id) REFERENCES Department(department_id)
@@ -33,7 +28,7 @@ CREATE TABLE Employee (
     employee_name varchar(100) NOT NULL,
     sex varchar(1) NOT NULL,
     date_of_birth date NOT NULL,
-    division_id int NOT NULL, -- FOREIGN KEY REFERENCES Division(division_id)
+    division_id int NOT NULL, FOREIGN KEY REFERENCES Division(division_id)
     employee_photo MEDIUMBLOB NOT NULL,
     PRIMARY KEY(employee_id),
     FOREIGN KEY(division_id) REFERENCES Division(division_id)

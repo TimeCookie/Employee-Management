@@ -45,3 +45,11 @@ CREATE TABLE Shift (
     time_out datetime,
     FOREIGN KEY(employee_id) REFERENCES Employee(employee_id)
 );
+CREATE TABLE Admin (
+    id int AUTO_INCREMENT,
+    username varchar(255) NOT NULL,
+    password varchar(255) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+INSERT INTO Admin VALUES (NULL, 'admin', '123');

@@ -20,7 +20,7 @@
                     <img src="assets/img/harry-shelton-pPxhM0CRzl4-unsplash.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-7 px-5 pt-5">
-                    <h1 class="font-weight-bold py-3">LOGO</h1>
+                    <h1 class="font-weight-bold py-3"></h1>
                     <h4>Sign into your account</h4>
                     <!-- FORM BEGINS HERE -->
                     <form method="POST" action="modules/login-check.php">

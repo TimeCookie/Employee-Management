@@ -96,7 +96,7 @@ if (!isset($_SESSION['adminId'])) {
     <!---------Container header------------->
     <div class="card">
         <div class="image">
-            <img src="" alt="people" class="img-fluid rounded-circle w-50 mb-3">
+            <img src=""class="img-fluid rounded-circle w-50 mb-3">
         </div>
         <div class="Title">
             <h4>88</h4>

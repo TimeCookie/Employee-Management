@@ -1,5 +1,7 @@
 <?php
 // Login process goes here
+
+//Code Author: Marvin Christian (2031140)
 include 'db_connect.php';
 
 session_start();

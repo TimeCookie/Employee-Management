@@ -1,6 +1,7 @@
 
 <?php
 
+// code author : Andre Jonathan Harahap (2031095)
 session_start();
 
 
@@ -99,7 +100,7 @@ if (!isset($_SESSION['adminId'])) {
             <img src=""class="img-fluid rounded-circle w-50 mb-3">
         </div>
         <div class="Title">
-            <h4>88</h4>
+            <h4>4</h4>
         </div>
         <div class="Title1">
             <h4>Employees</h4>

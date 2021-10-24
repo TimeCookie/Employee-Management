@@ -1,5 +1,7 @@
 <?php 
 
+
+//Code author: Pangestu (2031154)
 session_start();
 
 	if(isset($_SESSION['adminId'])) {

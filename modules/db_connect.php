@@ -1,6 +1,8 @@
 <?php
 // Database connection goes here
 
+//Code author: Bryan Tandian (2031076) 
+
 $dbName = "dbemployee";
 
 $con = mysqli_connect("localhost","root", "", $dbName);

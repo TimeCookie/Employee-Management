@@ -64,7 +64,7 @@ if (!isset($_SESSION['adminId'])) {
                <span class="tooltip">Setting</span>
             </li>
             <li>
-                <a href="#">
+                <a href="../modules/logout.php">
                     <i class='bx bx-power-off'></i>
                     <span class="link_name">Log out</span>
                 </a>

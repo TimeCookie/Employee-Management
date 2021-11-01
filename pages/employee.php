@@ -21,21 +21,21 @@
         </div>
         <ul class="nav_list">
             <li>
-                <a href="dashboard.html">
+                <a href="dashboard.php">
                     <i class='bx bx-home'></i>
                     <span class="link_name">Home</span>
                 </a>
                <span class="tooltip">Home</span>
             </li>
             <li>
-                <a href="employee.html">
+                <a href="employee.php">
                     <i class='bx bx-user'></i>
                     <span class="link_name">User</span>
                 </a>
                <span class="tooltip">User</span>
             </li>
             <li>
-                <a href="add-task.html">
+                <a href="add-task.php">
                     <i class='bx bx-plus'></i>
                     <span class="link_name">Add</span>
                 </a>

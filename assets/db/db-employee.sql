@@ -34,7 +34,7 @@ CREATE TABLE Employee (
     sex varchar(1) NOT NULL,
     date_of_birth date NOT NULL,
     division_id int NOT NULL, -- FOREIGN KEY REFERENCES Division(division_id)
-    employee_photo MEDIUMBLOB NOT NULL,
+    employee_photo MEDIUMBLOB,
     PRIMARY KEY(employee_id),
     FOREIGN KEY(division_id) REFERENCES Division(division_id)
 );
@@ -53,3 +53,16 @@ CREATE TABLE Admin (
 );
 
 INSERT INTO Admin VALUES (NULL, 'admin', '123');
+
+INSERT INTO Project VALUES (1001,'App 01', 'It is an app');
+
+INSERT INTO Department VALUES (2001,'IT','Earth');
+
+INSERT INTO Division VALUES (3001,'Software Development', 1001, 2001);
+INSERT INTO Division VALUES (3002,'System Analyst',1001,2001);
+
+INSERT INTO Employee VALUES (4001,'Marvin Christian','M','2000-12-25',3001,NULL);
+INSERT INTO Employee VALUES (4002,'Andre Jonathan Harahap','M','2000-12-25',3001,NULL);
+INSERT INTO Employee VALUES (4003,'Brian Tandian','M','2000-12-25',3001,NULL);
+INSERT INTO Employee VALUES (4004,'Pangestu','M','2000-12-25',3001,NULL);
+INSERT INTO Employee VALUES (4005,'Someone','M','2000-12-25',3002,NULL);

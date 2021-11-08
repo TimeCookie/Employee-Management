@@ -1,0 +1,203 @@
+*, *::before, *:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #808791;
+    font-family: 'Nunito', sans-serif;
+}
+
+input,button{
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.cont{
+    overflow: hidden;
+    position: relative;
+    width: 60em;
+    height: 35em;
+    background: #ffff;
+}
+
+.form{
+    position: relative;
+    width: 40em;
+    height: 100%;
+    padding: 6em 5em;
+    -webkit-transition: -webkit-transform 1.2s ease-in-out;
+    transition: -webkit-transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+}
+
+.form h2{
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    width: 260px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+label span{
+    font-size: 14px;
+    font-weight: 800;
+    color: #505f75;
+    text-transform: uppercase;
+}
+
+input{
+    display: block;
+    width: 100%;
+    margin-top: 3em;
+    font-size: 10px;
+    padding-bottom: 1em;
+    border-bottom: 1px solid rgba(109, 93, 93, 0.4);
+    font-family: 'Nunito', sans-serif;
+}
+
+button{
+    display: block;
+    margin: 0 auto;
+    width: 19em;
+    height: 3em;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.submit{
+    margin-top: 3em;
+    margin-bottom: 10em;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+    background-image: linear-gradient(to left,#7f8c8d,#2c3e50,#7f8c8d);
+}
+
+.submit:hover{
+    background-position: right;
+    transition: 1s ease;
+}
+
+.sub-cont{
+    overflow: hidden;
+    position: absolute;
+    left: 42em;
+    top: 0;
+    width: 40em;
+    height: 100%;
+    padding-left: 260px;
+    background: #fff;
+    -webkit-transition: -webkit-transform 1.2s ease-in-out;
+    transition: -webkit-transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out;
+}
+
+
+.img{
+    overflow: hidden;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20em;
+    height: 100%;
+    padding-top: 36px;
+}
+
+.img:before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40em;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    background-image: url(../img/building\ 2.jpg);
+    background-size: cover;
+    transition:-webkit-transform 1.2s ease-in-out;
+    transition:transform 1.2s ease-in-out; 
+}
+
+.image:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(114, 74, 74, 0.3);
+}
+
+.img-text{
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    color: #fff;
+    -webkit-transition: -webkit-transform 1.2s ease-in-out;
+    transition: -webkit-transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out ;
+}
+.img-text h2{
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.img-text p{
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.container{
+    position: absolute;
+    left: 9.5em;
+    top: 29em;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.container a{
+    text-decoration: none;
+    
+}
+
+.btn{
+    border: none;
+    margin: 20px;
+    padding: 24px;
+    width: 220px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    border-radius: 30px;
+    cursor: pointer;
+    color: #fff;
+    background-size: 200%;
+}
+
+.btn1{
+    background-image: linear-gradient(to left,#7f8c8d,#2c3e50,#7f8c8d);
+}
+
+.btn:hover{
+    background-position: right;
+    transition: 1.2s ease;
+}

@@ -17,12 +17,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         $data = mysqli_fetch_assoc($res);
         if($password === $data['password']) {
             $_SESSION['adminId'] = $data['id'];
-            header("location: ../pages/dashboard.php?status=authorized");
+            header("location: ../pages/admin/admin-dashboard.php?status=authorized");
         } else {
-            header("location: ../index.php?status=unauthorized");
+            header("location: ../pages/admin-login.php?status=unauthorized");
         }
     } else {
-        header("location: ../index.php?status=unauthorized");
+        header("location: ../pages/admin-login.php?status=unauthorized");
     }
 }
 

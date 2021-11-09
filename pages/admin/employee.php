@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add-Task</title>
-    <link rel="stylesheet" href="../assets/css/add_Task.css">
+    <title>employee</title>
+    <link rel="stylesheet" href="../../assets/css/employee.css">
     <!-----ini Box icon ------>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     
 </head>
 <body>
-
-    <!----------Sidebar---------->
     <div class="sidebar">
         <div class="logo_content">
             <div class="logo">
@@ -23,7 +21,7 @@
         </div>
         <ul class="nav_list">
             <li>
-                <a href="dashboard.php">
+                <a href="admin-dashboard.php">
                     <i class='bx bx-home'></i>
                     <span class="link_name">Home</span>
                 </a>
@@ -70,57 +68,56 @@
                 </div>
             </div>
         </div>
-        ------------------------------------------->   
+        ------------------------------------------->
+        
     </div>
 
-    <div class="task_content">
-        <div class="text">Add Task</div>
-        <h4>Task Information</h4>
+    <div class="add_content">
+        <div class="text">Employees</div>
         
     </div> 
 
-   <div class="title1">
-       <div class="text1">Task Name</div>
-       <div class="form_div">
-           <input type="text" class="form_input" placeholder="Task Name">
-       </div>
-       <div class="text2">Task type</div>
-       <div class="form_div1">
-            <input type="text1" class="form_input1" placeholder="Task type">
-       </div>
-       <div class="text3">Person In Charge</div>
-       <div class="form_div2">
-            <input type="text2" class="form_input2" placeholder="Person In Charge">
-       </div>
-       <div class="text4">Department</div>
-       <div class="form_div3">
-            <input type="text3" class="form_input3" placeholder="Department">
-       </div>
-       <div class="text5">Employee#1</div>
-       <div class="form_div4">
-            <input type="text4" class="form_input4" placeholder="Employee Name">
-       </div>
-       <div class="text6">Employee#2</div>
-       <div class="form_div5">
-            <input type="text5" class="form_input5" placeholder="Employee Name">
-       </div>
-       <div class="text7">Employee#3</div>
-       <div class="form_div6">
-            <input type="text6" class="form_input6" placeholder="Employee Name">
-       </div>
+    <!-----------------Search Bar ADD EMPLOYEE----------->
+    <div class="container">
+        <div class="search-box">
+            <input type="text" class="search" placeholder="what are you looking for?"/>
+            <button type="submit" class="search-btn">
+                <i class='bx bx-search-alt-2'></i>
+            </button>
+        </div>
     </div>
 
-   </div>
-  
 
- <!------------Button Add TASK----------->
- <a href="#" class="button2">Add Task</a>
+    <!------------Button Add Employe----------->
+    <a href="#" class="button1">Add Employee</a>
+
+
+    <!---------Container Employee------------->
+    <div class="employee-container">
+        <div class="row"> <!--Container-->
+            <div class="col-lg-3 col-sm-12">
+                <div class="jumbotron card2">
+                    <div class="image1">
+                        <img src="../../assets/img/test1.jpg" alt="people" class="img-fluid rounded-circle  image2">
+                    </div>
+                    <div class="info">
+                        <h4>Name</h4>
+                        <p>Job Desc</p>
+                        <a href="#" class="button3">Edit Profile</a>
+                    </div>
+                </div>
+              <!-- Code goes here -->
+            </div>        
+
+        </div>
+    
+    </div>
 
  
 
    
 
-    <script src="../assets/js/main.js">
+    <script src="../../assets/js/main.js">
     </script>
 </body>
 </html>

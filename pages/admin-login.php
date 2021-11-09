@@ -12,15 +12,29 @@
     <div class="cont">
         <div class="form sign-in">
             <h2>Admin Sign In</h2>
-            <label>
-                <span>Username</span>
-                <input type="Username" name="username">
-            </label>
-            <label>
-                <span>Password</span>
-                <input type="password" name="password">
-            </label>
-            <button class="submit" type="button">Log in</button>
+            <?php
+                // Code Author: Andre Jonathan Harahap (203105)
+                if(isset($_GET['status'])) {
+                    if ($_GET['status'] == "unauthorized") {
+            ?>
+                <div class="unauthorized-user">
+                    <p>User not authorized!</p>
+                </div>
+            <?php
+                    }
+                }
+            ?>
+            <form action="../modules/login-check.php" method="POST">
+                <label>
+                    <span>Username</span>
+                    <input type="text" name="username">
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password" name="password">
+                </label>
+                <button class="submit" name="login" type="submit">Log in</button>
+            </form>
         </div>
         <div class="sub-cont">
             <div class="img">
@@ -33,9 +47,9 @@
                         </a> 
                     </div>
                 </div>
-                
+            </div>  
         </div>
     </div>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="../assets/js/main.js"></script>
 </body>
 </html>

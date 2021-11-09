@@ -7,7 +7,7 @@ session_start();
 
 if (!isset($_SESSION['adminId'])) {
 
-    header("location: ../index.php?status=unauthorized");
+    header("location: admin-login.php?status=unauthorized");
 
 }
 
@@ -21,7 +21,7 @@ if (!isset($_SESSION['adminId'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dashboard</title>
-    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
     <!-----ini Box icon ------>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -37,7 +37,7 @@ if (!isset($_SESSION['adminId'])) {
         </div>
         <ul class="nav_list">
             <li>
-                <a href="dashboard.php">
+                <a href="admin-dashboard.php">
                     <i class='bx bx-home'></i>
                     <span class="link_name">Home</span>
                 </a>
@@ -65,7 +65,7 @@ if (!isset($_SESSION['adminId'])) {
                <span class="tooltip">Setting</span>
             </li>
             <li>
-                <a href="../modules/logout.php">
+                <a href="../../modules/logout.php">
                     <i class='bx bx-power-off'></i>
                     <span class="link_name">Log out</span>
                 </a>
@@ -136,7 +136,7 @@ if (!isset($_SESSION['adminId'])) {
             <div class="col-lg-6 col-sm-12">
                 <div class="jumbotron card1">
                     <div class="image1">
-                       <img src="../assets/img/test1.jpg" alt="people" class="img-fluid rounded-circle  image2">
+                       <img src="../../assets/img/test1.jpg" alt="people" class="img-fluid rounded-circle  image2">
                     </div>
                     <div class="info">
                         <h4>Andre Jonathan Harahap</h4>
@@ -148,7 +148,7 @@ if (!isset($_SESSION['adminId'])) {
             <div class="col-lg-6 col-sm-12">
                 <div class="jumbotron card1">
                 <div class="image1">
-                       <img src="../assets/img/test1.jpg" alt="people" class="img-fluid rounded-circle  image2">
+                       <img src="../../assets/img/test1.jpg" alt="people" class="img-fluid rounded-circle  image2">
                     </div>
                     <div class="info">
                         <h4>Bryan Tandian</h4>
@@ -160,7 +160,7 @@ if (!isset($_SESSION['adminId'])) {
             <div class="col-lg-6 col-sm-12">
                 <div class="jumbotron card1">
                 <div class="image1">
-                       <img src="../assets/img/test1.jpg" alt="people" class="img-fluid rounded-circle  image2">
+                       <img src="../../assets/img/test1.jpg" alt="people" class="img-fluid rounded-circle  image2">
                     </div>
                     <div class="info">
                         <h4>Pangestu</h4>
@@ -172,7 +172,7 @@ if (!isset($_SESSION['adminId'])) {
             <div class="col-lg-6 col-sm-12">
                 <div class="jumbotron card1">
                 <div class="image1">
-                       <img src="../assets/img/test1.jpg" alt="people" class="img-fluid rounded-circle  image2">
+                       <img src="../../assets/img/test1.jpg" alt="people" class="img-fluid rounded-circle  image2">
                     </div>
                     <div class="info">
                         <h4>Marvin Christian</h4>
@@ -202,7 +202,7 @@ if (!isset($_SESSION['adminId'])) {
  
 
 
-    <script src="../assets/js/main.js">
+    <script src="../../assets/js/main.js">
     </script>
 </body>
 </html>

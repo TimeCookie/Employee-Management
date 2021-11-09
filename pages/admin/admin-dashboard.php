@@ -119,74 +119,27 @@ if (!isset($_SESSION['adminId'])) {
                         <p>Person In charge</p>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-12 col-sm-12">
+                <div class="jumbotron job2">
+                    <div class="info2">
+                        <h4>Job Description</h4>
+                        <p>Person In charge</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-sm-12">
+                <div class="jumbotron job2">
+                    <div class="info2">
+                        <h4>Job Description</h4>
+                        <p>Person In charge</p>
+                    </div>
+                </div>
                 
 
             </div>
         </div>
     </div>
- 
-
-    <!---------Employee Box------------->
-    <div class="absence">
-        <div class="text2"> Absence Today</div>
-    </div> 
-
-    <div class="absence-container">
-        <div class="row"> <!--Container-->
-            <div class="col-lg-6 col-sm-12">
-                <div class="jumbotron card1">
-                    <div class="image1">
-                       <img src="../../assets/img/test1.jpg" alt="people" class="img-fluid rounded-circle  image2">
-                    </div>
-                    <div class="info">
-                        <h4>Andre Jonathan Harahap</h4>
-                        <p>2031095</p>
-                    </div>
-                </div>
-              <!-- Code goes here -->
-            </div>
-            <div class="col-lg-6 col-sm-12">
-                <div class="jumbotron card1">
-                <div class="image1">
-                       <img src="../../assets/img/test1.jpg" alt="people" class="img-fluid rounded-circle  image2">
-                    </div>
-                    <div class="info">
-                        <h4>Bryan Tandian</h4>
-                        <p>2031076</p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-12">
-                <div class="jumbotron card1">
-                <div class="image1">
-                       <img src="../../assets/img/test1.jpg" alt="people" class="img-fluid rounded-circle  image2">
-                    </div>
-                    <div class="info">
-                        <h4>Pangestu</h4>
-                        <p>2031154</p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-12">
-                <div class="jumbotron card1">
-                <div class="image1">
-                       <img src="../../assets/img/test1.jpg" alt="people" class="img-fluid rounded-circle  image2">
-                    </div>
-                    <div class="info">
-                        <h4>Marvin Christian</h4>
-                        <p>2031140</p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        
-
-    </div>
-
-
 
 
     <!---------Employee Report------------->

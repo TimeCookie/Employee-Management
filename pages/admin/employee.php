@@ -1,3 +1,12 @@
+<?php
+include '../../modules/db_connect.php';
+//ketika ditekan
+
+/*else {
+echo 'The result is empty';
+}*/
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +58,7 @@
                <span class="tooltip">Setting</span>
             </li>
             <li>
-                <a href="../modules/logout.php">
+                <a href="../../modules/logout.php">
                     <i class='bx bx-power-off'></i>
                     <span class="link_name">Log out</span>
                 </a>
@@ -80,12 +89,16 @@
     <!-----------------Search Bar ADD EMPLOYEE----------->
     <div class="container">
         <div class="search-box">
-            <input type="text" class="search" placeholder="what are you looking for?"/>
-            <button type="submit" class="search-btn">
-                <i class='bx bx-search-alt-2'></i>
+        <form action="employee.php" method="POST">
+            <input type="text" class="search" name="keyword" placeholder="what are you looking for?"/>
+            <button type="submit" name="find" class="search-btn" > 
+                <i class='bx bx-search'></i>
             </button>
+
+        </form>    
         </div>
     </div>
+    
 
 
     <!------------Button Add Employe----------->
@@ -95,17 +108,43 @@
     <!---------Container Employee------------->
     <div class="employee-container">
         <div class="row"> <!--Container-->
-            <div class="col-lg-3 col-sm-12">
+        <?php
+        
+        if(isset($_POST["find"])) {
+
+            $searchRes = mysqli_real_escape_string($con, $_POST['keyword']);
+            if($searchRes!='') {
+
+            $query ="SELECT employee_name,division_name FROM employee e JOIN division d ON e.division_id = d.division_id WHERE e.employee_name LIKE '%$searchRes%'";
+
+            $result = mysqli_query($con,$query);
+   
+    
+            if(mysqli_num_rows($result) > 0){
+                while($rows = mysqli_fetch_assoc($result)) { 
+                                 
+        ?>
+            <div class="col-lg-4 col-sm-12">
                 <div class="jumbotron card2">
                     <div class="image1">
-                        <img src="../../assets/img/test1.jpg" alt="people" class="img-fluid rounded-circle  image2">
+                        <img src="../../assets/img/test1.jpg" class="img-fluid rounded-circle  image2">
                     </div>
                     <div class="info">
-                        <h4>Name</h4>
-                        <p>Job Desc</p>
+                        <h4><?php echo $rows['employee_name'];?> </h4>
+                        <p> <?php echo $rows['division_name'];?> </p>
                         <a href="#" class="button3">Edit Profile</a>
                     </div>
                 </div>
+            </div>
+        <?php
+                    }
+                }
+                else {
+                    echo " ";
+                }
+            }
+        }
+        ?>
               <!-- Code goes here -->
             </div>        
 

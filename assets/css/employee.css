@@ -249,7 +249,8 @@ body{
     text-align: center;
     color: #fff;
     cursor: pointer;
-    border-radius: 0 5px 5px 0;    
+    border-radius: 0 5px 5px 0; 
+    user-select: none;     
 }
 
 /*------------button add employe----*/
@@ -267,6 +268,7 @@ body{
     transition-duration: 200ms;
     text-align: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    user-select: none;  
 }
 
 .button1:hover{
@@ -292,6 +294,7 @@ body{
     border-radius: 2em;
     text-align: center;
     padding-top: 1.5em;
+    user-select: none;  
 }
 
 .image2{
@@ -310,6 +313,7 @@ body{
     left: 70em;
     background: #FFEBAD;
     transition-duration: 200ms;
+    user-select: none;  
 }
 
 .button3:hover{

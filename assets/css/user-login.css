@@ -66,7 +66,7 @@ input {
   display: block;
   width: 100%;
   margin-top: 1em;
-  font-size: 20px;
+  font-size: 15px;
   padding-bottom: 1em;
   border-bottom: 1px solid rgba(109, 93, 93, 0.4);
   font-family: "Nunito", sans-serif;
@@ -182,6 +182,9 @@ button {
 }
 .btn {
   border: none;
+  position: absolute;
+  left: -9em;
+  bottom: -6em;
   margin: 20px;
   padding: 24px;
   width: 220px;

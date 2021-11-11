@@ -3,6 +3,7 @@
 -- 3SIMD
 
 -- CREATE DATABASE dbemployee;
+-- This will be removed later
 
 CREATE TABLE Project (
     project_id int NOT NULL,
@@ -33,7 +34,7 @@ CREATE TABLE Employee (
     employee_name varchar(100) NOT NULL,
     sex varchar(1) NOT NULL,
     date_of_birth date NOT NULL,
-    division_id int NOT NULL, -- FOREIGN KEY REFERENCES Division(division_id)
+    division_id int NOT NULL,
     employee_photo MEDIUMBLOB,
     PRIMARY KEY(employee_id),
     FOREIGN KEY(division_id) REFERENCES Division(division_id)

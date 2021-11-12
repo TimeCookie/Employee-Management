@@ -27,11 +27,12 @@
                 <div class="img-text m-in">
                     <h2>Admin</h2>
                     <p>LAI MASUK ADMIN</p>
-                </div>
-            <div class="container">
-                <a href="../pages/admin-login.php">
-                    <button class="btn btn1">Sign In</button>
-                </a> 
+                    <div class="container">
+                        <a href="../pages/admin-login.php">
+                            <button class="btn btn1">Sign In</button>
+                        </a>
+                    </div>
+                </div>  
             </div>
         </div>
     </div>

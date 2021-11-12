@@ -182,9 +182,6 @@ button {
 }
 .btn {
   border: none;
-  position: absolute;
-  left: -9em;
-  bottom: -6em;
   margin: 20px;
   padding: 24px;
   width: 220px;

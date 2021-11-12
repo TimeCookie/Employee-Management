@@ -40,7 +40,7 @@
             <div class="img">
                 <div class="img-text m-in">
                     <h2>User</h2>
-                    <p>LAI MASUK User</p>
+                    <p>LAI MASUK USER</p>
                     <div class="container">
                         <a href="../pages/user-login.php">
                             <button class="btn btn1">Sign In</button>

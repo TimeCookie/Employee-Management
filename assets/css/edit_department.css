@@ -188,16 +188,18 @@ body{
 
 */
 
-.add_content{
-    position: relative; /*absolute awal*/
-    top: .5em;
+/* Task Content*/
+
+.task_content{
+    position: absolute; /*absolute awal*/
+    margin-top: 1em;
+    margin-left: 19em;
     height: 100%;
     width: calc(100% - 250px);
-    left: 250px;
     transition: all 0.5s ease;
 }
 
-.add_content .text{
+.task_content .text{
     margin: 12px;
     font-size: 25px;
     font-weight: bolder;
@@ -205,117 +207,110 @@ body{
     color: #11101d;
 }
 
+/* Task Name*/
 
-.sidebar.active ~ .add_content{
-    width: calc(100% - 250px);
-    left: 240px;
-}
-
-/*------------Search Bar---*/
-
-.container{
-    width: 20em;
+.text1{
     position: absolute;
-    top: 4em;
-    left: 15.5em;
+    top: 4.7em;
+    left: 13em;
+    font-size: 25px;
 }
 
-.search-box{
-    width: 150em;
-    position: relative;
-    display: flex;
-}
-
-.search{
-    width: 17em;
-    border: 3px solid #11101d;
-    border-right: none;
-    padding: 0.3em;
-    height: 2em;
-    outline: none;
-    color: #9dbfaf;
-}
-
-.search:focus{
-    color: #000;
-    box-shadow: 00 5px #11101d;
-}
-
-.search-btn{
-    width: 2em;
-    height: 2em;
-    border: 1px solid #11101d;
-    background: #11101d;
+.form_input{
+    height: 3em;
+    width: 15em;
+    background: #E1E7FC;
+    border: 1px solid #fff;
+    border-radius: 40px;
+    top: 10em;
+    left: 20.5em;
+    position: absolute;
     text-align: center;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 0 5px 5px 0;    
+}
+.text2{
+    position: absolute;
+    top: 9em;
+    left: 13em;
+    font-size: 25px;
 }
 
-/*------------button add employe----*/
-.button1{
-    padding: 5px 15px;
-    border-radius: 40em;
-    color: black;
-    width:13em;
-    height: 2.5em;
+.form_input1{
+    height: 3em;
+    width: 15em;
+    background: #E1E7FC;
+    border: 1px solid #fff;
+    border-radius: 40px;
+    top: 17em;
+    left: 20.5em;
     position: absolute;
-    text-decoration: none;
-    top: 3.5em;
+    text-align: center;
+}
+
+.text3{
+    position: absolute;
+    top: 13.5em;
+    left: 13em;
+    font-size: 25px;
+}
+
+.form_input2{
+    height: 3em;
+    width: 15em;
+    background: #E1E7FC;
+    border: 1px solid #fff;
+    border-radius: 40px;
+    top: 24.5em;
+    left: 20.5em;
+    position: absolute;
+    text-align: center;
+}
+
+.text4{
+    position: absolute;
+    top: 4.7em;
+    left: 32em;
+    font-size: 25px;
+}
+
+.form_input3{
+    height: 20em;
+    width: 25em;
+    background: #E1E7FC;
+    border: 1px solid #fff;
+    border-radius: 40px;
+    top: 10em;
     left: 50em;
-    background: #FFEBAD;
-    transition-duration: 200ms;
+    position: absolute;
     text-align: center;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.button1:hover{
-    background-color: #f0cc02;
-    color: #fff;
-}
 
-/*----Karyawan container-------*/
-.employee-container{
-    width: 70em;
-    height: 50em;
-    left: 16em;
-    bottom: -7em;
-    position: relative;
-    box-sizing: border-box; 
-}
 
-.card2{
-    background-color: #F2F5FE;
-    height:15em;
-    margin-bottom: 2em;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 2em;
-    text-align: center;
-    padding-top: 1.5em;
-}
 
-.image2{
-    width: 6em;
-    text-align: center;
 
-}
+/* Button*/
 
-.button3{
+.button2{
+    position: absolute;
+
     padding: 5px 20px;
     border-radius: 40em;
     text-align: center;
     color: black;
     text-decoration: none;
-    top: 6em;
-    left: 70em;
+    width: 10em;
+    height: 2.5em;
+    bottom: 6em;
+    left: 73em;
     background: #FFEBAD;
     transition-duration: 200ms;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.button3:hover{
+.button2:hover{
     background-color: #f0cc02;
     color: #fff;
 }
 
 
-   
+

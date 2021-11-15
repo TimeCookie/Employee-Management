@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add-Task</title>
+    <title>Add Task</title>
     <link rel="stylesheet" href="../../assets/css/add-task.css">
     <!-----ini Box icon ------>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -32,9 +32,16 @@
             <li>
                 <a href="employee.php">
                     <i class='bx bx-user'></i>
-                    <span class="link_name">User</span>
+                    <span class="link_name">Employee</span>
                 </a>
-               <span class="tooltip">User</span>
+               <span class="tooltip">Employee</span>
+            </li>
+            <li>
+                <a href="department.php">
+                    <i class='bx bxs-school'></i>
+                    <span class="link_name">Department</span>
+                </a>
+               <span class="tooltip">Department</span>
             </li>
             <li>
                 <a href="add-task.php">

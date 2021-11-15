@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Department</title>
+    <title>Add Department</title>
     <link rel="stylesheet" href="../../assets/css/edit_department.css">
     <!-----ini Box icon ------>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -23,7 +23,7 @@
         </div>
         <ul class="nav_list">
             <li>
-                <a href="dashboard.php">
+                <a href="admin-dashboard.php">
                     <i class='bx bx-home'></i>
                     <span class="link_name">Home</span>
                 </a>
@@ -81,7 +81,7 @@
     </div>
 
     <div class="task_content">
-        <div class="text">Edit Department</div>
+        <div class="text">Add Department</div>
         <h4>Department Profile</h4>
         
     </div> 

@@ -13,7 +13,7 @@ echo 'The result is empty';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>employee</title>
+    <title>Department</title>
     <link rel="stylesheet" href="../../assets/css/employee.css">
     <!-----ini Box icon ------>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -39,9 +39,16 @@ echo 'The result is empty';
             <li>
                 <a href="employee.php">
                     <i class='bx bx-user'></i>
-                    <span class="link_name">User</span>
+                    <span class="link_name">Employee</span>
                 </a>
-               <span class="tooltip">User</span>
+               <span class="tooltip">Employee</span>
+            </li>
+            <li>
+                <a href="department.php">
+                    <i class='bx bxs-school'></i>
+                    <span class="link_name">Department</span>
+                </a>
+               <span class="tooltip">Department</span>
             </li>
             <li>
                 <a href="add-task.php">
@@ -82,7 +89,7 @@ echo 'The result is empty';
     </div>
 
     <div class="add_content">
-        <div class="text">Employees</div>
+        <div class="text">Department</div>
         
     </div> 
 
@@ -102,7 +109,7 @@ echo 'The result is empty';
 
 
     <!------------Button Add Employe----------->
-    <a href="#" class="button1">Add Department</a>
+    <a href="edit-department.php" class="button1">Add Department</a>
 
 
     <!---------Container Department------------->

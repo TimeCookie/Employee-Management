@@ -32,9 +32,9 @@
             <li>
                 <a href="employee.php">
                     <i class='bx bx-user'></i>
-                    <span class="link_name">User</span>
+                    <span class="link_name">Employee</span>
                 </a>
-               <span class="tooltip">User</span>
+               <span class="tooltip">Employee</span>
             </li>
             <li>
                 <a href="department.php">

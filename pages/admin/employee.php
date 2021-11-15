@@ -13,7 +13,7 @@ echo 'The result is empty';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>employee</title>
+    <title>Employee</title>
     <link rel="stylesheet" href="../../assets/css/employee.css">
     <!-----ini Box icon ------>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -39,9 +39,16 @@ echo 'The result is empty';
             <li>
                 <a href="employee.php">
                     <i class='bx bx-user'></i>
-                    <span class="link_name">User</span>
+                    <span class="link_name">Employee</span>
                 </a>
-               <span class="tooltip">User</span>
+               <span class="tooltip">Employee</span>
+            </li>
+            <li>
+                <a href="department.php">
+                    <i class='bx bxs-school'></i>
+                    <span class="link_name">Department</span>
+                </a>
+               <span class="tooltip">Department</span>
             </li>
             <li>
                 <a href="add-task.php">
@@ -102,7 +109,7 @@ echo 'The result is empty';
 
 
     <!------------Button Add Employe----------->
-    <a href="#" class="button1">Add Employee</a>
+    <a href="add-employee.php" class="button1">Add Employee</a>
 
 
     <!---------Container Employee------------->
@@ -127,7 +134,7 @@ echo 'The result is empty';
             <div class="col-lg-4 col-sm-12">
                 <div class="jumbotron card2">
                     <div class="image1">
-                        <img src="../../assets/img/test1.jpg" class="img-fluid rounded-circle  image2">
+                        <img src="../assets/img/test1.jpg" class="img-fluid rounded-circle  image2">
                     </div>
                     <div class="info">
                         <h4><?php echo $rows['employee_name'];?> </h4>

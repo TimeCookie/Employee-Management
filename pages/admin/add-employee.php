@@ -17,7 +17,7 @@
     <div class="sidebar">
         <div class="logo_content">
             <div class="logo">
-                <div class="logo_name">Manajemen karyawan</div>
+                <div class="logo_name">MagentaCorp</div>
             </div>
             <i class='bx bx-menu'id="btn"></i>
         </div>
@@ -87,38 +87,42 @@
     </div> 
 
    <div class="title1">
-       <div class="text1">First Name</div>
-       <div class="form_div">
-           <input type="text" class="form_input" placeholder="First Name">
-       </div>
-       <div class="text2">Date of Birth</div>
-       <div class="form_div1">
-            <input type="text1" class="form_input1" placeholder="Date of Birth">
-       </div>
-       <div class="text3">Gender</div>
-       <div class="form_div2">
-            <input type="text2" class="form_input2" placeholder="Gender">
-       </div>
-       <div class="text4">Phone Number</div>
-       <div class="form_div3">
-            <input type="text3" class="form_input3" placeholder="Phone Number">
-       </div>
-       <div class="text5">Last Name</div>
-       <div class="form_div4">
-            <input type="text4" class="form_input4" placeholder="Last Name">
-       </div>
-       <div class="text6">Email Address</div>
-       <div class="form_div5">
-            <input type="text5" class="form_input5" placeholder="Email Address">
-       </div>
-       <div class="text7">Department</div>
-       <div class="form_div6">
-            <input type="text6" class="form_input6" placeholder="Department">
-       </div>
-       <div class="text8">Employee Id</div>
-       <div class="form_div7">
-            <input type="text7" class="form_input7" placeholder="Employee Id">      
-       </div>
+       <form action="../../modules/employee-add.php" method="POST">
+            <div class="text1">First Name</div>
+            <div class="form_div">
+                <input type="text" name="first-name" class="form_input" placeholder="First Name">
+            </div>
+            <div class="text2">Date of Birth</div>
+            <div class="form_div1">
+                <input type="text" name="date-of-birth" class="form_input1" placeholder="Date of Birth">
+            </div>
+            <div class="text3">Gender</div>
+            <div class="form_div2">
+                <input type="text" name="gender" class="form_input2" placeholder="Gender">
+            </div>
+            <div class="text4">Phone Number</div>
+            <div class="form_div3">
+                <input type="text" name="phone-number" class="form_input3" placeholder="Phone Number">
+            </div>
+            <div class="text5">Last Name</div>
+            <div class="form_div4">
+                <input type="text" name="last-name" class="form_input4" placeholder="Last Name">
+            </div>
+            <div class="text6">Email Address</div>
+            <div class="form_div5">
+                <input type="text" name="email" class="form_input5" placeholder="Email Address">
+            </div>
+            <div class="text7">Division</div>
+            <div class="form_div6">
+                <input type="text" name="department" class="form_input6" placeholder="Department">
+            </div>
+            <div class="text8">Employee Id</div>
+            <div class="form_div7">
+                <input type="text" name="employee-id" class="form_input7" placeholder="Employee Id" value="">      
+            </div>
+
+            <input type="submit" name="save-confirm" value="Save" class="button-save"/>
+       </form>
 
     </div>
 
@@ -129,22 +133,21 @@
             <div class="col-lg-3 col-sm-12">
                 <div class="jumbotron card2">
                     <div class="image1">
-                        <img src="" alt="upload-photo-employee" class="img-fluid rounded-circle  image2">
+                        <img src="../../assets/img/test1.jpg" alt="upload-photo-employee" class="img-fluid rounded-circle  image2">
                     </div>
-                    <div class="upload-photo">
-                        <a href="" class="button-upload-photo">Upload Photo</a>
-                    </div>
+                    <form action="../../modules/picture-receiver.php" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="upload-photo"/>
+                        <div class="upload-photo">
+                            <input type="submit" class="button-upload-photo" value="Upload Photo">
+                        </div>
+                    </form>
+                    
                 </div>
-
- <!------------Button Add Employee---->
- <a href=""
- class="button-save">Save </a>
-
  
 
    
 
-    <script src="../assets/js/main.js">
+    <script src="../../assets/js/main.js">
     </script>
 </body>
 </html>

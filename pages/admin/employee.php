@@ -24,7 +24,7 @@ echo 'The result is empty';
     <div class="sidebar">
         <div class="logo_content">
             <div class="logo">
-                <div class="logo_name">Manajemen karyawan</div>
+                <div class="logo_name">MagentaCorp</div>
             </div>
             <i class='bx bx-menu'id="btn"></i>
         </div>
@@ -34,21 +34,21 @@ echo 'The result is empty';
                     <i class='bx bx-home'></i>
                     <span class="link_name">Home</span>
                 </a>
-               <span class="tooltip">Home</span>
+                <span class="tooltip">Home</span>
             </li>
             <li>
                 <a href="employee.php">
                     <i class='bx bx-user'></i>
                     <span class="link_name">Employee</span>
                 </a>
-               <span class="tooltip">Employee</span>
+                <span class="tooltip">Employee</span>
             </li>
             <li>
                 <a href="department.php">
                     <i class='bx bxs-school'></i>
                     <span class="link_name">Department</span>
                 </a>
-               <span class="tooltip">Department</span>
+                <span class="tooltip">Department</span>
             </li>
             <li>
                 <a href="add-task.php">
@@ -62,7 +62,7 @@ echo 'The result is empty';
                     <i class='bx bx-cog'></i>
                     <span class="link_name">Setting</span>
                 </a>
-               <span class="tooltip">Setting</span>
+                <span class="tooltip">Setting</span>
             </li>
             <li>
                 <a href="../../modules/logout.php">

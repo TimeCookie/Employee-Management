@@ -17,7 +17,7 @@
     <div class="sidebar">
         <div class="logo_content">
             <div class="logo">
-                <div class="logo_name">Manajemen karyawan</div>
+                <div class="logo_name">MagentaCorp</div>
             </div>
             <i class='bx bx-menu'id="btn"></i>
         </div>

@@ -16,7 +16,7 @@ body {
 
 .sidebar {
   position: fixed;
-  z-index: 999;
+  z-index: 100;
   top: 0;
   left: 0;
   height: 100%;
@@ -444,7 +444,7 @@ body {
   transition-duration: 200ms;
 }
 
-.button3==hover {
+.button3hover {
   background-color: #f0cc02;
   color: #fff;
 }

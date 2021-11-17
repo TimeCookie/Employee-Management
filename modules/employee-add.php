@@ -76,7 +76,7 @@ if(isset($_POST['save-confirm'])) {
         $createQuery = "INSERT INTO employee VALUES (?,?,?,?,?,?)";
         $stmt = mysqli_stmt_init($con);
         if(!mysqli_stmt_prepare($stmt, $createQuery)) {
-            header('Location: ../pages/admin/add-employee.php?=invalid-code-1');
+            header('Location: ../pages/admin/add-employee.php?status=invalid');
             exit();
         }
         else {
@@ -84,7 +84,7 @@ if(isset($_POST['save-confirm'])) {
             mysqli_stmt_execute($stmt);
         }
         mysqli_stmt_close($stmt);
-        header("Location: ../pages/admin/add-employee.php?=add-success.php");
+        header("Location: ../pages/admin/add-employee.php?status=add-success");
     }
 
 }

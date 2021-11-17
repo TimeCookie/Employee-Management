@@ -10,6 +10,8 @@ include '../../modules/employee-add.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Employee</title>
     <link rel="stylesheet" href="../../assets/css/add-employee.css">
+    <link rel="stylesheet" href="../../assets/css/success-page.css">
+    <link rel="stylesheet" href="../../assets/css/failed-page.css">
     <!-----ini Box icon ------>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -152,8 +154,56 @@ include '../../modules/employee-add.php';
                     </form>
                     
                 </div>
+            </div>
+        </div>
  
+    </div>
+ 
+    <?php
+        if(isset($_GET['status'])) {
 
+        
+            if($_GET['status'] = 'add-success') {
+        
+    ?>
+    <!-- Masukkan code yg popup itu -->
+        <div class="popup center">
+            <div class="icon">
+                <i class='bx bx-check'></i>
+            </div>
+            <div class="title">Success!!</div>
+            <div class="description">Congratulation well done</div>
+            <div class="dismiss-btn">
+                <button id="dismiss-popup-btn">Dismiss</button>
+
+            </div>
+        </div>
+    <?php
+        }
+        elseif($_GET['status'] = 'invalid') {
+            
+        
+    
+    ?>
+        <div class="popup center">
+            <div class="icon">
+                <i class='bx bx-x'></i>
+            </div>
+            <div class="title">Failed!!</div>
+            <div class="description">Sorry you are failed</div>
+            <div class="dismiss-btn">
+                <button id="dismiss-popup-btn">Dismiss</button>
+
+            </div>
+        </div>
+   
+        
+    <?php
+        } 
+    }
+    ?>
+       
+   
    
 
     <script src="../../assets/js/main.js">

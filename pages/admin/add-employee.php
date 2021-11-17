@@ -1,3 +1,7 @@
+<?php
+include '../../modules/employee-add.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -118,7 +122,12 @@
             </div>
             <div class="text8">Employee Id</div>
             <div class="form_div7">
-                <input type="text" name="employee-id" class="form_input7" placeholder="Employee Id" value="">      
+                <?php
+                
+                    echo "<input type='text' name='employee-id' class='form_input7' placeholder='Employee Id' value='$employeeId' readonly>";
+                
+                ?>
+                      
             </div>
 
             <input type="submit" name="save-confirm" value="Save" class="button-save"/>

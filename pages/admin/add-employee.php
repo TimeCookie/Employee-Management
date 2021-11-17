@@ -98,7 +98,7 @@ include '../../modules/employee-add.php';
             </div>
             <div class="text2">Date of Birth</div>
             <div class="form_div1">
-                <input type="text" name="date-of-birth" class="form_input1" placeholder="Date of Birth">
+                <input class = "form_input1" type = "date" id= "birthday" name= "birthday">
             </div>
             <div class="text3">Gender</div>
             <div class="form_div2">

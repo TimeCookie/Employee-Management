@@ -122,19 +122,23 @@ echo 'The result is empty';
             $searchRes = mysqli_real_escape_string($con, $_POST['keyword']);
             if($searchRes!='') {
 
-            $query ="SELECT employee_name,division_name FROM employee e JOIN division d ON e.division_id = d.division_id WHERE e.employee_name LIKE '%$searchRes%'";
+            $query ="SELECT employee_name,employee_photo,division_name FROM employee e JOIN division d ON e.division_id = d.division_id WHERE e.employee_name LIKE '%$searchRes%'";
 
             $result = mysqli_query($con,$query);
+            
    
     
             if(mysqli_num_rows($result) > 0){
                 while($rows = mysqli_fetch_assoc($result)) { 
+                    // Image dir reconstruction
+                    $imageDir = "../" . $rows['employee_photo'];
+
                                  
         ?>
             <div class="col-lg-4 col-sm-12">
                 <div class="jumbotron card2">
                     <div class="image1">
-                        <img src="../assets/img/test1.jpg" class="img-fluid rounded-circle  image2">
+                        <?php echo '<img src="'.$imageDir.'" class="img-fluid rounded-circle image2">'; ?>
                     </div>
                     <div class="info">
                         <h4><?php echo $rows['employee_name'];?> </h4>

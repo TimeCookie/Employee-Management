@@ -1,0 +1,440 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.sidebar {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100px;
+  background: #11101d;
+  padding: 6px 14px;
+  transition: all 0.5s ease;
+}
+
+.sidebar.active {
+  width: 240px;
+}
+
+.sidebar .logo_content .logo {
+  color: #fff;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease;
+  white-space: pre;
+}
+
+.sidebar.active .logo_content .logo {
+  opacity: 1;
+  pointer-events: none;
+}
+
+.logo_content .logo .logo_name {
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.sidebar #btn {
+  position: absolute;
+  color: #fff;
+  left: 75%;
+  top: 6px;
+  font-size: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  transform: translateX(-50%);
+}
+
+.sidebar.active #btn {
+  left: 90%;
+}
+
+.sidebar ul {
+  margin-top: 20px;
+}
+
+.sidebar ul li {
+  position: relative;
+  height: 60px;
+  width: 100%;
+  margin: 0 5px;
+  list-style: none;
+  line-height: 50px;
+}
+
+.sidebar ul li .tooltip {
+  position: absolute;
+  left: 122px;
+  top: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+  height: 35px;
+  width: 122px;
+  background: #fff;
+  line-height: 35px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: 0s;
+  opacity: 0;
+  pointer-events: none;
+  display: block;
+}
+
+.sidebar.active ul li .tooltip {
+  display: none;
+}
+
+.sidebar ul li:hover .tooltip {
+  transition: all 0.5s ease;
+  top: 50%;
+  opacity: 1;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.sidebar ul li a:hover {
+  color: #11101d;
+  background: #fff;
+}
+
+.sidebar ul li i {
+  height: 50px;
+  min-width: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.sidebar .link_name {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+.sidebar.active .link_name {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar .profile_content {
+  position: absolute;
+  color: #fff;
+  bottom: 0;
+  left: 0;
+}
+
+/* Optional Design
+.sidebar .profile_content .profile{
+    position: relative;
+    padding: 10px 6px;
+    height: 60px;
+}
+
+.profile_content .profile .profile_details{
+    display: flex;
+    align-items: center;
+}
+
+.profile .profile_details .sukunaPic {
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.profile .profile_details .name_job{
+    margin-left: 10px;
+}
+
+.profile .profile_details .name{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.profile .profile_details .job{
+    font-size: 15px;
+    font-weight: 400;
+    position: fixed;
+}
+
+*/
+
+/* Task Content*/
+
+.task_content {
+  position: absolute; /*absolute awal*/
+  margin-top: 1em;
+  margin-left: 19em;
+  height: 100%;
+  width: calc(100% - 250px);
+  transition: all 0.5s ease;
+}
+
+.task_content .text {
+  margin: 12px;
+  font-size: 25px;
+  font-weight: bolder;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #11101d;
+}
+
+/* Task Name*/
+
+.text1 {
+  position: absolute;
+  top: 4.7em;
+  left: 13em;
+  font-size: 25px;
+}
+
+.form_input {
+  height: 3em;
+  width: 15em;
+  background: #e1e7fc;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  top: 10em;
+  left: 20.5em;
+  position: absolute;
+  text-align: center;
+}
+.text2 {
+  position: absolute;
+  top: 9em;
+  left: 13em;
+  font-size: 25px;
+}
+
+.form_input1 {
+  height: 3em;
+  width: 15em;
+  background: #e1e7fc;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  top: 17em;
+  left: 20.5em;
+  position: absolute;
+  text-align: center;
+}
+
+.text3 {
+  position: absolute;
+  top: 13.5em;
+  left: 13em;
+  font-size: 25px;
+}
+
+.form_input2 {
+  height: 3em;
+  width: 15em;
+  background: #e1e7fc;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  top: 24.5em;
+  left: 20.5em;
+  position: absolute;
+  text-align: center;
+}
+
+.text4 {
+  position: absolute;
+  top: 18.5em;
+  left: 13em;
+  font-size: 25px;
+}
+
+.form_input3 {
+  height: 3em;
+  width: 15em;
+  background: #e1e7fc;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  top: 32.5em;
+  left: 20.5em;
+  position: absolute;
+  text-align: center;
+}
+
+.text5 {
+  position: absolute;
+  top: 4.7em;
+  left: 32em;
+  font-size: 25px;
+}
+
+.form_input4 {
+  height: 3em;
+  width: 15em;
+  background: #e1e7fc;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  top: 10em;
+  left: 50em;
+  position: absolute;
+  text-align: center;
+}
+
+.text6 {
+  position: absolute;
+  top: 9em;
+  left: 32em;
+  font-size: 25px;
+}
+
+.form_input5 {
+  height: 3em;
+  width: 15em;
+  background: #e1e7fc;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  top: 17em;
+  left: 50em;
+  position: absolute;
+  text-align: center;
+}
+
+.text7 {
+  position: absolute;
+  top: 13.5em;
+  left: 32em;
+  font-size: 25px;
+}
+
+.form_input6 {
+  height: 3em;
+  width: 15em;
+  background: #e1e7fc;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  top: 24.5em;
+  left: 50em;
+  position: absolute;
+  text-align: center;
+}
+.text7 {
+  position: absolute;
+  top: 13.5em;
+  left: 32em;
+  font-size: 25px;
+}
+.form_input8 {
+  height: 3em;
+  width: 15em;
+  background: #e1e7fc;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  top: 24.5em;
+  left: 50em;
+  position: absolute;
+  text-align: center;
+}
+.text8 {
+  position: absolute;
+  top: 18.5em;
+  left: 32em;
+  font-size: 25px;
+}
+.form_input7 {
+  height: 3em;
+  width: 15em;
+  background: #e1e7fc;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  top: 32.5em;
+  left: 50em;
+  position: absolute;
+  text-align: center;
+}
+
+/* Button*/
+
+.button2 {
+  position: absolute;
+  padding: 5px 20px;
+  border-radius: 40em;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  width: 10em;
+  height: 2.5em;
+  bottom: 14em;
+  left: 6em;
+  background: #ffebad;
+  transition-duration: 200ms;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.button2:hover {
+  background-color: #f0cc02;
+  color: #fff;
+}
+
+/*----Karyawan container-------*/
+.add-employee-container {
+  width: 70em;
+  height: 50em;
+  left: 76em;
+  bottom: -9em;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.card2 {
+  background-color: #f2f5fe;
+  height: 15em;
+  margin-bottom: 2em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 2em;
+  text-align: center;
+  padding-top: 1.5em;
+}
+
+.image2 {
+  width: 6em;
+  text-align: center;
+}
+
+.button-upload-photo {
+  padding: 5px 20px;
+  border-radius: 40em;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  top: 10em;
+  left: 70em;
+  background: #ffebad;
+  transition-duration: 200ms;
+}
+
+.button3hover {
+  background-color: #f0cc02;
+  color: #fff;
+}

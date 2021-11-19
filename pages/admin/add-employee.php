@@ -10,8 +10,7 @@ include '../../modules/employee-add.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Employee</title>
     <link rel="stylesheet" href="../../assets/css/add-employee.css">
-    <link rel="stylesheet" href="../../assets/css/success-page.css">
-    <link rel="stylesheet" href="../../assets/css/failed-page.css">
+    <link rel="stylesheet" href="../../assets/css/popup.css">
     <!-----ini Box icon ------>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -93,7 +92,7 @@ include '../../modules/employee-add.php';
     </div> 
 
    <div class="title1">
-       <form action="../../modules/employee-add.php" method="POST">
+       <form action="../../modules/employee-add.php" method="POST" enctype="multipart/form-data">
             <div class="text1">First Name</div>
             <div class="form_div">
                 <input type="text" name="first-name" class="form_input" placeholder="First Name">
@@ -104,7 +103,12 @@ include '../../modules/employee-add.php';
             </div>
             <div class="text3">Gender</div>
             <div class="form_div2">
-                <input type="text" name="gender" class="form_input2" placeholder="Gender">
+                <div class ="form_input2">
+                    <select name="gender-list">
+                        <option value="Male">M&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</option>
+                        <option value="Female">F&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</option>
+                    </select>
+                </div>
             </div>
             <div class="text4">Phone Number</div>
             <div class="form_div3">
@@ -132,6 +136,28 @@ include '../../modules/employee-add.php';
                       
             </div>
 
+
+            <div class="add-employee-container">
+                <div class="row"> <!--Container-->
+                    <div class="col-lg-3 col-sm-12">
+                        <div class="jumbotron card2">
+                            <label class="preview-label">Image Preview</label>
+                            <div class="image1">
+                                <img src="../../assets/img/test1.jpg" onclick="triggerClick()" alt="upload-photo-employee" class="img-fluid rounded-circle image2" id="placeholder-image">
+                            </div>
+                        
+                            <input type="file" id="employee-photo-input" onchange="previewImage(this)" name="upload-photo" style="display:none;"/>
+                                <!--
+                                <div class="upload-photo">
+                                    <input type="submit" class="button-upload-photo" value="Upload Photo">
+                                </div>-->
+                        
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <input type="submit" name="save-confirm" value="Save" class="button-save"/>
        </form>
 
@@ -139,61 +165,41 @@ include '../../modules/employee-add.php';
 
    </div>
   <!---------Upload Employee------------->
-    <div class="add-employee-container">
-        <div class="row"> <!--Container-->
-            <div class="col-lg-3 col-sm-12">
-                <div class="jumbotron card2">
-                    <div class="image1">
-                        <img src="../../assets/img/test1.jpg" alt="upload-photo-employee" class="img-fluid rounded-circle  image2">
-                    </div>
-                    <form action="../../modules/picture-receiver.php" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="upload-photo"/>
-                        <div class="upload-photo">
-                            <input type="submit" class="button-upload-photo" value="Upload Photo">
-                        </div>
-                    </form>
-                    
-                </div>
-            </div>
-        </div>
- 
-    </div>
+    
  
     <?php
         if(isset($_GET['status'])) {
 
         
-            if($_GET['status'] = 'add-success') {
+            if($_GET['status'] == "add-success") {
         
     ?>
-    <!-- Masukkan code yg popup itu -->
-        <div class="popup center">
-            <div class="icon">
-                <i class='bx bx-check'></i>
-            </div>
-            <div class="title">Success!!</div>
-            <div class="description">Congratulation well done</div>
-            <div class="dismiss-btn">
-                <button id="dismiss-popup-btn">Dismiss</button>
-
-            </div>
+    <div class="popup center">
+        <div class="success-icon">
+            <i class="bx bx-check"></i>
         </div>
+        <div class="title">Success!</div>
+        <div class="description">Employee successfully added</div>
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn"><a href="add-employee.php">Dismiss</a></button>
+        </div>
+    </div>
+    
+        
     <?php
         }
-        elseif($_GET['status'] = 'invalid') {
-            
-        
+
+        elseif($_GET['status'] == "invalid") {  
     
     ?>
         <div class="popup center">
-            <div class="icon">
-                <i class='bx bx-x'></i>
+            <div class="fail-icon">
+                <i class="bx bx-x"></i>
             </div>
-            <div class="title">Failed!!</div>
-            <div class="description">Sorry you are failed</div>
+            <div class="title">Failed!</div>
+            <div class="description">Error, please check your data.</div>
             <div class="dismiss-btn">
-                <button id="dismiss-popup-btn">Dismiss</button>
-
+                <button id="dismiss-popup-btn"><a class="dismiss" href="add-employee.php">Dismiss</a></button>
             </div>
         </div>
    
@@ -206,7 +212,7 @@ include '../../modules/employee-add.php';
    
    
 
-    <script src="../../assets/js/main.js">
-    </script>
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/employee-photo.js"></script>
 </body>
 </html>

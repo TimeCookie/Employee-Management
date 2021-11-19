@@ -255,7 +255,7 @@ body {
 .form_input2 {
   height: 3em;
   width: 15em;
-  background: #e1e7fc;
+
   border: 1px solid #fff;
   border-radius: 40px;
   top: 24.5em;
@@ -263,7 +263,9 @@ body {
   position: absolute;
   text-align: center;
 }
-
+.form_input2 + select {
+  width: 25em;
+}
 .text4 {
   position: absolute;
   top: 18.5em;
@@ -416,7 +418,11 @@ body {
   position: relative;
   box-sizing: border-box;
 }
-
+.preview-label {
+  font-size: 1.15em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
 .card2 {
   background-color: #f2f5fe;
   height: 15em;
@@ -432,16 +438,8 @@ body {
   text-align: center;
 }
 
-.button-upload-photo {
-  padding: 5px 20px;
-  border-radius: 40em;
-  text-align: center;
-  color: black;
-  text-decoration: none;
-  top: 10em;
-  left: 70em;
-  background: #ffebad;
-  transition-duration: 200ms;
+.image2:hover {
+  cursor: pointer;
 }
 
 .button3hover {

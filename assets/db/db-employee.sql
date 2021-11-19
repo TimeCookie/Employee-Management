@@ -35,7 +35,7 @@ CREATE TABLE Employee (
     sex varchar(1) NOT NULL,
     date_of_birth date NOT NULL,
     division_id int NOT NULL,
-    employee_photo MEDIUMBLOB,
+    employee_photo varchar(255),
     PRIMARY KEY(employee_id),
     FOREIGN KEY(division_id) REFERENCES Division(division_id)
 );
@@ -51,6 +51,11 @@ CREATE TABLE Admin (
     username varchar(255) NOT NULL,
     password varchar(255) NOT NULL,
     PRIMARY KEY(id)
+);
+CREATE TABLE user (
+    employee_id int,
+    password varchar(255),
+    FOREIGN KEY(employee_id) REFERENCES Employee(employee_id);
 );
 
 INSERT INTO Admin VALUES (NULL, 'admin', '123');

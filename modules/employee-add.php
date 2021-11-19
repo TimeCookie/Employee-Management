@@ -13,60 +13,65 @@ if(mysqli_num_rows($res) > 0) {
 /*----IMAGE INSERTION----*/
 $imgDir = "../assets/img-upload/";
 
-// * Saves employee photo
-if(isset($_FILES['upload-photo'])){
-    $err = array();
-
-    $tag = (string) rand(1,10000);
-
-    $fileName = $_FILES['upload-photo']['name'] . $tag;
-    $fileSize = $_FILES['upload-photo']['size'];
-    $fileTmp = $_FILES['upload-photo']['tmp_name'];
-    $fileType = $_FILES['upload-photo']['type'];
-
-    $extractExt = explode('.',$fileName);
-    $fileExt = strtolower(end($extractExt));
-
-    $ext = array("jpeg","jpg","png"); //supported file types
-
-    if(in_array($fileExt,$ext) === false){
-        $err[] = "Extension not allowed, please upload a JPEG or PNG file.";
-    }
-
-    if($fileSize > 2097152){
-        $err[] = 'File size must not exceed 2 MB';
-    }
-
-    
-    if(empty($err) == true){
-        move_uploaded_file($fileTmp,"../assets/img-upload/".$fileName);
-        $imgDir = "../assets/img-upload/".$fileName;
-        //header("Location: ../pages/admin/add-employee.php")
-        //echo "Success";
-    }
-    else{
-        print_r($err);
-    }
-    
-}
-
-
-
-
 
 // * Saves employee data
 if(isset($_POST['save-confirm'])) {
+
+    // * Saves employee photo
+    if(isset($_FILES['upload-photo'])){
+        header("Location: test-success.php");
+        $err = array();
+
+        $fileName = $employeeId . "-" . $_FILES['upload-photo']['name'];
+        $fileSize = $_FILES['upload-photo']['size'];
+        $fileTmp = $_FILES['upload-photo']['tmp_name'];
+        $fileType = $_FILES['upload-photo']['type'];
+
+        $extractExt = explode('.',$fileName);
+        $fileExt = strtolower(end($extractExt));
+
+        $ext = array("jpeg","jpg","png"); //supported file types
+
+        if(in_array($fileExt,$ext) === false){
+            $err[] = "Extension not allowed, please upload a JPEG or PNG file.";
+            header("Location: ../pages/admin/add-employee.php?status=invalid");
+        }
+        
+        if($fileSize > 2097152){
+            $err[] = 'File size must not exceed 2 MB';
+            header("Location: ../pages/admin/add-employee.php?status=invalid");
+        }
+
+        
+        if(empty($err) == true){
+            move_uploaded_file($fileTmp,"../assets/img-upload/".$fileName);
+            $imgDir = "../assets/img-upload/" . $fileName;
+            //header("Location: ../pages/admin/add-employee.php")
+            //echo "Success";
+        }
+        else{
+            print_r($err);
+            header("Location: ../pages/admin/add-employee.php?status=invalid");
+        }
+        
+    }
+    else {
+        $imgDir = null; // TODO: Perhaps can add a default picture later
+    }
+
+
+    // * Saves employee data
+
     $firstName = $_POST['first-name'];
-    $dob = $_POST['date-of-birth'];
-    $gender = $_POST['gender'];
+    $dob = $_POST['birthday'];
+    $gender = $_POST['gender-list'];
     $phoneNumber = $_POST['phone-number'];
     $lastName = $_POST['last-name'];
     $email = $_POST['email'];
     $divisionId = $_POST['department'];
     
-    //$employeePhoto = $_POST['employee_photo'];
-
-    $employeeName = ucfirst($firstName) . " " . ucfirst($lastName);
+    // Re-format    
+    $employeeName = ucfirst(strtolower($firstName)) . " " . ucfirst(strtolower($lastName));
 
     $readQuery = "SELECT employee_id FROM employee WHERE employee_id='$employeeId'";
     $res = mysqli_query($con, $readQuery);
@@ -88,6 +93,7 @@ if(isset($_POST['save-confirm'])) {
     }
 
 }
+
 
 
 

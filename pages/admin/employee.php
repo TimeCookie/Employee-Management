@@ -58,13 +58,6 @@ echo 'The result is empty';
                 <span class="tooltip">Add</span>
             </li>
             <li>
-                <a href="#">
-                    <i class='bx bx-cog'></i>
-                    <span class="link_name">Setting</span>
-                </a>
-                <span class="tooltip">Setting</span>
-            </li>
-            <li>
                 <a href="../../modules/logout.php">
                     <i class='bx bx-power-off'></i>
                     <span class="link_name">Log out</span>

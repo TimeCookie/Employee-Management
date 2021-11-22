@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,16 +17,20 @@
 <body>
     <div class="cont">
         <div class="form sign-in">
-            <h2>User Sign In</h2>
-            <label>
-                <span>Username</span>
-                <input type="Username" name="username">
-            </label>
-            <label>
-                <span>Password</span>
-                <input type="password" name="password">
-            </label>
-            <button class="submit" type="button">Log in</button>
+            <form action="../modules/user-login-check.php" method="POST">
+
+                <h2>User Sign In</h2>
+                <label>
+                    <span>Username</span>
+                    <input type="Username" name="username">
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password" name="password">
+                </label>
+                <input type="submit" name="user-login" class="submit" value="Log in">
+
+            </form>
         </div>
         <div class="sub-cont">
             <div class="img">

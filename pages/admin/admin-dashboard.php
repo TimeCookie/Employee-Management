@@ -7,7 +7,7 @@ session_start();
 
 if (!isset($_SESSION['adminId'])) {
 
-    header("location: admin-login.php?status=unauthorized");
+    header("location: ../admin-login.php?status=unauthorized");
 
 }
 
@@ -63,13 +63,6 @@ if (!isset($_SESSION['adminId'])) {
                     <span class="link_name">Add</span>
                 </a>
                 <span class="tooltip">Add</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-cog'></i>
-                    <span class="link_name">Setting</span>
-                </a>
-               <span class="tooltip">Setting</span>
             </li>
             <li>
                 <a href="../../modules/logout.php">

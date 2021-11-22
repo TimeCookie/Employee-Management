@@ -234,7 +234,7 @@ body {
 }
 
 .form_input1 {
-  height: 3em;
+  height: 10em;
   width: 15em;
   background: #e1e7fc;
   border: 1px solid #fff;
@@ -247,7 +247,7 @@ body {
 
 .text3 {
   position: absolute;
-  top: 13.5em;
+  top: 18em;
   left: 13em;
   font-size: 25px;
 }
@@ -258,7 +258,7 @@ body {
   background: #e1e7fc;
   border: 1px solid #fff;
   border-radius: 40px;
-  top: 24.5em;
+  top: 31em;
   left: 20.5em;
   position: absolute;
   text-align: center;
@@ -266,31 +266,12 @@ body {
 
 .text4 {
   position: absolute;
-  top: 18.5em;
-  left: 13em;
-  font-size: 25px;
-}
-
-.form_input3 {
-  height: 3em;
-  width: 15em;
-  background: #e1e7fc;
-  border: 1px solid #fff;
-  border-radius: 40px;
-  top: 32.5em;
-  left: 20.5em;
-  position: absolute;
-  text-align: center;
-}
-
-.text5 {
-  position: absolute;
   top: 4.7em;
   left: 32em;
   font-size: 25px;
 }
 
-.form_input4 {
+.form_input3 {
   height: 3em;
   width: 15em;
   background: #e1e7fc;
@@ -302,9 +283,28 @@ body {
   text-align: center;
 }
 
-.text6 {
+.text5 {
   position: absolute;
   top: 9em;
+  left: 32em;
+  font-size: 25px;
+}
+
+.form_input4 {
+  height: 3em;
+  width: 15em;
+  background: #e1e7fc;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  top: 24em;
+  left: 50em;
+  position: absolute;
+  text-align: center;
+}
+
+.text6 {
+  position: absolute;
+  top: 13.5em;
   left: 32em;
   font-size: 25px;
 }
@@ -323,7 +323,7 @@ body {
 
 .text7 {
   position: absolute;
-  top: 13.5em;
+  top: 18em;
   left: 32em;
   font-size: 25px;
 }
@@ -334,7 +334,7 @@ body {
   background: #e1e7fc;
   border: 1px solid #fff;
   border-radius: 40px;
-  top: 24.5em;
+  top: 31em;
   left: 50em;
   position: absolute;
   text-align: center;

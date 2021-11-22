@@ -32,6 +32,8 @@ CREATE TABLE Division (
 CREATE TABLE Employee (
     employee_id int NOT NULL,
     employee_name varchar(100) NOT NULL,
+    employee_email varchar(255),
+    employee_phone_no varchar(20),
     sex varchar(1) NOT NULL,
     date_of_birth date NOT NULL,
     division_id int NOT NULL,
@@ -52,10 +54,10 @@ CREATE TABLE Admin (
     password varchar(255) NOT NULL,
     PRIMARY KEY(id)
 );
-CREATE TABLE user (
+CREATE TABLE user_employee (
     employee_id int,
     password varchar(255),
-    FOREIGN KEY(employee_id) REFERENCES Employee(employee_id);
+    FOREIGN KEY(employee_id) REFERENCES Employee(employee_id)
 );
 
 INSERT INTO Admin VALUES (NULL, 'admin', '123');
@@ -63,12 +65,13 @@ INSERT INTO Admin VALUES (NULL, 'admin', '123');
 INSERT INTO Project VALUES (1001,'App 01', 'It is an app');
 
 INSERT INTO Department VALUES (2001,'IT','Earth');
+INSERT INTO Department VALUES (2002,'Finance','Indonesia');
 
 INSERT INTO Division VALUES (3001,'Software Development', 1001, 2001);
 INSERT INTO Division VALUES (3002,'System Analyst',1001,2001);
 
-INSERT INTO Employee VALUES (4001,'Marvin Christian','M','2000-12-25',3001,NULL);
-INSERT INTO Employee VALUES (4002,'Andre Jonathan Harahap','M','2000-12-25',3001,NULL);
-INSERT INTO Employee VALUES (4003,'Brian Tandian','M','2000-12-25',3001,NULL);
-INSERT INTO Employee VALUES (4004,'Pangestu','M','2000-12-25',3001,NULL);
-INSERT INTO Employee VALUES (4005,'Someone','M','2000-12-25',3002,NULL);
+INSERT INTO Employee VALUES (4001,'Marvin Christian','marvin@gmail.com','0819000000', 'M','2000-12-25',3001,NULL);
+INSERT INTO Employee VALUES (4002,'Andre Jonathan Harahap','andre@gmail.com','0819000000','M','2000-12-25',3001,NULL);
+INSERT INTO Employee VALUES (4003,'Bryan Tandian','bryan@gmail.com','0819000000','M','2000-12-25',3001,NULL);
+INSERT INTO Employee VALUES (4004,'Pangestu','pangestu@gmail.com','0819000000','M','2000-12-25',3001,NULL);
+INSERT INTO Employee VALUES (4005,'Someone','someone@gmail.com','0819000000','M','2000-12-25',3002,NULL);

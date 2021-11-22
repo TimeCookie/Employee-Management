@@ -56,14 +56,7 @@ include '../../modules/employee-add.php';
                 <span class="tooltip">Add</span>
             </li>
             <li>
-                <a href="#">
-                    <i class='bx bx-cog'></i>
-                    <span class="link_name">Setting</span>
-                </a>
-               <span class="tooltip">Setting</span>
-            </li>
-            <li>
-                <a href="../modules/logout.php">
+                <a href="../../modules/logout.php">
                     <i class='bx bx-power-off'></i>
                     <span class="link_name">Log out</span>
                 </a>
@@ -87,7 +80,6 @@ include '../../modules/employee-add.php';
 
     <div class="task_content">
         <div class="text">Add Employee</div>
-        <h4>Add Employee</h4>
         
     </div> 
 
@@ -143,7 +135,7 @@ include '../../modules/employee-add.php';
                         <div class="jumbotron card2">
                             <label class="preview-label">Image Preview</label>
                             <div class="image1">
-                                <img src="../../assets/img/test1.jpg" onclick="triggerClick()" alt="upload-photo-employee" class="img-fluid rounded-circle image2" id="placeholder-image">
+                                <img src="../../assets/img/user-icon.jpg" onclick="triggerClick()" alt="upload-photo-employee" class="img-fluid rounded-circle image2" id="placeholder-image">
                             </div>
                         
                             <input type="file" id="employee-photo-input" onchange="previewImage(this)" name="upload-photo" style="display:none;"/>
@@ -171,7 +163,7 @@ include '../../modules/employee-add.php';
         if(isset($_GET['status'])) {
 
         
-            if($_GET['status'] == "add-success") {
+            if($_GET['status'] == "success") {
         
     ?>
     <div class="popup center">

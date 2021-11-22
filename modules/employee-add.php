@@ -11,7 +11,7 @@ if(mysqli_num_rows($res) > 0) {
     $employeeId = $res['current_id'] + 1;
 }
 /*----IMAGE INSERTION----*/
-$imgDir = "../assets/img-upload/";
+$imgDir = "";
 
 
 // * Saves employee data
@@ -19,7 +19,7 @@ if(isset($_POST['save-confirm'])) {
 
     // * Saves employee photo
     if(isset($_FILES['upload-photo'])){
-        header("Location: test-success.php");
+        
         $err = array();
 
         $fileName = $employeeId . "-" . $_FILES['upload-photo']['name'];
@@ -56,7 +56,7 @@ if(isset($_POST['save-confirm'])) {
         
     }
     else {
-        $imgDir = null; // TODO: Perhaps can add a default picture later
+        $imgDir = "../assets/img/user-icon.jpg";
     }
 
 
@@ -78,15 +78,19 @@ if(isset($_POST['save-confirm'])) {
 
     // creates new data
     if(mysqli_num_rows($res) <= 0) {
-        $createQuery = "INSERT INTO employee VALUES (?,?,?,?,?,?)";
+        $createQuery = "INSERT INTO employee VALUES (?,?,?,?,?,?,?,?)";
         $stmt = mysqli_stmt_init($con);
         if(!mysqli_stmt_prepare($stmt, $createQuery)) {
             header('Location: ../pages/admin/add-employee.php?status=invalid');
             exit();
         }
         else {
-            mysqli_stmt_bind_param($stmt, 'isssis',$employeeId, $employeeName, $gender, $dob, $divisionId, $imgDir);
+            mysqli_stmt_bind_param($stmt, 'isssssis',$employeeId, $employeeName, $email, $phoneNumber, $gender, $dob, $divisionId, $imgDir);
             mysqli_stmt_execute($stmt);
+
+            // Creates default username and password
+            $createQuery = "INSERT INTO user_employee VALUES ($employeeId, '123')";
+            mysqli_query($con,$createQuery);
         }
         mysqli_stmt_close($stmt);
         header("Location: ../pages/admin/add-employee.php?status=add-success");

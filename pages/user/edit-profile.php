@@ -1,3 +1,33 @@
+<?php
+session_start();
+
+include '../../modules/db_connect.php';
+
+if(!isset($_SESSION['userId'])) {
+    header("Location: ../user-login.php?status=unauthorized");
+}
+
+$userId = $_SESSION['userId'];
+
+$readQuery = "SELECT * FROM employee WHERE employee_id = $userId";
+$res = mysqli_query($con,$readQuery);
+
+if(mysqli_num_rows($res) <= 0) {
+    header("Location: ../user-login.php?status=reauthorize");
+}
+else {
+    $data = mysqli_fetch_assoc($res);
+}
+$employeeName = $data['employee_name'];
+$employeeGender = $data['sex'];
+$employeeDob = $data['date_of_birth'];
+$divisionId = $data['division_id'];
+$employeePhoto = $data['employee_photo'];
+$employeeEmail = $data['employee_email'];
+$employeePhone = $data['employee_phone_no'];
+$employeePhoto = "../".$data['employee_photo'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,71 +96,78 @@
     </div> 
 
    <div class="title1">
-       <div class="text1">Employee Name</div>
-       <div class="form_div">
-           <input type="text" class="form_input" placeholder="Employee Name" readonly="">
-       </div>
-       <div class="text2">Date of Birth</div>
-       <div class="form_div1">
-            <input type="text1" class="form_input1" placeholder="Date of Birth" readonly="">
-       </div>
-       <div class="text3">Gender</div>
-       <div class="form_div2">
-            <input type="text2" class="form_input2" placeholder="Gender" readonly="">
-       </div>
-       <div class="text4">Phone Number</div>
-       <div class="form_div3">
-            <input type="text3" class="form_input3" placeholder="Phone Number">
-       </div>
-       </div>
-       <div class="text5">Email Address</div>
-       <div class="form_div4">
-            <input type="text5" class="form_input4" placeholder="Email Address">
-       </div>
-       <div class="text6">Department</div>
-       <div class="form_div5">
-            <input type="text6" class="form_input5" placeholder="Department" readonly>
-       </div>
-       <div class="text7">Employee Id</div>
-       <div class="form_div6">
-            <input type="text7" class="form_input6" placeholder="Employee Id" readonly>      
-       </div>
-       <div class="text8">Password</div>
-       <div class="form_div7">
-            <input type="text8" class="form_input7" placeholder="Password">      
-       </div>
-    </div>
+    <form action="../../modules/user_edit-profile.php" method="POST" enctype="multipart/form-data">
+        <div class="text1">Employee Name</div>
+        <div class="form_div">
+            <?php echo "<input type='text' class='form_input' value='$employeeName' readonly>"; ?>
+        </div>
+        <div class="text2">Date of Birth</div>
+        <div class="form_div1">
+            <?php echo "<input type='text' class='form_input1' value='$employeeDob' readonly>"; ?>
+        </div>
+        <div class="text3">Gender</div>
+        <div class="form_div2">
+            <?php echo "<input type='text' class='form_input2' value='$employeeGender' readonly>"; ?>
+        </div>
+        <div class="text4">Phone Number</div>
+        <div class="form_div3">
+            <?php echo "<input type='text' class='form_input3' name='phone-number' placeholder='Phone Number' value='$employeePhone'>"; ?>
+        </div>
+        <div class="text5">Email Address</div>
+        <div class="form_div4">
+            <?php echo "<input type='text' class='form_input4' name='email' placeholder='Email Address' value='$employeeEmail'>"; ?>
+        </div>
+        <div class="text6">Division</div>
+        <div class="form_div5">
+            <?php echo "<input type='text' class='form_input5' value='$divisionId' readonly>"; ?>
+        </div>
+        <div class="text7">Employee Id</div>
+        <div class="form_div6">
+            <?php echo "<input type='text' name='employee-id' class='form_input6' value='$userId' readonly>"; ?>
+        </div>
+        <div class="text8">Password</div>
+        <div class="form_div7">
+            <input type="password" class="form_input7" name="password" placeholder="Password">      
+        </div>
 
-   </div>
- <!---------Upload Employee------------->
-    <div class="add-employee-container">
-        <div class="row"> <!--Container-->
-            <div class="col-lg-3 col-sm-12">
-                <div class="jumbotron card2">
-                    <div class="image1">
-                        <img src="../../assets/img/test1.jpg" alt="upload-photo-employee" class="img-fluid rounded-circle  image2">
-                    </div>
-                    <form action="../../modules/picture-receiver.php" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="upload-photo"/>
-                        <div class="upload-photo">
-                            <input type="submit" class="button-upload-photo" value="Upload Photo">
+        <div class="add-employee-container">
+                <div class="row"> <!--Container-->
+                    <div class="col-lg-3 col-sm-12">
+                        <div class="jumbotron card2">
+                            <label class="preview-label">Image Preview</label>
+                            <div class="image1">
+                                <?php echo "<img src='$employeePhoto' onclick='triggerClick()' alt='upload-photo-employee' class='img-fluid rounded-circle image2' id='placeholder-image'>;" ?>
+                                
+                            </div>
+                        
+                            <input type="file" id="employee-photo-input" onchange="previewImage(this)" name="upload-photo" style="display:none;"/>
+                                <!--
+                                <div class="upload-photo">
+                                    <input type="submit" class="button-upload-photo" value="Upload Photo">
+                                </div>-->
+                        
+                            
                         </div>
-                    </form>
-                    
+                    </div>
                 </div>
             </div>
         </div>
 
+        <input type="submit" value="Save" name="edit-confirm" class="button2">
+    </form>
+   </div>
+ <!---------Upload Employee------------->
+    
+
  <!------------Button Add Employee---->
- <a href=""
- class="button2">Save</a>
+ 
 
 
  
 
    
 
-    <script src="../assets/js/main.js">
-    </script>
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/employee-photo.js"></script>
 </body>
 </html>

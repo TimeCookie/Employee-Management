@@ -24,7 +24,7 @@
                     }
                 }
             ?>
-            <form action="../modules/login-check.php" method="POST">
+            <form action="../modules/admin-login-check.php" method="POST">
                 <label>
                     <span>Username</span>
                     <input type="text" name="username">

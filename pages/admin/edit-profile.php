@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,13 +51,6 @@
                     <span class="link_name">Add</span>
                 </a>
                 <span class="tooltip">Add</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-cog'></i>
-                    <span class="link_name">Setting</span>
-                </a>
-               <span class="tooltip">Setting</span>
             </li>
             <li>
                 <a href="../modules/logout.php">

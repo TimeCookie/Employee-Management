@@ -58,13 +58,6 @@ echo 'The result is empty';
                 <span class="tooltip">Add</span>
             </li>
             <li>
-                <a href="#">
-                    <i class='bx bx-cog'></i>
-                    <span class="link_name">Setting</span>
-                </a>
-               <span class="tooltip">Setting</span>
-            </li>
-            <li>
                 <a href="../../modules/logout.php">
                     <i class='bx bx-power-off'></i>
                     <span class="link_name">Log out</span>
@@ -133,13 +126,10 @@ echo 'The result is empty';
         ?>
             <div class="col-lg-4 col-sm-12">
                 <div class="jumbotron card2">
-                    <div class="image1">
-                        <img src="../../assets/img/test1.jpg" class="img-fluid rounded-circle  image2">
-                    </div>
                     <div class="info">
                         <h4><?php echo $rows['department_name'];?> </h4>
                         <p> <?php echo $rows['department_id'];?> </p>
-                        <a href="#" class="button3">Edit Profile</a>
+                        <a href="#" class="button3">Edit Department</a>
                     </div>
                 </div>
             </div>

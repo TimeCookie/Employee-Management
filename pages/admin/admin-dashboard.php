@@ -1,15 +1,20 @@
 
 <?php
-
 // code author : Andre Jonathan Harahap (2031095)
 session_start();
-
+include '../../modules/db_connect.php';
 
 if (!isset($_SESSION['adminId'])) {
 
     header("location: ../admin-login.php?status=unauthorized");
 
 }
+
+$readQuery = "SELECT COUNT(employee_id) AS num_of_employee FROM employee";
+$res = mysqli_query($con, $readQuery);
+$res = mysqli_fetch_assoc($res);
+
+$totalEmployee = $res['num_of_employee'];
 
 
 ?>
@@ -89,7 +94,7 @@ if (!isset($_SESSION['adminId'])) {
     </div>
 
     <div class="add_content">
-        <div class="text">Welcome Admin</div>
+        <div class="text">Welcome, Admin</div>
         
     </div> 
 
@@ -100,7 +105,7 @@ if (!isset($_SESSION['adminId'])) {
             <img src=""class="img-fluid rounded-circle w-50 mb-3">
         </div>
         <div class="Title">
-            <h4>4</h4>
+            <?php echo "<h4>$totalEmployee</h4>"; ?>
         </div>
         <div class="Title1">
             <h4>Employees</h4>

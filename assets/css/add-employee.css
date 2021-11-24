@@ -399,7 +399,7 @@ body {
   width: 10em;
   height: 2.5em;
   bottom: 10em;
-  left: 53em;
+  left: 78em;
   background: #ffebad;
   transition-duration: 200ms;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -432,7 +432,13 @@ body {
   text-align: center;
   padding-top: 1.5em;
 }
-
+.card2 .image2 {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 7em;
+  height: 7em;
+}
 .image2 {
   width: 6em;
   text-align: center;

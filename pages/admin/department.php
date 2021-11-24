@@ -102,7 +102,7 @@ echo 'The result is empty';
 
 
     <!------------Button Add Employe----------->
-    <a href="edit-department.php" class="button1">Add Department</a>
+    <a href="add-department.php" class="button1">Add Department</a>
 
 
     <!---------Container Department------------->
@@ -122,14 +122,16 @@ echo 'The result is empty';
     
             if(mysqli_num_rows($result) > 0){
                 while($rows = mysqli_fetch_assoc($result)) { 
-                                 
+                    $departmentId = $rows['department_id'];
+                    $departmentName = $rows['department_name'];
+
         ?>
             <div class="col-lg-4 col-sm-12">
                 <div class="jumbotron card2">
                     <div class="info">
-                        <h4><?php echo $rows['department_name'];?> </h4>
-                        <p> <?php echo $rows['department_id'];?> </p>
-                        <a href="#" class="button3">Edit Department</a>
+                        <h4><?php echo $departmentName;?> </h4>
+                        <p> <?php echo $departmentId;?> </p>
+                        <?php echo "<a href='edit-department.php?dept=$departmentId' class='button3'>Edit Department</a>"; ?>
                     </div>
                 </div>
             </div>

@@ -28,7 +28,7 @@ session_start();
                     <span>Password</span>
                     <input type="password" name="password">
                 </label>
-                <input type="submit" name="user-login" class="submit" value="Log in">
+                <button type="submit" name="user-login" class="submit">Log in</button>
 
             </form>
         </div>

@@ -19,7 +19,6 @@ if(isset($_POST['save-confirm'])) {
 
     // * Saves employee photo
     if(isset($_FILES['upload-photo'])){
-        
         $err = array();
 
         $fileName = $employeeId . "-" . $_FILES['upload-photo']['name'];
@@ -53,9 +52,13 @@ if(isset($_POST['save-confirm'])) {
             print_r($err);
             header("Location: ../pages/admin/add-employee.php?status=invalid");
         }
+
         
     }
-    else {
+    
+    
+    // * For default photo
+    if($imgDir == "") {
         $imgDir = "../assets/img/user-icon.jpg";
     }
 
@@ -93,7 +96,7 @@ if(isset($_POST['save-confirm'])) {
             mysqli_query($con,$createQuery);
         }
         mysqli_stmt_close($stmt);
-        header("Location: ../pages/admin/add-employee.php?status=add-success");
+        header("Location: ../pages/admin/add-employee.php?status=success");
     }
 
 }

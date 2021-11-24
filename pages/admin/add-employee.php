@@ -156,7 +156,7 @@ include '../../modules/employee-add.php';
     </div>
 
    </div>
-  <!---------Upload Employee------------->
+  <!---------Feedback popup------------->
     
  
     <?php

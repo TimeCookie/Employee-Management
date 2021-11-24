@@ -36,6 +36,7 @@ $employeePhoto = "../".$data['employee_photo'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
     <link rel="stylesheet" href="../../assets/css/edit-profile-user.css">
+    <link rel="stylesheet" href="../../assets/css/popup.css">
     <!-----ini Box icon ------>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -91,7 +92,6 @@ $employeePhoto = "../".$data['employee_photo'];
 
     <div class="task_content">
         <div class="text">Edit Profile</div>
-        <h4>Employee Profile</h4>
         
     </div> 
 
@@ -136,11 +136,11 @@ $employeePhoto = "../".$data['employee_photo'];
                         <div class="jumbotron card2">
                             <label class="preview-label">Image Preview</label>
                             <div class="image1">
-                                <?php echo "<img src='$employeePhoto' onclick='triggerClick()' alt='upload-photo-employee' class='img-fluid rounded-circle image2' id='placeholder-image'>;" ?>
+                                <?php echo "<img src='$employeePhoto' onclick='triggerClick()' class='img-fluid rounded-circle image2' id='placeholder-image'>" ?>
                                 
                             </div>
                         
-                            <input type="file" id="employee-photo-input" onchange="previewImage(this)" name="upload-photo" style="display:none;"/>
+                            <input type="file" id="employee-photo-input" onchange="previewImage(this)" name="upload-photo" style="display:none"/>
                                 <!--
                                 <div class="upload-photo">
                                     <input type="submit" class="button-upload-photo" value="Upload Photo">
@@ -156,10 +156,48 @@ $employeePhoto = "../".$data['employee_photo'];
         <input type="submit" value="Save" name="edit-confirm" class="button2">
     </form>
    </div>
- <!---------Upload Employee------------->
-    
+ <!---------Feedback popup------------->
+    <?php
+        if(isset($_GET['status'])) {
 
- <!------------Button Add Employee---->
+        
+            if($_GET['status'] == "success") {
+        
+    ?>
+    <div class="popup center">
+        <div class="success-icon">
+            <i class="bx bx-check"></i>
+        </div>
+        <div class="title">Success!</div>
+        <div class="description">Employee successfully added</div>
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn"><a href="edit-profile.php">Dismiss</a></button>
+        </div>
+    </div>
+    
+        
+    <?php
+        }
+
+        elseif($_GET['status'] == "invalid") {  
+    
+    ?>
+        <div class="popup center">
+            <div class="fail-icon">
+                <i class="bx bx-x"></i>
+            </div>
+            <div class="title">Failed!</div>
+            <div class="description">Error, please check your data.</div>
+            <div class="dismiss-btn">
+                <button id="dismiss-popup-btn"><a class="dismiss" href="edit-profile.php">Dismiss</a></button>
+            </div>
+        </div>
+   
+        
+    <?php
+        } 
+    }
+    ?>
  
 
 

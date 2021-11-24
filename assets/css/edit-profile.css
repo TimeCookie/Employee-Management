@@ -385,7 +385,7 @@ body {
   text-decoration: none;
   width: 10em;
   height: 2.5em;
-  bottom: 14em;
+  bottom: 9em;
   left: 6em;
   background: #ffebad;
   transition-duration: 200ms;
@@ -415,6 +415,14 @@ body {
   border-radius: 2em;
   text-align: center;
   padding-top: 1.5em;
+}
+
+.card2 .image2 {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 7em;
+  height: 7em;
 }
 
 .image2 {

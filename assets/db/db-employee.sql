@@ -62,16 +62,23 @@ CREATE TABLE user_employee (
 
 INSERT INTO Admin VALUES (NULL, 'admin', '123');
 
-INSERT INTO Project VALUES (1001,'App 01', 'It is an app');
+INSERT INTO Project VALUES (1001,'App 01', 'It is an app'),
+(1002,'Financial Statements', 'This is the financial statement of magentacorp');
 
-INSERT INTO Department VALUES (2001,'IT','Earth');
-INSERT INTO Department VALUES (2002,'Finance','Indonesia');
+INSERT INTO Department VALUES (2001,'IT','Earth'),
+(2002,'Finance','Indonesia');
 
-INSERT INTO Division VALUES (3001,'Software Development', 1001, 2001);
-INSERT INTO Division VALUES (3002,'System Analyst',1001,2001);
+INSERT INTO Division VALUES (3001,'Software Development', 1001, 2001),
+(3002,'System Analyst',1001,2001);
 
-INSERT INTO Employee VALUES (4001,'Marvin Christian','marvin@gmail.com','0819000000', 'M','2000-12-25',3001,NULL);
-INSERT INTO Employee VALUES (4002,'Andre Jonathan Harahap','andre@gmail.com','0819000000','M','2000-12-25',3001,NULL);
-INSERT INTO Employee VALUES (4003,'Bryan Tandian','bryan@gmail.com','0819000000','M','2000-12-25',3001,NULL);
-INSERT INTO Employee VALUES (4004,'Pangestu','pangestu@gmail.com','0819000000','M','2000-12-25',3001,NULL);
-INSERT INTO Employee VALUES (4005,'Someone','someone@gmail.com','0819000000','M','2000-12-25',3002,NULL);
+INSERT INTO Employee VALUES (4001,'Marvin Christian','marvin@gmail.com','0819000000', 'M','2000-12-25',3001,NULL),
+(4002,'Andre Jonathan Harahap','andre@gmail.com','0819000000','M','2000-12-25',3001,NULL),
+(4003,'Bryan Tandian','bryan@gmail.com','0819000000','M','2000-12-25',3001,NULL),
+(4004,'Pangestu','pangestu@gmail.com','0819000000','M','2000-12-25',3001,NULL),
+(4005,'Someone','someone@gmail.com','0819000000','M','2000-12-25',3002,NULL);
+
+INSERT INTO user_employee VALUES (4001,'123'),
+(4002,'123'),
+(4003,'123'),
+(4004,'123'),
+(4005,'123');

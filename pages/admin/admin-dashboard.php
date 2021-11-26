@@ -117,32 +117,28 @@ $totalEmployee = $res['num_of_employee'];
     </div> 
     <div class="job-container1">
         <div class="row"> <!--Container-->
-            <div class="col-lg-12 col-sm-12">
-                <div class="jumbotron job2">
-                    <div class="info2">
-                        <h4>Job Description</h4>
-                        <p>Person In charge</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12 col-sm-12">
-                <div class="jumbotron job2">
-                    <div class="info2">
-                        <h4>Job Description</h4>
-                        <p>Person In charge</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12 col-sm-12">
-                <div class="jumbotron job2">
-                    <div class="info2">
-                        <h4>Job Description</h4>
-                        <p>Person In charge</p>
-                    </div>
-                </div>
-                
+        <?php 
+        $readQuery = "SELECT project_title, pic_id, employee_name FROM project p JOIN employee em ON p.pic_id = em.employee_id LIMIT 5";
+        $res = mysqli_query($con,$readQuery);
 
+        if(mysqli_num_rows($res) > 0) {
+            while($data = mysqli_fetch_assoc($res)) {
+                $projectTitle = $data['project_title'];
+                $picName = $data['employee_name'];
+        ?>
+            <div class="col-lg-12 col-sm-12">
+                <div class="jumbotron job2">
+                    <div class="info2">
+                        <h4><?php echo $projectTitle; ?></h4>
+                        <p><?php echo $picName; ?></p>
+                    </div>
+                </div>
             </div>
+        <?php
+            }
+        }
+        ?>
+
         </div>
     </div>
 

@@ -111,6 +111,7 @@
        <div class="form_div6">
             <input type="text7" class="form_input6" placeholder="Employee Id" readonly>      
        </div>
+       <input type="submit" class="button3" value="Delete">
     </div>
 
    </div>
@@ -136,6 +137,7 @@
  <!------------Button Add Employee---->
  <a href=""
  class="button2">Save </a>
+
 
  
 

@@ -103,7 +103,7 @@ $departmentLocation = $res['department_location'];
        <form action="../../modules/department-edit.php" method="POST">
         <div class="text1">Department ID</div>
         <div class="form_div">
-            <?php echo "<input type='text' class='form_input' name='department-id' placeholder='Department ID' value='$departmentId'>"; ?>     
+            <?php echo "<input type='text' class='form_input' name='department-id' placeholder='Department ID' value='$departmentId' readonly>"; ?>     
         </div>
         <div class="text2">Department Name</div>
         <div class="form_div">

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Task</title>
     <link rel="stylesheet" href="../../assets/css/add-task.css">
+    <link rel="stylesheet" href="../../assets/css/popup.css">
     <!-----ini Box icon ------>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -75,7 +76,6 @@
 
     <div class="task_content">
         <div class="text">Add Task</div>
-        <h4>Task Information</h4>
         
     </div> 
 
@@ -87,7 +87,7 @@
             </div>
             <div class="text2">Task Description</div>
             <div class="form_div1">
-                <input type="text" name="project-type" class="form_input1" placeholder="Task Description">
+                <textarea name="project-desc" class="form_input1" placeholder="Task Description"></textarea>
             </div>
             <div class="text3">Person In Charge</div>
             <div class="form_div2">
@@ -115,6 +115,52 @@
     </div>
 
    </div>
+
+  <!---------Feedback popup------------->
+    
+ 
+    <?php
+        if(isset($_GET['status'])) {
+
+        
+            if($_GET['status'] == "success") {
+        
+    ?>
+    <div class="popup center">
+        <div class="success-icon">
+            <i class="bx bx-check"></i>
+        </div>
+        <div class="title">Success!</div>
+        <div class="description">Employee successfully added</div>
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn"><a href="add-task.php">Dismiss</a></button>
+        </div>
+    </div>
+    
+        
+    <?php
+        }
+
+        elseif($_GET['status'] == "invalid") {  
+    
+    ?>
+        <div class="popup center">
+            <div class="fail-icon">
+                <i class="bx bx-x"></i>
+            </div>
+            <div class="title">Failed!</div>
+            <div class="description">Error, please check your data.</div>
+            <div class="dismiss-btn">
+                <button id="dismiss-popup-btn"><a class="dismiss" href="add-task.php">Dismiss</a></button>
+            </div>
+        </div>
+   
+        
+    <?php
+        } 
+    }
+    ?>
+   
   
 
     <script src="../../assets/js/main.js">

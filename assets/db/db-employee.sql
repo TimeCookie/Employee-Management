@@ -4,19 +4,6 @@
 
 -- CREATE DATABASE dbemployee;
 -- This will be removed later
-
-CREATE TABLE Project
-(
-    project_id int NOT NULL,
-    project_title text NOT NULL,
-    project_desc text NOT NULL,
-    pic_id int,
-    division_id int,
-    PRIMARY KEY(project_id),
-    FOREIGN KEY(pic_id) REFERENCES Employee(employee_id),
-    FOREIGN KEY(division_id) REFERENCES Division(division_id)
-);
-
 CREATE TABLE Department
 (
     department_id int NOT NULL,
@@ -24,7 +11,6 @@ CREATE TABLE Department
     department_location varchar(100) NOT NULL,
     PRIMARY KEY(department_id)
 );
-
 CREATE TABLE Division
 (
     division_id int NOT NULL,
@@ -33,7 +19,6 @@ CREATE TABLE Division
     PRIMARY KEY(division_id),
     FOREIGN KEY(department_id) REFERENCES Department(department_id)
 );
-
 CREATE TABLE Employee
 (
     employee_id int NOT NULL,
@@ -47,6 +32,20 @@ CREATE TABLE Employee
     PRIMARY KEY(employee_id),
     FOREIGN KEY(division_id) REFERENCES Division(division_id)
 );
+
+CREATE TABLE Project
+(
+    project_id int NOT NULL,
+    project_title text NOT NULL,
+    project_desc text NOT NULL,
+    pic_id int,
+    division_id int,
+    PRIMARY KEY(project_id),
+    FOREIGN KEY(pic_id) REFERENCES Employee(employee_id),
+    FOREIGN KEY(division_id) REFERENCES Division(division_id)
+);
+
+
 
 CREATE TABLE Shift
 (

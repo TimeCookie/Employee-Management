@@ -88,7 +88,7 @@ INSERT INTO Employee VALUES (4001, 'Marvin Christian', 'marvin@gmail.com', '0819
 
 INSERT INTO Project VALUES
 (1001, 'App 01', 'It is an app', 4002, 3001),
-(1002, 'Financial Statements', 'This is the financial statement of magentacorp', 4008, 3003),
+(1002, 'Financial Statements', 'This is the financial statement of magentacorp', 4005, 3003),
 (1003, 'App 02', 'It is another app', 4001, 3001),
 (1004, 'App Advertisement', 'It is an app ad', 4002, 3004);
 

@@ -131,7 +131,7 @@
             <i class="bx bx-check"></i>
         </div>
         <div class="title">Success!</div>
-        <div class="description">Employee successfully added</div>
+        <div class="description">Task successfully added</div>
         <div class="dismiss-btn">
             <button id="dismiss-popup-btn"><a href="add-task.php">Dismiss</a></button>
         </div>

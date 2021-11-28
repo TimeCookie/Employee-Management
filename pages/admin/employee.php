@@ -149,7 +149,6 @@ echo 'The result is empty';
         ?>
     </div>
  
-
    
 
     <script src="../../assets/js/main.js">

@@ -427,7 +427,11 @@ body {
   position: relative;
   box-sizing: border-box;
 }
-
+.preview-label {
+  font-size: 1.15em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
 .card2 {
   background-color: #f2f5fe;
   height: 15em;

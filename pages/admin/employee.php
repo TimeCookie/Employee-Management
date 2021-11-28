@@ -115,7 +115,7 @@ echo 'The result is empty';
             $searchRes = mysqli_real_escape_string($con, $_POST['keyword']);
             if($searchRes!='') {
 
-            $query ="SELECT employee_name,employee_photo,division_name FROM employee e JOIN division d ON e.division_id = d.division_id WHERE e.employee_name LIKE '%$searchRes%'";
+            $query ="SELECT employee_id,employee_name,employee_photo,division_name FROM employee e JOIN division d ON e.division_id = d.division_id WHERE e.employee_name LIKE '%$searchRes%'";
 
             $result = mysqli_query($con,$query);
             
@@ -125,6 +125,7 @@ echo 'The result is empty';
                 while($rows = mysqli_fetch_assoc($result)) { 
                     // Image dir reconstruction
                     $imageDir = "../" . $rows['employee_photo'];
+                    $employId = $rows['employee_id'];
 
                                  
         ?>
@@ -136,26 +137,17 @@ echo 'The result is empty';
                     <div class="info">
                         <h4><?php echo $rows['employee_name'];?> </h4>
                         <p> <?php echo $rows['division_name'];?> </p>
-                        <a href="#" class="button3">Edit Profile</a>
+                        <?php echo "<a href='edit-profile.php?employ=$employId' class='button3'>Edit Profile</a>"; ?>
                     </div>
                 </div>
             </div>
         <?php
                     }
                 }
-                else {
-                    echo " ";
-                }
             }
         }
         ?>
-              <!-- Code goes here -->
-            </div>        
-
-        </div>
-    
     </div>
-
  
 
    

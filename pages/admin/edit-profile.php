@@ -1,4 +1,26 @@
+<?php
+session_start();
+include '../../modules/db_connect.php';
 
+$empid = 0;
+
+if(isset($_GET['employ'])) {
+    $empid = $_GET['employ'];
+}
+
+$readQuery = "SELECT * FROM employee WHERE employee_id = $empid";
+$res = mysqli_query($con, $readQuery);
+if(mysqli_num_rows($res) > 0) {
+    $res = mysqli_fetch_assoc($res);
+}
+$empName = $res['employee_name'];
+$empGen = $res['sex'];
+$empDob = $res['date_of_birth'];
+$empDiv = $res['division_id'];
+$empPic = $res['employee_photo'];
+$empEmail = $res['employee_email'];
+$empPhone = $res['employee_phone_no'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +47,7 @@
         </div>
         <ul class="nav_list">
             <li>
-                <a href="../../admin-dashboard.php">
+                <a href="admin-dashboard.php">
                     <i class='bx bx-home'></i>
                     <span class="link_name">Home</span>
                 </a>
@@ -82,57 +104,57 @@
     </div> 
 
    <div class="title1">
+    <form action="../../modules/edit-profile.php" method="POST" >
        <div class="text1">Employee Name</div>
        <div class="form_div">
-           <input type="text" class="form_input" placeholder="Employee Name">
+       <?php echo"<input type='text' class='form_input' name='employee-name' placeholder=''Employee Name' value='$empName'>"; ?>
        </div>
        <div class="text2">Date of Birth</div>
        <div class="form_div1">
-            <input type="text1" class="form_input1" placeholder="Date of Birth">
+       <?php echo"<input type='date' class='form_input1' name='Date_of_birth' placeholder='Date Of Birth' value='$empDob'>"; ?>
        </div>
        <div class="text3">Gender</div>
        <div class="form_div2">
-            <input type="text2" class="form_input2" placeholder="Gender">
+       <?php echo"<input type='text' class='form_input2' name='Gender' placeholder='Gender' value='$empGen'>"; ?>
        </div>
        <div class="text4">Phone Number</div>
        <div class="form_div3">
-            <input type="text3" class="form_input3" placeholder="Phone Number">
-       </div>
+       <?php echo"<input type='text' class='form_input3' name='Phone-Number' placeholder='Phone Number' value='$empPhone'>"; ?> 
        </div>
        <div class="text5">Email Address</div>
        <div class="form_div4">
-            <input type="text5" class="form_input4" placeholder="Email Address">
+       <?php echo"<input type='text' class='form_input4' name='Email-Address' placeholder='Email Address' value='$empEmail'>"; ?>
        </div>
-       <div class="text6">Department</div>
+       <div class="text6">Division</div>
        <div class="form_div5">
-            <input type="text6" class="form_input5" placeholder="Department">
+       <?php echo"<input type='text' class='form_input5' name='Division' placeholder='Division' value='$empDiv'>"; ?>
        </div>
        <div class="text7">Employee Id</div>
        <div class="form_div6">
-            <input type="text7" class="form_input6" placeholder="Employee Id" readonly>      
-       </div>
-       <input type="submit" class="button3" value="Delete">
+       <?php echo"<input type='text' class='form_input6' name='Employee-Id' placeholder='Employee Id' value='$empid'readonly>"; ?>
     </div>
 
-   </div>
  <!---------Upload Employee------------->
     <div class="add-employee-container">
         <div class="row"> <!--Container-->
             <div class="col-lg-3 col-sm-12">
                 <div class="jumbotron card2">
+                    <label class="preview-label">Image Preview</label>
                     <div class="image1">
-                        <img src="../../assets/img/test1.jpg" alt="upload-photo-employee" class="img-fluid rounded-circle  image2">
+                        <img src="../../assets/img/user-icon.jpg" onclick="triggerClick()" alt="upload-photo-employee" class="img-fluid rounded-circle image2" id="placeholder-image">
                     </div>
-                    <form action="../../modules/picture-receiver.php" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="upload-photo"/>
+                
+                    <input type="file" id="employee-photo-input" onchange="previewImage(this)" name="upload-photo" style="display:none;"/>
+                        <!--
                         <div class="upload-photo">
                             <input type="submit" class="button-upload-photo" value="Upload Photo">
-                        </div>
-                    </form>
+                        </div>-->
+                
                     
                 </div>
             </div>
         </div>
+    </div>
 
  <!------------Button Add Employee---->
  <a href=""
@@ -143,7 +165,7 @@
 
    
 
-    <script src="../assets/js/main.js">
-    </script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/employee-photo.js"></script>
 </body>
 </html>

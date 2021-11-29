@@ -119,10 +119,11 @@ $departmentLocation = $res['department_location'];
         </div>
 
             <input type="submit" class="button2" name="save-confirm" value="Save">
-
+            <input type="submit" class="button3" name="delete-confirm" value="Delete">
        </form>
        
    </div>
+   
   
 
  <!------------Feedback popup---->
@@ -161,13 +162,10 @@ $departmentLocation = $res['department_location'];
                 <button id="dismiss-popup-btn"><a class="dismiss" href="<?php echo "edit-department.php?dept=$departmentId"; ?>">Dismiss</a></button>
             </div>
         </div>
-   
-        
     <?php
-        } 
+        }
     }
     ?>
-
  
 
    

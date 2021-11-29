@@ -7,9 +7,9 @@ if(isset($_POST['confirm-add-task'])) {
     $projectDesc = $_POST['project-desc'];
     $personInCharge = $_POST['person-in-charge'];
     $divisionId = $_POST['division-name'];
-    $employee1 = $_POST['employee-1'];
-    $employee2 = $_POST['employee-2'];
-    $employee3 = $_POST['employee-3'];
+    $employee1 = (empty($_POST['employee-1'])) ? NULL : $_POST['employee-1'];
+    $employee2 = (empty($_POST['employee-2'])) ? NULL : $_POST['employee-2'];
+    $employee3 = (empty($_POST['employee-3'])) ? NULL : $_POST['employee-3'];
 
     $readQuery = "SELECT MAX(project_id) AS project_id FROM Project";
     $result = mysqli_query($con, $readQuery);
@@ -31,7 +31,21 @@ if(isset($_POST['confirm-add-task'])) {
         mysqli_stmt_bind_param($stmt,'issii', $projectId, $projectTitle, $projectDesc, $personInCharge, $divisionId);
         mysqli_stmt_execute($stmt);
         
-        $createQuery = "INSERT INTO Shift VALUES ($personInCharge,$projectId, NULL,NULL), ($employee1, $projectId, NULL,NULL),($employee2, $projectId, NULL,NULL),($employee3, $projectId, NULL,NULL)";
+        // TODO: Rebuild the shift query to insert only the employee inputted
+        $createQuery = "INSERT INTO Shift VALUES ($personInCharge,$projectId, NULL,NULL)";
+        
+        if($employee1 != NULL){
+            $createQuery .= ",($employee1, $projectId, NULL,NULL)";
+        }
+        
+        if($employee2 != NULL){
+            $createQuery .= ",($employee2, $projectId, NULL,NULL)";
+        }
+        
+        if($employee3 != NULL){
+            $createQuery .= ",($employee3, $projectId, NULL,NULL)";
+        }
+
         mysqli_query($con, $createQuery);
         header("Location: ../pages/admin/add-task.php?status=success");
     }
@@ -41,4 +55,11 @@ if(isset($_POST['confirm-add-task'])) {
 
 }
 
+/*
+($employee1, $projectId, NULL,NULL),
+($employee2, $projectId, NULL,NULL),
+($employee3, $projectId, NULL,NULL)
+*/
+
 ?>
+

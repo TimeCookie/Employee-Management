@@ -96,9 +96,10 @@ include '../../modules/employee-add.php';
             <div class="text3">Gender</div>
             <div class="form_div2">
                 <div class ="form_input2">
-                    <select name="gender-list">
-                        <option value="Male">M&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</option>
-                        <option value="Female">F&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</option>
+                    <select name="Gender">
+                        <option value="genderid"></option>
+                        <option value="genderid">M</option>
+                        <option value="genderid">F</option>
                     </select>
                 </div>
             </div>
@@ -116,7 +117,13 @@ include '../../modules/employee-add.php';
             </div>
             <div class="text7">Division</div>
             <div class="form_div6">
-                <input type="text" name="department" class="form_input6" placeholder="Department">
+                <div class ="form_input6">
+                    <select name="division">
+                        <option value="divisionid"></option>
+                        <option value="divisionid">3001</option>
+                        <option value="divisionid">3002</option>
+                    </select>
+                </div>
             </div>
             <div class="text8">Employee Id</div>
             <div class="form_div7">

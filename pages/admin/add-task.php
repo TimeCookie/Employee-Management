@@ -91,24 +91,63 @@
             </div>
             <div class="text3">Person In Charge</div>
             <div class="form_div2">
-                <input type="text" name="person-in-charge" class="form_input2" placeholder="Person In Charge">
+                <div class ="form_input2">
+                    <select name="pic">
+                        <option value="picid"></option>
+                        <option value="picid">4001-Marvin</option>
+                        <option value="picid">4002-Andre</option>
+                        <option value="picid">4003-Bryan</option>
+                        <option value="picid">4004-Pangestu</option>
+                    </select>
+                </div>
             </div>
             <div class="text4">Division</div>
             <div class="form_div3">
-                <input type="text" name="division-name" class="form_input3" placeholder="Division">
+                <div class ="form_input3">
+                    <select name="division">
+                        <option value="divisionid"></option>
+                        <option value="divisionid">3001-IT</option>
+                        <option value="divisionid">3002-Finance</option>
+                    </select>
+                </div>
             </div>
             <div class="text5">Employee 1</div>
             <div class="form_div4">
-                <input type="text" name="employee-1" class="form_input4" placeholder="Employee Name">
+                <div class ="form_input4">
+                    <select name="Employee">
+                        <option value="employeeid"></option>
+                        <option value="employeeid">4001-Marvin</option>
+                        <option value="employeeid">4002-Andre</option>
+                        <option value="employeeid">4003-Bryan</option>
+                        <option value="employeeid">4004-Pangestu</option>
+                    </select>
+                </div>
             </div>
             <div class="text6">Employee 2</div>
             <div class="form_div5">
-                <input type="text" name="employee-2" class="form_input5" placeholder="Employee Name">
+                <div class ="form_input5">
+                    <select name="Employee1">
+                        <option value="employeeid"></option>
+                        <option value="employeeid">4001-Marvin</option>
+                        <option value="employeeid">4002-Andre</option>
+                        <option value="employeeid">4003-Bryan</option>
+                        <option value="employeeid">4004-Pangestu</option>
+                    </select>
+                </div>
             </div>
             <div class="text7">Employee 3</div>
             <div class="form_div6">
-                <input type="text" name="employee-3" class="form_input6" placeholder="Employee Name">
+                <div class ="form_input6">
+                    <select name="Employee2">
+                        <option value="employeeid"></option>
+                        <option value="employeeid">4001-Marvin</option>
+                        <option value="employeeid">4002-Andre</option>
+                        <option value="employeeid">4003-Bryan</option>
+                        <option value="employeeid">4004-Pangestu</option>
+                    </select>
+                </div>
             </div>
+      
             <input type="submit" name="confirm-add-task" class="button2" value="Add Task"/>
        </form>
        
@@ -131,7 +170,7 @@
             <i class="bx bx-check"></i>
         </div>
         <div class="title">Success!</div>
-        <div class="description">Task successfully added</div>
+        <div class="description">Employee successfully added</div>
         <div class="dismiss-btn">
             <button id="dismiss-popup-btn"><a href="add-task.php">Dismiss</a></button>
         </div>

@@ -82,7 +82,6 @@ include '../../modules/department-add.php';
 
     <div class="task_content">
         <div class="text">Add Department</div>
-        <h4>Department Profile</h4>
         
     </div> 
 

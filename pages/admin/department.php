@@ -14,7 +14,8 @@ echo 'The result is empty';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Department</title>
-    <link rel="stylesheet" href="../../assets/css/employee.css">
+    <link rel="stylesheet" href="../../assets/css/popup.css">
+    <link rel="stylesheet" href="../../assets/css/department.css">
     <!-----ini Box icon ------>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -150,6 +151,26 @@ echo 'The result is empty';
         </div>
     
     </div>
+
+    <?php
+    if(isset($_GET['status'])) {
+        if($_GET['status'] == "delete-success") {
+
+    ?>
+    <div class="popup center">
+        <div class="success-icon">
+            <i class="bx bx-check"></i>
+        </div>
+        <div class="title">Success!</div>
+        <div class="description">Department successfully deleted</div>
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn"><a href="<?php echo "department.php"; ?>">Dismiss</a></button>
+        </div>
+    </div>
+    <?php
+        }
+    }
+    ?>
 
  
 

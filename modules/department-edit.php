@@ -23,5 +23,13 @@ if(isset($_POST['save-confirm'])) {
     }
     
 }
+elseif(isset($_POST['delete-confirm'])) {
+    $departmentId = $_POST['department-id'];
+
+    $deleteQuery = "DELETE FROM department WHERE department_id=$departmentId";
+    mysqli_query($con,$deleteQuery);
+    
+    header("Location: ../pages/admin/department.php?status=delete-success");
+}
 
 ?>

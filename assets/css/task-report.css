@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sanss-serif;
 }
 
 body {
@@ -234,44 +234,33 @@ body {
 }
 
 .form_input1 {
-  height: 10em;
+  height: 3em;
   width: 15em;
   background: #e1e7fc;
   border: 1px solid #fff;
-  padding: 0.5em;
-  border-radius: 20px;
+  border-radius: 40px;
   top: 17em;
   left: 20.5em;
   position: absolute;
   text-align: center;
-  overflow-wrap: break-word;
-  resize: none !important;
 }
 
 .text3 {
   position: absolute;
-  top: 18em;
+  top: 13.5em;
   left: 13em;
   font-size: 25px;
 }
 
 .form_input2 {
-  height: 4em;
+  height: 3em;
   width: 15em;
+  background: #e1e7fc;
   border: 1px solid #fff;
   border-radius: 40px;
-  top: 31em;
-  left: 20em;
+  top: 24.5em;
+  left: 20.5em;
   position: absolute;
-  text-align: center;
-}
-
-.form_input2 select {
-  width: 100%;
-  height: 75%;
-  border: none;
-  border-radius: 40px;
-  background-color: #e1e7fc;
   text-align: center;
 }
 
@@ -283,108 +272,40 @@ body {
 }
 
 .form_input3 {
-  height: 4em;
-  width: 15em;
+  height: 18em;
+  width: 25em;
+  background: #e1e7fc;
   border: 1px solid #fff;
   border-radius: 40px;
   top: 10em;
   left: 50em;
   position: absolute;
   text-align: center;
+  resize: none !important;
 }
-
-.form_input3 select {
-  width: 100%;
-  height: 75%;
-  border: none;
-  border-radius: 40px;
-  background-color: #e1e7fc;
-  text-align: center;
-}
-
 .text5 {
   position: absolute;
-  top: 9em;
-  left: 32em;
+  top: 18.5em;
+  left: 13em;
   font-size: 25px;
 }
 
 .form_input4 {
-  height: 4em;
+  height: 3em;
   width: 15em;
+  background: #e1e7fc;
   border: 1px solid #fff;
   border-radius: 40px;
-  top: 17em;
-  left: 50em;
+  top: 32.5em;
+  left: 20.5em;
   position: absolute;
   text-align: center;
 }
-
-.form_input4 select {
-  width: 100%;
-  height: 75%;
-  border: none;
-  border-radius: 40px;
-  background-color: #e1e7fc;
-  text-align: center;
-}
-
-.text6 {
-  position: absolute;
-  top: 13.5em;
-  left: 32em;
-  font-size: 25px;
-}
-.form_input5 {
-  height: 4em;
-  width: 15em;
-  border: 1px solid #fff;
-  border-radius: 40px;
-  top: 24em;
-  left: 50em;
-  position: absolute;
-  text-align: center;
-}
-.form_input5 select {
-  width: 100%;
-  height: 75%;
-  border: none;
-  border-radius: 40px;
-  background-color: #e1e7fc;
-  text-align: center;
-}
-
-.text7 {
-  position: absolute;
-  top: 18em;
-  left: 32em;
-  font-size: 25px;
-}
-
-.form_input6 {
-  height: 4em;
-  width: 15em;
-  border: 1px solid #fff;
-  border-radius: 40px;
-  top: 31em;
-  left: 50em;
-  position: absolute;
-  text-align: center;
-}
-
-.form_input6 select {
-  width: 100%;
-  height: 75%;
-  border: none;
-  border-radius: 40px;
-  background-color: #e1e7fc;
-  text-align: center;
-}
-
 /* Button*/
 
 .button2 {
   position: absolute;
+
   padding: 5px 20px;
   border-radius: 40em;
   text-align: center;
@@ -393,7 +314,7 @@ body {
   width: 10em;
   height: 2.5em;
   bottom: 6em;
-  left: 63em;
+  left: 73em;
   background: #ffebad;
   transition-duration: 200ms;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

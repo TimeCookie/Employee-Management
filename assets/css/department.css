@@ -121,7 +121,7 @@ body {
 }
 
 .sidebar ul li a:hover {
-  color: #11101d;
+  color: #11101d !important;
   background: #fff;
 }
 
@@ -254,8 +254,8 @@ body {
 .button1 {
   padding: 5px 15px;
   border-radius: 40em;
-  color: black;
-  width: 10em;
+  color: black !important;
+  width: 14em;
   height: 2.5em;
   position: absolute;
   text-decoration: none;
@@ -301,7 +301,7 @@ body {
   padding: 5px 20px;
   border-radius: 40em;
   text-align: center;
-  color: black;
+  color: black !important;
   text-decoration: none;
   top: 6em;
   left: 70em;

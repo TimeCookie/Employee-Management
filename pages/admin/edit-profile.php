@@ -104,34 +104,41 @@ $empPhone = $res['employee_phone_no'];
     </div> 
 
    <div class="title1">
-    <form action="../../modules/edit-profile.php" method="POST" >
-       <div class="text1">Employee Name</div>
-       <div class="form_div">
-       <?php echo"<input type='text' class='form_input' name='employee-name' placeholder=''Employee Name' value='$empName'>"; ?>
-       </div>
-       <div class="text2">Date of Birth</div>
-       <div class="form_div1">
-       <?php echo"<input type='date' class='form_input1' name='Date_of_birth' placeholder='Date Of Birth' value='$empDob'>"; ?>
-       </div>
-       <div class="text3">Gender</div>
-       <div class="form_div2">
-       <?php echo"<input type='text' class='form_input2' name='Gender' placeholder='Gender' value='$empGen'>"; ?>
-       </div>
-       <div class="text4">Phone Number</div>
-       <div class="form_div3">
-       <?php echo"<input type='text' class='form_input3' name='Phone-Number' placeholder='Phone Number' value='$empPhone'>"; ?> 
-       </div>
-       <div class="text5">Email Address</div>
-       <div class="form_div4">
-       <?php echo"<input type='text' class='form_input4' name='Email-Address' placeholder='Email Address' value='$empEmail'>"; ?>
-       </div>
-       <div class="text6">Division</div>
-       <div class="form_div5">
-       <?php echo"<input type='text' class='form_input5' name='Division' placeholder='Division' value='$empDiv'>"; ?>
-       </div>
-       <div class="text7">Employee Id</div>
-       <div class="form_div6">
-       <?php echo"<input type='text' class='form_input6' name='Employee-Id' placeholder='Employee Id' value='$empid'readonly>"; ?>
+        <form action="../../modules/profile-edit.php" method="POST" >
+            <div class="text1">Employee Name</div>
+            <div class="form_div">
+                <?php echo"<input type='text' class='form_input' name='employee-name' placeholder=''Employee Name' value='$empName'>"; ?>
+            </div>
+            <div class="text2">Date of Birth</div>
+            <div class="form_div1">
+                <?php echo"<input type='date' class='form_input1' name='Date_of_birth' placeholder='Date Of Birth' value='$empDob'>"; ?>
+            </div>
+            <div class="text3">Gender</div>
+            <div class="form_div2">
+                <?php echo"<input type='text' class='form_input2' name='Gender' placeholder='Gender' value='$empGen'>"; ?>
+            </div>
+            <div class="text4">Phone Number</div>
+            <div class="form_div3">
+                <?php echo"<input type='text' class='form_input3' name='Phone-Number' placeholder='Phone Number' value='$empPhone'>"; ?> 
+            </div>
+            <div class="text5">Email Address</div>
+            <div class="form_div4">
+                <?php echo"<input type='text' class='form_input4' name='Email-Address' placeholder='Email Address' value='$empEmail'>"; ?>
+            </div>
+            <div class="text6">Division</div>
+            <div class="form_div5">
+                <?php echo"<input type='text' class='form_input5' name='Division' placeholder='Division' value='$empDiv'>"; ?>
+            </div>
+            <div class="text7">Employee Id</div>
+            <div class="form_div6">
+                <?php echo"<input type='text' class='form_input6' name='Employee-Id' placeholder='Employee Id' value='$empid'readonly>"; ?>
+            </div>
+            <div class="text8">Additional Information</div>
+            <div class="form_div7">
+                <textarea name="additional-report" class="form_input8" placeholder="Write down your additional report"></textarea>
+            </div>
+        </div>
+        </form>
     </div>
 
  <!---------Upload Employee------------->

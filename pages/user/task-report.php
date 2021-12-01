@@ -1,3 +1,33 @@
+<?php
+include '../../modules/db_connect.php';
+session_start();
+
+if(!isset($_SESSION['userId'])) {
+    header("Location: ../user-login.php?status=unauthorized");
+    die;
+}
+
+$employeeId = $_SESSION['userId'];
+
+$readQuery = "SELECT employee_name, division_name FROM employee e JOIN division d ON e.division_id = d.division_id WHERE employee_id=$employeeId";
+$res = mysqli_query($con, $readQuery);
+
+if(mysqli_num_rows($res) > 0) {
+    $data = mysqli_fetch_assoc($res);
+}
+
+$employeeName = $data['employee_name'];
+$divisionName = $data['division_name'];
+
+$readQuery = "SELECT employee_report FROM shift WHERE employee_id=$employeeId";
+$res = mysqli_query($con,$readQuery);
+
+$data = mysqli_fetch_assoc($res);
+$report = $data['employee_report'];
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +36,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Report</title>
     <link rel="stylesheet" href="../../assets/css/task-report.css">
+    <link rel="stylesheet" href="../../assets/css/popup.css">
     <!-----ini Box icon ------>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -30,11 +61,18 @@
                <span class="tooltip">Home</span>
             </li>
             <li>
-                <a href="">
+                <a href="edit-profile.php">
                     <i class='bx bx-user'></i>
                     <span class="link_name">User</span>
                 </a>
                <span class="tooltip">User</span>
+            </li>
+            <li>
+                <a href="task-report.php">
+                    <i class='bx bxs-report'></i>
+                    <span class="link_name">Task Report</span>
+                </a>
+               <span class="tooltip">Task Report</span>
             </li>
             <li>
                 <a href="../../modules/logout.php">
@@ -66,44 +104,94 @@
     </div> 
 
    <div class="title1">
-       <div class="text1">Clock</div>
-       <div class="form_div">
-           <input type="text" class = "form_input">
-           <script>
-                var today = new Date();
-                var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                document.getElementById("currentTime").value = time;
-            </script>
-       </div>
-       <div class="text2">Employee ID</div>
-       <div class="form_div">
-           <input type="text" class="form_input1" placeholder="Employee ID">
-       </div>
-       <div class="text3">Employee Name</div>
-       <div class="form_div">
-           <input type="text" class="form_input2" placeholder="Employee Name"> 
-       </div>
-       <div class="text4">Report</div>
-       <div class="form_div">
-           <textarea name="taskreport" class="form_input3" placeholder="Report"></textarea> 
-       </div>
-       <div class="text5">Division</div>
-       <div class="form_div">
-           <input type="text" class="form_input4" placeholder="Division"> 
-       </div>
-
+        <form action="../../modules/report-task.php" method="POST">
+            <div class="text1">Clock</div>
+            <div class="form_div">
+                <input type="text" class = "form_input">
+                <script>
+                    var today = new Date();
+                    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                    document.getElementById("currentTime").value = time;
+                </script>
+            </div>
+            <div class="text2">Employee ID</div>
+            <div class="form_div">
+                <?php echo "<input type='text' class='form_input1' name='employee-id' value='$employeeId' placeholder='Employee ID' readonly>"; ?>
+            </div>
+            <div class="text3">Employee Name</div>
+            <div class="form_div">
+                <?php echo "<input type='text' class='form_input2' name='employee-name' value='$employeeName' placeholder='Employee Name' readonly>"; ?>
+            </div>
+            <div class="text4">Report</div>
+            <div class="form_div">
+                <?php echo "<textarea name='report' class='form_input3' placeholder='Report'>$report</textarea>"; ?>
+            </div>
+            <div class="text5">Division</div>
+            <div class="form_div">
+                <?php echo "<input type='text' class='form_input4' name='division' value='$divisionName' placeholder='Division' readonly>"; ?>
+            </div>
+            <div class="text6">Location</div>
+            <div class="form_div">
+                <div class ="form_input5">
+                    <select name="location-list">
+                        <option value="Location"></option>
+                        <option value="Location">Office</option>
+                        <option value="Location">Meeting Room</option>
+                        <option value="Location">Canteen</option>
+                    </select>
+                </div>
+            </div>
+            <input type="submit" class="button2" name="report-confirm" value="Submit">
+        </form>
    </div>
   
 
- <!------------Button Add Department---->
- <a href=""
- class="button2">Save </a>
 
- 
+<!-- Popup Feedback -->
+    <?php
+        if(isset($_GET['status'])) {
+
+        
+            if($_GET['status'] == "success") {
+        
+    ?>
+    <div class="popup center">
+        <div class="success-icon">
+            <i class="bx bx-check"></i>
+        </div>
+        <div class="title">Success!</div>
+        <div class="description">Report submitted</div>
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn"><a href="task-report.php">Dismiss</a></button>
+        </div>
+    </div>
+    
+        
+    <?php
+        }
+
+        elseif($_GET['status'] == "invalid") {  
+    
+    ?>
+        <div class="popup center">
+            <div class="fail-icon">
+                <i class="bx bx-x"></i>
+            </div>
+            <div class="title">Failed!</div>
+            <div class="description">Error, please check your data.</div>
+            <div class="dismiss-btn">
+                <button id="dismiss-popup-btn"><a class="dismiss" href="task-report.php">Dismiss</a></button>
+            </div>
+        </div>
+   
+        
+    <?php
+        } 
+    }
+    ?>
 
    
 
-    <script src="../../assets/js/main.js">
-    </script>
+    <script src="../../assets/js/main.js"></script>
 </body>
 </html>

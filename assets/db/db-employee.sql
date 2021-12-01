@@ -66,9 +66,9 @@ CREATE TABLE Admin
 );
 CREATE TABLE user_employee
 (
-    employee_id int,
+    username int,
     password varchar(255),
-    FOREIGN KEY(employee_id) REFERENCES Employee(employee_id)
+	PRIMARY KEY(username)
 );
 INSERT INTO Admin VALUES (NULL, 'admin', '123');
 

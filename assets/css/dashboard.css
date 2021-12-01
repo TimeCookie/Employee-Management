@@ -405,3 +405,14 @@ body {
   border-radius: 40px !important;
   background: #f2f5fe !important;
 }
+
+/*Temporary*/
+.not-read {
+  color: red;
+}
+.read {
+  color: lime;
+}
+.report-content {
+  margin: 2.5em;
+}

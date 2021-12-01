@@ -149,7 +149,7 @@ $departmentLocation = $res['department_location'];
     <?php
         }
 
-        elseif($_GET['status'] == "invalid") {  
+        elseif($_GET['status'] == "failed") {  
     
     ?>
         <div class="popup center">
@@ -157,7 +157,7 @@ $departmentLocation = $res['department_location'];
                 <i class="bx bx-x"></i>
             </div>
             <div class="title">Failed!</div>
-            <div class="description">Error, please check your data.</div>
+            <div class="description">Error, please remove any project currently in work within this department before removing the department.</div>
             <div class="dismiss-btn">
                 <button id="dismiss-popup-btn"><a class="dismiss" href="<?php echo "edit-department.php?dept=$departmentId"; ?>">Dismiss</a></button>
             </div>

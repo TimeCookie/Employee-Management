@@ -154,7 +154,7 @@ echo 'The result is empty';
 
     <?php
     if(isset($_GET['status'])) {
-        if($_GET['status'] == "delete-success") {
+        if($_GET['status'] == "success") {
 
     ?>
     <div class="popup center">
@@ -167,6 +167,22 @@ echo 'The result is empty';
             <button id="dismiss-popup-btn"><a href="<?php echo "department.php"; ?>">Dismiss</a></button>
         </div>
     </div>
+    <?php
+        }
+
+        elseif($_GET['status'] == "failed") {  
+    
+    ?>
+        <div class="popup center">
+            <div class="fail-icon">
+                <i class="bx bx-x"></i>
+            </div>
+            <div class="title">Failed!</div>
+            <div class="description">Please remove any project currently in work within this department before removing the department.</div>
+            <div class="dismiss-btn">
+                <button id="dismiss-popup-btn"><a class="dismiss" href='department.php'>Dismiss</a></button>
+            </div>
+        </div>
     <?php
         }
     }

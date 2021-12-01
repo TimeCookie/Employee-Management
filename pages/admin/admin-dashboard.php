@@ -144,10 +144,28 @@ $totalEmployee = $res['num_of_employee'];
 
 
     <!---------Employee Report------------->
+
     <div class="Report">
         <div class="text3">Employee Report</div>
     </div> 
     <div class="container4">
+        <?php
+
+        $readQuery = "SELECT employee_name FROM shift s JOIN employee e ON s.employee_id = e.employee_id WHERE employee_report IS NOT NULL LIMIT 3";
+        $res = mysqli_query($con,$readQuery);
+
+        if(mysqli_num_rows($res) > 0) {
+            while($data = mysqli_fetch_assoc($res)) { //TODO: Add an if statement to check for the status, meaning add another column for the shift database
+        ?>
+        <div class="report-content">
+            <div class="emp-name"><?php echo $data['employee_name']; ?></div>
+            <div class="not-read">Not read</div>
+        </div>
+        <?php
+            }
+        }
+        ?>
+    </div>
 
 
 

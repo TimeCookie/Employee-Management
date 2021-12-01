@@ -14,8 +14,11 @@ if(mysqli_num_rows($res) > 0) {
 $imgDir = "";
 
 
+
+
 // * Saves employee data
 if(isset($_POST['save-confirm'])) {
+    
 
     // * Saves employee photo
     if(isset($_FILES['upload-photo'])){
@@ -40,6 +43,7 @@ if(isset($_POST['save-confirm'])) {
             $err[] = 'File size must not exceed 2 MB';
             header("Location: ../pages/admin/add-employee.php?status=invalid");
         }
+        
 
         
         if(empty($err) == true){
@@ -61,9 +65,11 @@ if(isset($_POST['save-confirm'])) {
     if($imgDir == "") {
         $imgDir = "../assets/img/user-icon.jpg";
     }
+    
 
 
     // * Saves employee data
+    
 
     $firstName = $_POST['first-name'];
     $dob = $_POST['birthday'];
@@ -71,12 +77,17 @@ if(isset($_POST['save-confirm'])) {
     $phoneNumber = $_POST['phone-number'];
     $lastName = $_POST['last-name'];
     $email = $_POST['email'];
-    $divisionId = $_POST['department'];
+    $divisionId = $_POST['division'];
+
+    
     
     // Re-format    
     $employeeName = ucfirst(strtolower($firstName)) . " " . ucfirst(strtolower($lastName));
+    
+    $division = explode('-',$divisionId);
+    $divisionId = $division[0];
 
-    $readQuery = "SELECT employee_id FROM employee WHERE employee_id='$employeeId'";
+    $readQuery = "SELECT employee_id FROM employee WHERE employee_id=$employeeId";
     $res = mysqli_query($con, $readQuery);
 
     // creates new data
@@ -88,15 +99,16 @@ if(isset($_POST['save-confirm'])) {
             exit();
         }
         else {
-            mysqli_stmt_bind_param($stmt, 'isssssis',$employeeId, $employeeName, $email, $phoneNumber, $gender, $dob, $divisionId, $imgDir);
+            mysqli_stmt_bind_param($stmt, 'isssssis' ,$employeeId, $employeeName, $email, $phoneNumber, $gender, $dob, $divisionId, $imgDir);
             mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
 
             // Creates default username and password
             $createQuery = "INSERT INTO user_employee VALUES ($employeeId, '123')";
             mysqli_query($con,$createQuery);
+            header("Location: ../pages/admin/add-employee.php?status=success");
         }
-        mysqli_stmt_close($stmt);
-        header("Location: ../pages/admin/add-employee.php?status=success");
+        
     }
 
 }

@@ -68,6 +68,13 @@ $employeePhoto = "../".$data['employee_photo'];
                <span class="tooltip">User</span>
             </li>
             <li>
+                <a href="task-report.php">
+                    <i class='bx bxs-report'></i>
+                    <span class="link_name">Task Report</span>
+                </a>
+               <span class="tooltip">Task Report</span>
+            </li>
+            <li>
                 <a href="../../modules/logout.php">
                     <i class='bx bx-power-off'></i>
                     <span class="link_name">Log out</span>

@@ -294,7 +294,7 @@ body {
 .text5 {
   position: absolute;
   top: 4.7em;
-  left: 32em;
+  left: 27em;
   font-size: 25px;
 }
 
@@ -305,7 +305,7 @@ body {
   border: 1px solid #fff;
   border-radius: 40px;
   top: 10em;
-  left: 50em;
+  left: 42em;
   position: absolute;
   text-align: center;
 }
@@ -313,7 +313,7 @@ body {
 .text6 {
   position: absolute;
   top: 9em;
-  left: 32em;
+  left: 27em;
   font-size: 25px;
 }
 
@@ -324,7 +324,7 @@ body {
   border: 1px solid #fff;
   border-radius: 40px;
   top: 17em;
-  left: 50em;
+  left: 42em;
   position: absolute;
   text-align: center;
 }
@@ -332,7 +332,7 @@ body {
 .text7 {
   position: absolute;
   top: 13.5em;
-  left: 32em;
+  left: 27em;
   font-size: 25px;
 }
 .form_input6 {
@@ -341,7 +341,7 @@ body {
   border: 1px solid #fff;
   border-radius: 40px;
   top: 24em;
-  left: 50em;
+  left: 42em;
   position: absolute;
   text-align: center;
 }
@@ -355,27 +355,10 @@ body {
   text-align: center;
 }
 
-.text7 {
-  position: absolute;
-  top: 13.5em;
-  left: 32em;
-  font-size: 25px;
-}
-.form_input8 {
-  height: 3em;
-  width: 15em;
-  background: #e1e7fc;
-  border: 1px solid #fff;
-  border-radius: 40px;
-  top: 24.5em;
-  left: 50em;
-  position: absolute;
-  text-align: center;
-}
 .text8 {
   position: absolute;
   top: 18.5em;
-  left: 32em;
+  left: 27em;
   font-size: 25px;
 }
 .form_input7 {
@@ -385,22 +368,33 @@ body {
   border: 1px solid #fff;
   border-radius: 40px;
   top: 32.5em;
-  left: 50em;
+  left: 42em;
   position: absolute;
   text-align: center;
 }
 
+.text9 {
+  position: absolute;
+  top: 23.5em;
+  left: 13em;
+  font-size: 25px;
+}
+
 .form_input8 {
-  height: 3em;
-  width: 15em;
+  height: 13em;
+  width: 36em;
   background: #e1e7fc;
   border: 1px solid #fff;
-  border-radius: 40px;
-  top: 10em;
-  left: 50.5em;
+  padding: 0.5em;
+  border-radius: 20px;
+  top: 40em;
+  left: 20.5em;
   position: absolute;
   text-align: center;
+  overflow-wrap: break-word;
+  resize: none !important;
 }
+
 /* Button*/
 
 .button-save {
@@ -412,8 +406,8 @@ body {
   text-decoration: none;
   width: 10em;
   height: 2.5em;
-  bottom: 10em;
-  left: 78em;
+  top: 55em;
+  left: 67em;
   background: #ffebad;
   transition-duration: 200ms;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -439,7 +433,10 @@ body {
 }
 .card2 {
   background-color: #f2f5fe;
+  position: absolute;
   height: 15em;
+  width: 16em;
+  left: -10em;
   margin-bottom: 2em;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 2em;

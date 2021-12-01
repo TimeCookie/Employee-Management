@@ -26,10 +26,23 @@ if(isset($_POST['save-confirm'])) {
 elseif(isset($_POST['delete-confirm'])) {
     $departmentId = $_POST['department-id'];
 
+    // Deletes all the divisions
+    $readQuery = "SELECT * FROM division WHERE department_id=$departmentId";
+    $res = mysqli_query($con, $readQuery);
+
+    if(mysqli_num_rows($res) > 0) {
+        $deleteQuery = "DELETE FROM division WHERE department_id=$departmentId";
+        if(!mysqli_query($con,$deleteQuery)) {
+            header("Location: ../pages/admin/department.php?status=failed");
+            die;
+        }
+    }
+
+    // Deletes said department
     $deleteQuery = "DELETE FROM department WHERE department_id=$departmentId";
     mysqli_query($con,$deleteQuery);
     
-    header("Location: ../pages/admin/department.php?status=delete-success");
+    header("Location: ../pages/admin/department.php?status=success");
 }
 
 ?>

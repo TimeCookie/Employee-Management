@@ -1,5 +1,10 @@
 <?php
+include '../../modules/db_connect.php';
 include '../../modules/employee-add.php';
+include '../../modules/functions.php';
+
+$divisionList = dropdownFormat($con, "division", "division_id", "division_name");
+
 ?>
 
 <!DOCTYPE html>
@@ -96,10 +101,10 @@ include '../../modules/employee-add.php';
             <div class="text3">Gender</div>
             <div class="form_div2">
                 <div class ="form_input2">
-                    <select name="Gender">
-                        <option value="genderid"></option>
-                        <option value="genderid">M</option>
-                        <option value="genderid">F</option>
+                    <select name="gender-list">
+                        <option value=""></option>
+                        <option value="M">M</option>
+                        <option value="F">F</option>
                     </select>
                 </div>
             </div>
@@ -117,11 +122,15 @@ include '../../modules/employee-add.php';
             </div>
             <div class="text7">Division</div>
             <div class="form_div6">
-                <div class ="form_input6">
+                <div class="form_input6">
                     <select name="division">
-                        <option value="divisionid"></option>
-                        <option value="divisionid">3001</option>
-                        <option value="divisionid">3002</option>
+                        <option value=""></option>
+                        <?php
+                        foreach($divisionList as $div) {
+                            echo "<option>$div</option>";
+                        }
+                        ?>
+                        
                     </select>
                 </div>
             </div>
@@ -133,6 +142,10 @@ include '../../modules/employee-add.php';
                 
                 ?>
                       
+            </div>
+            <div class="text9">Additional Information</div>
+            <div class="form_div8">
+                <textarea name="additional-report" class="form_input8" placeholder="Write down your additional report"></textarea>
             </div>
 
 

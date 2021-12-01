@@ -287,7 +287,6 @@ body {
 
 .button2 {
   position: absolute;
-
   padding: 5px 20px;
   border-radius: 40em;
   text-align: center;
@@ -295,8 +294,8 @@ body {
   text-decoration: none;
   width: 10em;
   height: 2.5em;
-  bottom: 6em;
-  left: 73em;
+  bottom: 9em;
+  left: 64em;
   background: #ffebad;
   transition-duration: 200ms;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -316,8 +315,8 @@ body {
   text-decoration: none;
   width: 10em;
   height: 2.5em;
-  bottom: 14em;
-  left: 2em;
+  bottom: 5em;
+  left: 64em;
   background: #ff5f5f;
   transition-duration: 200ms;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

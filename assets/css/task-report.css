@@ -301,8 +301,33 @@ body {
   position: absolute;
   text-align: center;
 }
-/* Button*/
+.text6 {
+  position: absolute;
+  top: 23.5em;
+  left: 13em;
+  font-size: 25px;
+}
 
+.form_input5 {
+  height: 3em;
+  width: 15em;
+  background: #e1e7fc;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  top: 40.5em;
+  left: 20.5em;
+  position: absolute;
+  text-align: center;
+}
+.form_input5 select {
+  width: 100%;
+  height: 75%;
+  border: none;
+  border-radius: 40px;
+  background-color: #e1e7fc;
+  text-align: center;
+  /* Button*/
+}
 .button2 {
   position: absolute;
 

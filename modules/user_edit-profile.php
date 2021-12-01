@@ -11,7 +11,7 @@ if(isset($_POST['edit-confirm'])) {
     $hashPass = password_hash($userPassword, PASSWORD_DEFAULT);
     
     if(!empty($userPassword)) {
-        $readQuery = "SELECT * FROM user_employee WHERE employee_id = $userId";
+        $readQuery = "SELECT * FROM user_employee WHERE username = $userId";
         $res = mysqli_query($con,$readQuery);
         if(mysqli_num_rows($res) <= 0) {
             $createQuery = "INSERT INTO user_employee VALUES ($userId, '$hashPass')";
@@ -19,7 +19,7 @@ if(isset($_POST['edit-confirm'])) {
         
         }
         else {
-            $updateQuery = "UPDATE user_employee SET password = '$hashPass' WHERE employee_id = $userId";
+            $updateQuery = "UPDATE user_employee SET password = '$hashPass' WHERE username = $userId";
             mysqli_query($con,$updateQuery);
         
         }

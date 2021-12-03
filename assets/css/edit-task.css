@@ -234,154 +234,151 @@ body {
 }
 
 .form_input1 {
-  height: 3em;
+  height: 10em;
   width: 15em;
   background: #e1e7fc;
   border: 1px solid #fff;
-  border-radius: 40px;
+  padding: 0.5em;
+  border-radius: 20px;
   top: 17em;
   left: 20.5em;
   position: absolute;
   text-align: center;
+  overflow-wrap: break-word;
+  resize: none !important;
 }
 
 .text3 {
   position: absolute;
-  top: 13.5em;
+  top: 18em;
   left: 13em;
   font-size: 25px;
 }
 
 .form_input2 {
-  height: 3em;
+  height: 4em;
   width: 15em;
-  background: #e1e7fc;
   border: 1px solid #fff;
   border-radius: 40px;
-  top: 24.5em;
-  left: 20.5em;
+  top: 31em;
+  left: 20em;
   position: absolute;
+  text-align: center;
+}
+
+.form_input2 select {
+  width: 100%;
+  height: 75%;
+  border: none;
+  border-radius: 40px;
+  background-color: #e1e7fc;
   text-align: center;
 }
 
 .text4 {
   position: absolute;
-  top: 18.5em;
-  left: 13em;
+  top: 4.7em;
+  left: 32em;
   font-size: 25px;
 }
 
 .form_input3 {
-  height: 3em;
+  height: 4em;
   width: 15em;
-  background: #e1e7fc;
   border: 1px solid #fff;
   border-radius: 40px;
-  top: 32.5em;
-  left: 20.5em;
+  top: 10em;
+  left: 50em;
   position: absolute;
+  text-align: center;
+}
+
+.form_input3 select {
+  width: 100%;
+  height: 75%;
+  border: none;
+  border-radius: 40px;
+  background-color: #e1e7fc;
   text-align: center;
 }
 
 .text5 {
   position: absolute;
-  top: 4.7em;
-  left: 28em;
+  top: 9em;
+  left: 32em;
   font-size: 25px;
 }
 
 .form_input4 {
-  height: 3em;
+  height: 4em;
   width: 15em;
-  background: #e1e7fc;
   border: 1px solid #fff;
   border-radius: 40px;
-  top: 10em;
-  left: 44em;
+  top: 17em;
+  left: 50em;
   position: absolute;
+  text-align: center;
+}
+
+.form_input4 select {
+  width: 100%;
+  height: 75%;
+  border: none;
+  border-radius: 40px;
+  background-color: #e1e7fc;
   text-align: center;
 }
 
 .text6 {
   position: absolute;
-  top: 9em;
-  left: 28em;
+  top: 13.5em;
+  left: 32em;
   font-size: 25px;
 }
-
 .form_input5 {
-  height: 3em;
+  height: 4em;
   width: 15em;
-  background: #e1e7fc;
   border: 1px solid #fff;
   border-radius: 40px;
-  top: 17em;
-  left: 44em;
+  top: 24em;
+  left: 50em;
   position: absolute;
+  text-align: center;
+}
+.form_input5 select {
+  width: 100%;
+  height: 75%;
+  border: none;
+  border-radius: 40px;
+  background-color: #e1e7fc;
   text-align: center;
 }
 
 .text7 {
   position: absolute;
-  top: 13.5em;
-  left: 28em;
+  top: 18em;
+  left: 32em;
   font-size: 25px;
 }
 
 .form_input6 {
-  height: 3em;
+  height: 4em;
   width: 15em;
-  background: #e1e7fc;
   border: 1px solid #fff;
   border-radius: 40px;
-  top: 24.5em;
-  left: 44em;
+  top: 31em;
+  left: 50em;
   position: absolute;
   text-align: center;
 }
 
-.text8 {
-  position: absolute;
-  top: 23.5em;
-  left: 13em;
-  font-size: 25px;
-}
-
-.form_input8 {
-  height: 13em;
-  width: 39em;
-  background: #e1e7fc;
-  border: 1px solid #fff;
-  padding: 0.5em;
-  border-radius: 20px;
-  top: 40em;
-  left: 20.5em;
-  position: absolute;
+.form_input6 select {
+  width: 100%;
+  height: 75%;
+  border: none;
+  border-radius: 40px;
+  background-color: #e1e7fc;
   text-align: center;
-  overflow-wrap: break-word;
-  resize: none !important;
-}
-
-.text9 {
-  position: absolute;
-  top: 23.5em;
-  left: 13em;
-  font-size: 25px;
-}
-
-.form_input8 {
-  height: 13em;
-  width: 36em;
-  background: #e1e7fc;
-  border: 1px solid #fff;
-  padding: 0.5em;
-  border-radius: 20px;
-  top: 40em;
-  left: 20.5em;
-  position: absolute;
-  text-align: center;
-  overflow-wrap: break-word;
-  resize: none !important;
 }
 
 /* Button*/
@@ -395,8 +392,8 @@ body {
   text-decoration: none;
   width: 10em;
   height: 2.5em;
-  top: 55em;
-  left: 66em;
+  bottom: 6em;
+  left: 63em;
   background: #ffebad;
   transition-duration: 200ms;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -408,79 +405,22 @@ body {
 }
 
 .button3 {
-  position: absolute;
-  padding: 5px 20px;
-  border-radius: 40em;
-  text-align: center;
-  color: black;
-  text-decoration: none;
-  width: 10em;
-  height: 2.5em;
-  bottom: 14em;
-  left: 2em;
-  background: #ff5f5f;
-  transition-duration: 200ms;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.button3:hover {
-  background-color: #f90716;
-  color: #fff;
-}
-
-/*----Karyawan container-------*/
-.add-employee-container {
-  width: 70em;
-  height: 50em;
-  left: 76em;
-  bottom: -9em;
-  position: relative;
-  box-sizing: border-box;
-}
-.preview-label {
-  font-size: 1.15em;
-  font-weight: bold;
-  margin-bottom: 1em;
-}
-.card2 {
-  background-color: #f2f5fe;
-  position: absolute;
-  height: 15em;
-  width: 16em;
-  left: -10em;
-  margin-bottom: 2em;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 2em;
-  text-align: center;
-  padding-top: 1.5em;
-}
-
-.card2 .image2 {
-  display: inline-block;
-  border-radius: 50%;
-  overflow: hidden;
-  width: 7em;
-  height: 7em;
-}
-
-.image2 {
-  width: 6em;
-  text-align: center;
-}
-
-.button-upload-photo {
-  padding: 5px 20px;
-  border-radius: 40em;
-  text-align: center;
-  color: black;
-  text-decoration: none;
-  top: 10em;
-  left: 70em;
-  background: #ffebad;
-  transition-duration: 200ms;
-}
-
-.button3hover {
-  background-color: #f0cc02;
-  color: #fff;
-}
+    position: absolute;
+    padding: 5px 20px;
+    border-radius: 40em;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    width: 10em;
+    height: 2.5em;
+    bottom: 2em;
+    left: 63em;
+    background: #ff5f5f;
+    transition-duration: 200ms;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .button3:hover {
+    background-color: #f90716;
+    color: #fff;
+  }

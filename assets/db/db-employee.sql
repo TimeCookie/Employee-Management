@@ -29,6 +29,7 @@ CREATE TABLE Employee
     date_of_birth date NOT NULL,
     division_id int NOT NULL,
     employee_photo varchar(255),
+	additional_info text,
     PRIMARY KEY(employee_id),
     FOREIGN KEY(division_id) REFERENCES Division(division_id)
 );
@@ -54,6 +55,7 @@ CREATE TABLE Shift
     admission_time datetime,
     time_out datetime,
 	employee_report text,
+	location text,
     FOREIGN KEY(employee_id) REFERENCES Employee(employee_id),
     FOREIGN KEY(project_id) REFERENCES Project(project_id)
 );
@@ -81,11 +83,11 @@ INSERT INTO Division VALUES (3001, 'Software Development', 2001),
 (3003, 'Accounting', 2002),
 (3004, 'Advertisement', 2003);
 
-INSERT INTO Employee VALUES (4001, 'Marvin Christian', 'marvin@gmail.com', '0819000000', 'M', '2000-12-25', 3001, NULL),
-(4002, 'Andre Jonathan Harahap', 'andre@gmail.com', '0819000000', 'M', '2000-12-25', 3001, NULL),
-(4003, 'Bryan Tandian', 'bryan@gmail.com', '0819000000', 'M', '2000-12-25', 3001, NULL),
-(4004, 'Pangestu', 'pangestu@gmail.com', '0819000000', 'M', '2000-12-25', 3001, NULL),
-(4005, 'Someone', 'someone@gmail.com', '0819000000', 'M', '2000-12-25', 3002, NULL);
+INSERT INTO Employee VALUES (4001, 'Marvin Christian', 'marvin@gmail.com', '0819000000', 'M', '2000-12-25', 3001, '..assets/img/user-icon.jpg'),
+(4002, 'Andre Jonathan Harahap', 'andre@gmail.com', '0819000000', 'M', '2000-12-25', 3001, '..assets/img/user-icon.jpg'),
+(4003, 'Bryan Tandian', 'bryan@gmail.com', '0819000000', 'M', '2000-12-25', 3001, '..assets/img/user-icon.jpg'),
+(4004, 'Pangestu', 'pangestu@gmail.com', '0819000000', 'M', '2000-12-25', 3001, '..assets/img/user-icon.jpg'),
+(4005, 'Someone', 'someone@gmail.com', '0819000000', 'M', '2000-12-25', 3002, '..assets/img/user-icon.jpg');
 
 INSERT INTO Project VALUES
 (1001, 'App 01', 'It is an app', 4002, 3001),

@@ -21,9 +21,14 @@ $divisionName = $data['division_name'];
 
 $readQuery = "SELECT employee_report FROM shift WHERE employee_id=$employeeId";
 $res = mysqli_query($con,$readQuery);
+$report = "";
 
-$data = mysqli_fetch_assoc($res);
-$report = $data['employee_report'];
+if(mysqli_num_rows($res) == 0) {
+    header("Location: edit-profile.php?status=unauthorized");
+} else {
+    $data = mysqli_fetch_assoc($res);
+    $report = $data['employee_report'];
+}
 
 
 ?>
@@ -107,12 +112,7 @@ $report = $data['employee_report'];
         <form action="../../modules/report-task.php" method="POST">
             <div class="text1">Clock</div>
             <div class="form_div">
-                <input type="text" class = "form_input">
-                <script>
-                    var today = new Date();
-                    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                    document.getElementById("currentTime").value = time;
-                </script>
+                <input type="text" class = "form_input" id="clock" name="time" readonly>
             </div>
             <div class="text2">Employee ID</div>
             <div class="form_div">
@@ -193,5 +193,6 @@ $report = $data['employee_report'];
    
 
     <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/clock.js"></script>
 </body>
 </html>

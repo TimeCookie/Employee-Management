@@ -145,26 +145,67 @@ $totalEmployee = $res['num_of_employee'];
 
     <!---------Employee Report------------->
 
-    <div class="Report">
-        <div class="text3">Employee Report</div>
-    </div> 
-    <div class="container4">
-        <?php
+    <div class="absence-container">
 
-        $readQuery = "SELECT employee_name FROM shift s JOIN employee e ON s.employee_id = e.employee_id WHERE employee_report IS NOT NULL LIMIT 3";
-        $res = mysqli_query($con,$readQuery);
+        <div class="row"> <!--Container-->
 
-        if(mysqli_num_rows($res) > 0) {
-            while($data = mysqli_fetch_assoc($res)) { //TODO: Add an if statement to check for the status, meaning add another column for the shift database
-        ?>
-        <div class="report-content">
-            <div class="emp-name"><?php echo $data['employee_name']; ?></div>
-            <div class="not-read">Not read</div>
+            <div class="col-lg-6 col-sm-12">
+
+                <div class="jumbotron card1">
+
+                    <div class="info">
+
+                        <h4>Andre Jonathan Harahap</h4>
+
+                        <p>2031095</p>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+
+                <div class="jumbotron card1">
+                    
+                    <div class="info">
+
+                        <h4>Budi doremi</h4>
+
+                        <p>2031095</p>
+
+                    </div>
+
+                </div> 
+            </div>
+            <div class="col-lg-6 col-sm-12">
+
+                <div class="jumbotron card1">
+                    
+                    <div class="info">
+
+                        <h4>Siapa aja deh</h4>
+
+                        <p>2031095</p>
+
+                    </div>
+
+                </div>
+            </div>
+             <div class="col-lg-6 col-sm-12">
+
+                <div class="jumbotron card1">
+                    
+                    <div class="info">
+
+                        <h4>Hayo gatau nama siapa lagi</h4>
+
+                        <p>2031095</p>
+
+                    </div>
+
+                </div>
+            </div>
         </div>
-        <?php
-            }
-        }
-        ?>
     </div>
 
 

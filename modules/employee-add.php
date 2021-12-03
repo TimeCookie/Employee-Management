@@ -78,6 +78,7 @@ if(isset($_POST['save-confirm'])) {
     $lastName = $_POST['last-name'];
     $email = $_POST['email'];
     $divisionId = $_POST['division'];
+    $additionalInfo = $_POST['additional-report'];
 
     
     
@@ -92,14 +93,14 @@ if(isset($_POST['save-confirm'])) {
 
     // creates new data
     if(mysqli_num_rows($res) <= 0) {
-        $createQuery = "INSERT INTO employee VALUES (?,?,?,?,?,?,?,?)";
+        $createQuery = "INSERT INTO employee VALUES (?,?,?,?,?,?,?,?,?)";
         $stmt = mysqli_stmt_init($con);
         if(!mysqli_stmt_prepare($stmt, $createQuery)) {
             header('Location: ../pages/admin/add-employee.php?status=invalid');
             exit();
         }
         else {
-            mysqli_stmt_bind_param($stmt, 'isssssis' ,$employeeId, $employeeName, $email, $phoneNumber, $gender, $dob, $divisionId, $imgDir);
+            mysqli_stmt_bind_param($stmt, 'isssssiss' ,$employeeId, $employeeName, $email, $phoneNumber, $gender, $dob, $divisionId, $imgDir, $additionalInfo);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
 

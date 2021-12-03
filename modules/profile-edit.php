@@ -1,16 +1,73 @@
 <?php
 include 'db_connect.php';
-
+$imgDir="";
 if(isset($_POST['save-data'])) {
-$empid = $_POST['employee-id'];
+   if(isset($_FILES['input-photo'])){
+        $err = array();
+        $empid = $_POST['employee-id'];
+        $fileName = $empid . "-" . $_FILES['input-photo']['name'];
+        $fileSize = $_FILES['input-photo']['size'];
+        $fileTmp = $_FILES['input-photo']['tmp_name'];
+        $fileType = $_FILES['input-photo']['type'];
+
+        $extractExt = explode('.',$fileName);
+        $fileExt = strtolower(end($extractExt));
+
+        $ext = array("jpeg","jpg","png"); //supported file types
+
+        if(in_array($fileExt,$ext) === false){
+            $err[] = "Extension not allowed, please upload a JPEG or PNG file.";
+            header("Location: ../pages/admin/add-employee.php?status=invalid");
+        }
+        
+        if($fileSize > 2097152){
+            $err[] = 'File size must not exceed 2 MB';
+            header("Location: ../pages/admin/add-employee.php?status=invalid");
+        }
+        
+
+        
+        if(empty($err) == true){
+            move_uploaded_file($fileTmp,"../assets/img-upload/".$fileName);
+            $imgDir = "../assets/img-upload/" . $fileName;
+            //header("Location: ../pages/admin/add-employee.php")
+            //echo "Success";
+        }
+        else{
+            print_r($err);
+            header("Location: ../pages/admin/add-employee.php?status=invalid");
+        }
+
+        
+    }
+    
+    
+    //*  For default photo
+    // TODO: Stupid bug again
+    $readQuery = "SELECT employee_photo FROM employee WHERE employee_id=$empid";
+    $res = mysqli_query($con,$readQuery);
+
+    if(mysqli_num_rows($res) == 0) {
+        
+        if($imgDir == "") {
+            $imgDir = "../assets/img/user-icon.jpg";
+        }
+    } else {
+        $data = mysqli_fetch_assoc($res);
+        $imgDir = $data['employee_photo'];
+    }
+
+
+    $empid = $_POST['employee-id'];
     $empName = $_POST['employee-name'];
     $empGen = $_POST['gender'];
     $empDob = $_POST['date-of-birth'];
     $empDiv = $_POST['division'];
     $empEmail = $_POST['email-address'];
     $empPhone = $_POST['phone-number'];
+    $additionalInfo = $_POST['additional-report'];
 
-    $QueryUpdate = "UPDATE employee SET employee_id=?, employee_name=?, employee_email=?, employee_phone_no=?, sex=?, date_of_birth=?, division_id=? WHERE employee_id=$empid";
+    $QueryUpdate = "UPDATE employee SET employee_id=?, employee_name=?, employee_email=?, employee_phone_no=?, sex=?, date_of_birth=?, division_id=?, employee_photo=?, additional_info=? WHERE employee_id=$empid";
     $stmt = mysqli_stmt_init($con);
 
     if(!mysqli_stmt_prepare($stmt, $QueryUpdate)) {
@@ -18,7 +75,7 @@ $empid = $_POST['employee-id'];
         exit();
     }
     else {
-        mysqli_stmt_bind_param($stmt, "isssssi", $empid,$empName,$empEmail,$empPhone,$empGen,$empDob,$empDiv);
+        mysqli_stmt_bind_param($stmt, "isssssiss", $empid,$empName,$empEmail,$empPhone,$empGen,$empDob,$empDiv,$imgDir, $additionalInfo);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         header("Location: ../pages/admin/edit-profile.php?employ=".$empid."&status=success");
@@ -26,5 +83,12 @@ $empid = $_POST['employee-id'];
     }
     
 }
+elseif(isset($_POST['delete-data'])) {
+    $empid = $_POST['employee-id'];
 
+    $Queryfordelete = "DELETE FROM employee WHERE employee_id=$empid";
+    mysqli_query($con,$Queryfordelete);
+    
+    header("Location: ../pages/admin/employee.php?status=delete-success");
+}
 ?>

@@ -186,7 +186,7 @@ $employeePhoto = "../".$data['employee_photo'];
     <?php
         }
 
-        elseif($_GET['status'] == "invalid") {  
+        elseif($_GET['status'] == "unauthorized") {  
     
     ?>
         <div class="popup center">
@@ -194,7 +194,7 @@ $employeePhoto = "../".$data['employee_photo'];
                 <i class="bx bx-x"></i>
             </div>
             <div class="title">Failed!</div>
-            <div class="description">Error, please check your data.</div>
+            <div class="description">Couldn't fetch data, please join a project first before you can report your work.</div>
             <div class="dismiss-btn">
                 <button id="dismiss-popup-btn"><a class="dismiss" href="edit-profile.php">Dismiss</a></button>
             </div>

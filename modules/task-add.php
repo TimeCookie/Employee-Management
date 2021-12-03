@@ -32,7 +32,7 @@ if(isset($_POST['confirm-add-task'])) {
         mysqli_stmt_execute($stmt);
         
         // TODO: Rebuild the shift query to insert only the employee inputted
-        $createQuery = "INSERT INTO Shift VALUES ($personInCharge,$projectId, NULL,NULL)";
+        $createQuery = "INSERT INTO Shift VALUES ($personInCharge,$projectId, NULL,NULL, 'Work report for today')";
         
         if($employee1 != NULL){
             $createQuery .= ",($employee1, $projectId, NULL,NULL)";

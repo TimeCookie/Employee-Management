@@ -1,13 +1,16 @@
 <?php
-include '../employee-add.php';
+include '../task-edit.php';
+include_once '../functions.php';
 
-echo $firstName;
-echo $dob;
-echo $gender;
-echo $phoneNumber;
-echo $lastName;
-echo $email;
-echo $divisionId;
+
+
+$employee = '4001-AAA';
+
+
+$employee = getId($employee,'-');
+echo $employee;
+
+
 
 echo "Yes it is set";
 ?>

@@ -107,7 +107,7 @@ $additionalInfo = $res['additional_info'];
     </div> 
 
    <div class="title1">
-        <form action="../../modules/profile-edit.php" method="POST" enctype="multipart/form-data" >
+        <form action="../../modules/print.php" method="POST" enctype="multipart/form-data" >
             <div class="text1">Employee Name</div>
             <div class="form_div">
                 <?php echo"<input type='text' class='form_input' name='employee-name' placeholder=''Employee Name' value='$empName'>"; ?>
@@ -151,7 +151,7 @@ $additionalInfo = $res['additional_info'];
                                 <?php echo "<img src='../$empPic' onclick='triggerClick()' class='img-fluid rounded-circle image2' id='placeholder-image'>" ?>
                             </div>
                         
-                            <input type="file" id="employee-photo-input" onchange="previewImage(this)" name="input-photo" style="display:none;"/>
+                            <input type="file" id="employee-photo-input" onchange="previewImage(this)" name="upload-photo" style="display:none;"/>
                                 <!--
                                 <div class="upload-photo">
                                     <input type="submit" class="button-upload-photo" value="Upload Photo">

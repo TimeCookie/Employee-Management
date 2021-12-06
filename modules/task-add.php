@@ -1,15 +1,23 @@
 <?php
 include 'db_connect.php';
+include_once 'functions.php';
 
 if(isset($_POST['confirm-add-task'])) {
     $projectId = 0;
     $projectTitle = $_POST['project-title'];
     $projectDesc = $_POST['project-desc'];
-    $personInCharge = $_POST['person-in-charge'];
-    $divisionId = $_POST['division-name'];
+    $personInCharge = $_POST['pic'];
+    $divisionId = $_POST['division'];
     $employee1 = (empty($_POST['employee-1'])) ? NULL : $_POST['employee-1'];
     $employee2 = (empty($_POST['employee-2'])) ? NULL : $_POST['employee-2'];
     $employee3 = (empty($_POST['employee-3'])) ? NULL : $_POST['employee-3'];
+
+
+    $personInCharge = ($personInCharge == NULL) ? NULL : getId($personInCharge,'-');
+    $employee1 = ($employee1 == NULL) ? NULL : getId($employee1,'-');
+    $employee2 = ($employee2 == NULL) ? NULL : getId($employee2,'-');
+    $employee3 = ($employee3 == NULL) ? NULL : getId($employee3,'-');
+    $divisionId = ($divisionId == NULL) ? NULL : getId($divisionId,'-');
 
     $readQuery = "SELECT MAX(project_id) AS project_id FROM Project";
     $result = mysqli_query($con, $readQuery);
@@ -27,30 +35,32 @@ if(isset($_POST['confirm-add-task'])) {
     if(!mysqli_stmt_prepare($stmt, $createQuery)) {
         header("Location: ../pages/admin/add-task.php?status=invalid");
         exit();
-    } else {
+    } else {        
         mysqli_stmt_bind_param($stmt,'issii', $projectId, $projectTitle, $projectDesc, $personInCharge, $divisionId);
         mysqli_stmt_execute($stmt);
         
-        // TODO: Rebuild the shift query to insert only the employee inputted
-        $createQuery = "INSERT INTO Shift VALUES ($personInCharge,$projectId, NULL,NULL, 'Work report for today')";
-        
+        // Adds employee to project
+        $createQuery = "INSERT INTO Shift VALUES ($personInCharge,$projectId, NULL,NULL, 'Work report for today',NULL)";
+        mysqli_query($con, $createQuery);
         if($employee1 != NULL){
-            $createQuery .= ",($employee1, $projectId, NULL,NULL)";
+            $createQuery = "INSERT INTO Shift VALUES ($employee1, $projectId, NULL,NULL,'Work report for today',NULL)";
+            mysqli_query($con, $createQuery);
         }
         
         if($employee2 != NULL){
-            $createQuery .= ",($employee2, $projectId, NULL,NULL)";
+            $createQuery = "INSERT INTO Shift VALUES ($employee2, $projectId, NULL,NULL,'Work report for today',NULL)";
+            mysqli_query($con, $createQuery);
+            
         }
         
         if($employee3 != NULL){
-            $createQuery .= ",($employee3, $projectId, NULL,NULL)";
+            $createQuery = "INSERT INTO Shift VALUES ($employee3, $projectId, NULL,NULL,'Work report for today',NULL)";
+            mysqli_query($con, $createQuery);
         }
-
-        mysqli_query($con, $createQuery);
         header("Location: ../pages/admin/add-task.php?status=success");
     }
     
-    // Adds employee to project
+    
     
 
 }

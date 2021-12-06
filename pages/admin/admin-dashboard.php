@@ -118,18 +118,19 @@ $totalEmployee = $res['num_of_employee'];
     <div class="job-container1">
         <div class="row"> <!--Container-->
         <?php 
-        $readQuery = "SELECT project_title, pic_id, employee_name FROM project p JOIN employee em ON p.pic_id = em.employee_id LIMIT 5";
+        $readQuery = "SELECT project_id,project_title, pic_id, employee_name FROM project p JOIN employee em ON p.pic_id = em.employee_id LIMIT 5";
         $res = mysqli_query($con,$readQuery);
 
         if(mysqli_num_rows($res) > 0) {
             while($data = mysqli_fetch_assoc($res)) {
+                $projectId = $data['project_id'];
                 $projectTitle = $data['project_title'];
                 $picName = $data['employee_name'];
         ?>
             <div class="col-lg-12 col-sm-12">
                 <div class="jumbotron job2">
                     <div class="info2">
-                        <h4><?php echo $projectTitle; ?></h4>
+                        <h4><?php echo "<a href='edit-task.php?task=$projectId'>$projectTitle</a>" ?></h4>
                         <p><?php echo $picName; ?></p>
                     </div>
                 </div>
@@ -207,6 +208,26 @@ $totalEmployee = $res['num_of_employee'];
             </div>
         </div>
     </div>
+
+    <?php
+    if(isset($_GET['status'])) {
+        if($_GET['status'] == "delete-project-success") {
+
+    ?>
+    <div class="popup center">
+        <div class="success-icon">
+            <i class="bx bx-check"></i>
+        </div>
+        <div class="title">Success!</div>
+        <div class="description">Project successfully deleted</div>
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn"><a href="<?php echo "department.php"; ?>">Dismiss</a></button>
+        </div>
+    </div>
+    <?php
+        }
+    }
+    ?>
 
 
 

@@ -1,3 +1,12 @@
+<?php
+include '../../modules/db_connect.php';
+include '../../modules/functions.php';
+
+$divisionList = dropdownFormat($con,'division','division_id','division_name');
+$employeeList = dropdownFormat($con,'employee','employee_id','employee_name');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,11 +102,12 @@
             <div class="form_div2">
                 <div class ="form_input2">
                     <select name="pic">
-                        <option value="picid"></option>
-                        <option value="picid">4001-Marvin</option>
-                        <option value="picid">4002-Andre</option>
-                        <option value="picid">4003-Bryan</option>
-                        <option value="picid">4004-Pangestu</option>
+                        <option></option>
+                        <?php
+                        foreach($employeeList as $emp) {
+                            echo "<option>$emp</option>";
+                        }
+                        ?>
                     </select>
                 </div>
             </div>
@@ -105,45 +115,51 @@
             <div class="form_div3">
                 <div class ="form_input3">
                     <select name="division">
-                        <option value="divisionid"></option>
-                        <option value="divisionid">3001-IT</option>
-                        <option value="divisionid">3002-Finance</option>
+                        <option></option>
+                        <?php
+                        foreach($divisionList as $div) {
+                            echo "<option>$div</option>";
+                        }
+                        ?>
                     </select>
                 </div>
             </div>
             <div class="text5">Employee 1</div>
             <div class="form_div4">
                 <div class ="form_input4">
-                    <select name="Employee">
-                        <option value="employeeid"></option>
-                        <option value="employeeid">4001-Marvin</option>
-                        <option value="employeeid">4002-Andre</option>
-                        <option value="employeeid">4003-Bryan</option>
-                        <option value="employeeid">4004-Pangestu</option>
+                    <select name="employee-1">
+                        <option></option>
+                        <?php
+                        foreach($employeeList as $emp) {
+                            echo "<option>$emp</option>";
+                        }
+                        ?>
                     </select>
                 </div>
             </div>
             <div class="text6">Employee 2</div>
             <div class="form_div5">
                 <div class ="form_input5">
-                    <select name="Employee1">
-                        <option value="employeeid"></option>
-                        <option value="employeeid">4001-Marvin</option>
-                        <option value="employeeid">4002-Andre</option>
-                        <option value="employeeid">4003-Bryan</option>
-                        <option value="employeeid">4004-Pangestu</option>
+                    <select name="employee-2">
+                        <option></option>
+                        <?php
+                        foreach($employeeList as $emp) {
+                            echo "<option>$emp</option>";
+                        }
+                        ?>
                     </select>
                 </div>
             </div>
             <div class="text7">Employee 3</div>
             <div class="form_div6">
                 <div class ="form_input6">
-                    <select name="Employee2">
-                        <option value="employeeid"></option>
-                        <option value="employeeid">4001-Marvin</option>
-                        <option value="employeeid">4002-Andre</option>
-                        <option value="employeeid">4003-Bryan</option>
-                        <option value="employeeid">4004-Pangestu</option>
+                    <select name="employee-3">
+                        <option></option>
+                        <?php
+                        foreach($employeeList as $emp) {
+                            echo "<option>$emp</option>";
+                        }
+                        ?>
                     </select>
                 </div>
             </div>

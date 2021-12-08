@@ -46,8 +46,6 @@ CREATE TABLE Project
     FOREIGN KEY(division_id) REFERENCES Division(division_id)
 );
 
-
-
 CREATE TABLE Shift
 (
     employee_id int NOT NULL,
@@ -56,6 +54,7 @@ CREATE TABLE Shift
     time_out datetime,
 	employee_report text,
 	location text,
+	report_status char(1),
     FOREIGN KEY(employee_id) REFERENCES Employee(employee_id),
     FOREIGN KEY(project_id) REFERENCES Project(project_id)
 );

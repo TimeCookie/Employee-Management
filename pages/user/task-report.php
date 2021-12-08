@@ -19,7 +19,8 @@ if(mysqli_num_rows($res) > 0) {
 $employeeName = $data['employee_name'];
 $divisionName = $data['division_name'];
 
-$readQuery = "SELECT employee_report FROM shift WHERE employee_id=$employeeId";
+
+$readQuery = "SELECT * FROM shift WHERE employee_id=$employeeId";
 $res = mysqli_query($con,$readQuery);
 $report = "";
 
@@ -28,6 +29,7 @@ if(mysqli_num_rows($res) == 0) {
 } else {
     $data = mysqli_fetch_assoc($res);
     $report = $data['employee_report'];
+    $location = $data['location'];
 }
 
 
@@ -134,10 +136,10 @@ if(mysqli_num_rows($res) == 0) {
             <div class="form_div">
                 <div class ="form_input5">
                     <select name="location-list">
-                        <option value="Location"></option>
-                        <option value="Location">Office</option>
-                        <option value="Location">Meeting Room</option>
-                        <option value="Location">Canteen</option>
+                        <?php echo"<option>$location</option>"; ?>
+                        <option value="Office">Office</option>
+                        <option value="Meeting Room">Meeting Room</option>
+                        <option value="Canteen">Canteen</option>
                     </select>
                 </div>
             </div>

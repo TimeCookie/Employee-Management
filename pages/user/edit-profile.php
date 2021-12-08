@@ -176,7 +176,7 @@ $employeePhoto = "../".$data['employee_photo'];
             <i class="bx bx-check"></i>
         </div>
         <div class="title">Success!</div>
-        <div class="description">Employee successfully added</div>
+        <div class="description">Data successfully updated</div>
         <div class="dismiss-btn">
             <button id="dismiss-popup-btn"><a href="edit-profile.php">Dismiss</a></button>
         </div>

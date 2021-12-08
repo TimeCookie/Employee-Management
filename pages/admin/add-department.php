@@ -101,7 +101,7 @@ include '../../modules/department-add.php';
         </div>
         <div class="text4">Division</div>
         <div class="form_div">
-            <input type="text" class="form_input3" name="division" placeholder="Division">
+            <input type="text" class="form_input3" name="division" placeholder="E.g. Software Development, System Analyst, Backend Developers">
         </div>
 
             <input type="submit" class="button2" name="save-confirm" value="Save">

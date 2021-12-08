@@ -135,7 +135,7 @@ if(mysqli_num_rows($res) > 0) {
             <div class="form_div2">
                 <div class ="form_input2">
                     <select name="pic">
-                        <option value="picid">
+                        <option>
                             <?php
                                 $readQuery = "SELECT employee_name FROM employee e JOIN project p ON p.pic_id = e.employee_id WHERE e.employee_id=$projectPIC";
                                 $res = mysqli_query($con, $readQuery);
@@ -162,7 +162,7 @@ if(mysqli_num_rows($res) > 0) {
             <div class="form_div3">
                 <div class ="form_input3">
                     <select name="division">
-                        <option value="divisionid">
+                        <option>
                             <?php
                             /*
                             $readQuery = "SELECT division_name FROM division d JOIN (shift s) ON s.employee_id = e.employee_id WHERE e.employee_id = $employeeList[0]";
@@ -196,24 +196,33 @@ if(mysqli_num_rows($res) > 0) {
             <div class="form_div4">
                 <div class ="form_input4">
                     <select name="employee-1">
-                        <option value="employeeid">
+                        <option>
                             <?php
-                            $readQuery = "SELECT employee_name FROM employee e JOIN shift s ON s.employee_id = e.employee_id WHERE e.employee_id = $employeeIDList[0]";
-                            $res = mysqli_query($con, $readQuery);
-                            if($employeeIDList[0] == $projectPIC) {
+                            if(count($employeeIDList) < 1) {
                                 echo "";
-                            }
-                            else if(mysqli_num_rows($res) > 0) {
-                                
-                                $data = mysqli_fetch_assoc($res);
-
-                                $employeeId = $employeeIDList[0];
-                                $name = $data['employee_name'];
-
-                                echo "$employeeId - $name";
                             }
                             else {
-                                echo "";
+
+                                $readQuery = "SELECT employee_name FROM employee e JOIN shift s ON s.employee_id = e.employee_id WHERE e.employee_id = $employeeIDList[0]";
+                                $res = mysqli_query($con, $readQuery);
+                                if(empty($employeeIDList)) {
+                                    echo "";
+                                }
+                                else if($employeeIDList[0] == $projectPIC) {
+                                    echo "";
+                                }
+                                else if(mysqli_num_rows($res) > 0) {
+                                    
+                                    $data = mysqli_fetch_assoc($res);
+    
+                                    $employeeId = $employeeIDList[0];
+                                    $name = $data['employee_name'];
+    
+                                    echo "$employeeId - $name";
+                                }
+                                else {
+                                    echo "";
+                                }
                             }
                             ?>
                         </option>
@@ -234,23 +243,32 @@ if(mysqli_num_rows($res) > 0) {
             <div class="form_div5">
                 <div class ="form_input5">
                     <select name="employee-2">
-                        <option value="employeeid">
+                        <option>
                             <?php
-                            $readQuery = "SELECT employee_name FROM employee e JOIN shift s ON s.employee_id = e.employee_id WHERE e.employee_id = $employeeIDList[1]";
-                            $res = mysqli_query($con, $readQuery);
-                            if($employeeIDList[1] == $projectPIC) {
+                            if(count($employeeIDList) < 2) {
                                 echo "";
-                            }
-                            else if(mysqli_num_rows($res) > 0) {
-                                $data = mysqli_fetch_assoc($res);
-
-                                $employeeId = $employeeIDList[1];
-                                $name = $data['employee_name'];
-
-                                echo "$employeeId - $name";
                             }
                             else {
-                                echo "";
+
+                                $readQuery = "SELECT employee_name FROM employee e JOIN shift s ON s.employee_id = e.employee_id WHERE e.employee_id = $employeeIDList[1]";
+                                $res = mysqli_query($con, $readQuery);
+                                if(empty($employeeIDList)) {
+                                    echo "";
+                                }
+                                else if($employeeIDList[1] == $projectPIC) {
+                                    echo "";
+                                }
+                                else if(mysqli_num_rows($res) > 0) {
+                                    $data = mysqli_fetch_assoc($res);
+    
+                                    $employeeId = $employeeIDList[1];
+                                    $name = $data['employee_name'];
+    
+                                    echo "$employeeId - $name";
+                                }
+                                else {
+                                    echo "";
+                                }
                             }
                             ?>
                             
@@ -272,23 +290,32 @@ if(mysqli_num_rows($res) > 0) {
             <div class="form_div6">
                 <div class ="form_input6">
                     <select name="employee-3">
-                        <option value="employeeid">
+                        <option>
                             <?php
-                            $readQuery = "SELECT employee_name FROM employee e JOIN shift s ON s.employee_id = e.employee_id WHERE e.employee_id = $employeeIDList[2]";
-                            $res = mysqli_query($con, $readQuery);
-                            if($employeeIDList[2] == $projectPIC) {
+                            if(count($employeeIDList) < 3) {
                                 echo "";
-                            }
-                            else if(mysqli_num_rows($res) > 0) {
-                                $data = mysqli_fetch_assoc($res);
-
-                                $employeeId = $employeeIDList[2];
-                                $name = $data['employee_name'];
-
-                                echo "$employeeId - $name";
                             }
                             else {
-                                echo "";
+
+                                $readQuery = "SELECT employee_name FROM employee e JOIN shift s ON s.employee_id = e.employee_id WHERE e.employee_id = $employeeIDList[2]";
+                                $res = mysqli_query($con, $readQuery);
+                                if(empty($employeeIDList)) {
+                                    echo "";
+                                }
+                                else if($employeeIDList[2] == $projectPIC) {
+                                    echo "";
+                                }
+                                else if(mysqli_num_rows($res) > 0) {
+                                    $data = mysqli_fetch_assoc($res);
+    
+                                    $employeeId = $employeeIDList[2];
+                                    $name = $data['employee_name'];
+    
+                                    echo "$employeeId - $name";
+                                }
+                                else {
+                                    echo "";
+                                }
                             }
                             ?>
                         </option>

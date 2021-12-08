@@ -16,6 +16,29 @@ if(mysqli_num_rows($res) > 0) {
 $departmentName = $res['department_name'];
 $departmentLocation = $res['department_location'];
 
+$divisionList = array();
+
+$readQuery = "SELECT division_name FROM division WHERE department_id=$departmentId";
+$res = mysqli_query($con,$readQuery);
+if(mysqli_num_rows($res) > 0) {
+    $i = 0;
+    while($data = mysqli_fetch_assoc($res)) {
+        $divisionList[$i] = $data['division_name'];
+        $i++;
+    }
+}
+
+$division = "";
+
+for($i=0;$i<count($divisionList);$i++) {
+    if($i != count($divisionList) - 1) {
+        $division .= "$divisionList[$i], ";
+    }
+    else {
+        $division .= "$divisionList[$i]";
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +47,7 @@ $departmentLocation = $res['department_location'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Department</title>
+    <title>Edit Department</title>
     <link rel="stylesheet" href="../../assets/css/edit_department.css">
     <link rel="stylesheet" href="../../assets/css/popup.css">
     <!-----ini Box icon ------>
@@ -95,7 +118,7 @@ $departmentLocation = $res['department_location'];
     </div>
 
     <div class="task_content">
-        <div class="text">Add Department</div>  
+        <div class="text">Edit Department</div>  
         
     </div> 
 
@@ -115,7 +138,7 @@ $departmentLocation = $res['department_location'];
         </div>
         <div class="text4">Division</div>
         <div class="form_div">
-            <input type="text" class="form_input3" name="division" placeholder="Division">
+            <?php echo "<input type='text' class='form_input3' name='division' placeholder='Division' value='$division'>"; ?>
         </div>
 
             <input type="submit" class="button2" name="save-confirm" value="Save">

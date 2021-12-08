@@ -127,6 +127,7 @@ $totalEmployee = $res['num_of_employee'];
                 $projectTitle = $data['project_title'];
                 $picName = $data['employee_name'];
         ?>
+        <!-- Front-end only -->
             <div class="col-lg-12 col-sm-12">
                 <div class="jumbotron job2">
                     <div class="info2">
@@ -135,6 +136,7 @@ $totalEmployee = $res['num_of_employee'];
                     </div>
                 </div>
             </div>
+        <!-- Front-end only -->
         <?php
             }
         }
@@ -149,63 +151,46 @@ $totalEmployee = $res['num_of_employee'];
     <div class="absence-container">
 
         <div class="row"> <!--Container-->
+        <?php
+        $readQuery = "SELECT * FROM shift WHERE report_status=1";
+        $res = mysqli_query($con,$readQuery);
 
+        if(mysqli_num_rows($res) == 0) {
+            // Echo "no reports yet"
+        }
+        else {
+            while($data = mysqli_fetch_assoc($res)) {
+                $curId = $data['employee_id'];
+                $statusMsg = "Not read"; //Default
+                $statusCls = "not-read"; //Default
+                switch ($data['report_status']) {
+                    case 0:
+                        $statusMsg = "Read";
+                        $statusCls = "read";
+                        break;
+                    case 1:
+                        $statusMsg = "Not Read";
+                        $statusCls = "not-read";
+                        break;
+                }
+
+                $readQuery1 = "SELECT employee_name FROM employee e JOIN shift s ON e.employee_id = s.employee_id WHERE e.employee_id=$curId";
+                $res1 = mysqli_query($con,$readQuery1);
+                $nameData = mysqli_fetch_assoc($res1);
+                $name = $nameData['employee_name'];
+        ?>
             <div class="col-lg-6 col-sm-12">
-
                 <div class="jumbotron card1">
-
                     <div class="info">
-
-                        <h4>Andre Jonathan Harahap</h4>
-
-                        <p>2031095</p>
-
+                        <h4><?php echo "<a class='dynamic-link' href='report.php?emp=$curId'>$name</a>"; ?></h4>
+                        <?php echo "<p class=$statusCls>$statusMsg</p>"; ?>
                     </div>
-
                 </div>
             </div>
-            <div class="col-lg-6 col-sm-12">
-
-                <div class="jumbotron card1">
-                    
-                    <div class="info">
-
-                        <h4>Budi doremi</h4>
-
-                        <p>2031095</p>
-
-                    </div>
-
-                </div> 
-            </div>
-            <div class="col-lg-6 col-sm-12">
-
-                <div class="jumbotron card1">
-                    
-                    <div class="info">
-
-                        <h4>Siapa aja deh</h4>
-
-                        <p>2031095</p>
-
-                    </div>
-
-                </div>
-            </div>
-             <div class="col-lg-6 col-sm-12">
-
-                <div class="jumbotron card1">
-                    
-                    <div class="info">
-
-                        <h4>Hayo gatau nama siapa lagi</h4>
-
-                        <p>2031095</p>
-
-                    </div>
-
-                </div>
-            </div>
+        <?php
+            }
+        }
+        ?>
         </div>
     </div>
 

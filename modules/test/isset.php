@@ -4,12 +4,7 @@ include_once '../functions.php';
 
 
 
-$employee = '4001-AAA';
-
-
-$employee = getId($employee,'-');
-echo $employee;
-
+echo $PIC;
 
 
 echo "Yes it is set";

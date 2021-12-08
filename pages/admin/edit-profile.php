@@ -79,7 +79,7 @@ $additionalInfo = $res['additional_info'];
                 <span class="tooltip">Add</span>
             </li>
             <li>
-                <a href="../modules/logout.php">
+                <a href="../../modules/logout.php">
                     <i class='bx bx-power-off'></i>
                     <span class="link_name">Log out</span>
                 </a>
@@ -107,7 +107,7 @@ $additionalInfo = $res['additional_info'];
     </div> 
 
    <div class="title1">
-        <form action="../../modules/print.php" method="POST" enctype="multipart/form-data" >
+        <form action="../../modules/profile-edit.php" method="POST" enctype="multipart/form-data" >
             <div class="text1">Employee Name</div>
             <div class="form_div">
                 <?php echo"<input type='text' class='form_input' name='employee-name' placeholder=''Employee Name' value='$empName'>"; ?>
@@ -117,8 +117,15 @@ $additionalInfo = $res['additional_info'];
                 <?php echo"<input type='date' class='form_input1' name='date-of-birth' placeholder='Date Of Birth' value='$empDob'>"; ?>
             </div>
             <div class="text3">Gender</div>
-            <div class="form_div2">
-                <?php echo"<input type='text' class='form_input2' name='gender' placeholder='Gender' value='$empGen'>"; ?>
+                <div class="form_div2">
+                    <div class ="form_input2">
+                        <select name="gender-list">
+                            <option value=""></option>
+                            <option value="M">M</option>
+                            <option value="F">F</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="text4">Phone Number</div>
             <div class="form_div3">
@@ -130,7 +137,13 @@ $additionalInfo = $res['additional_info'];
             </div>
             <div class="text6">Division</div>
             <div class="form_div5">
-                <?php echo"<input type='text' class='form_input5' name='division' placeholder='Division' value='$empDiv'>"; ?>
+                <div class ="form_input5">
+                    <select name="gender-list">
+                        <option value=""></option>
+                        <option value="divisionid">3001</option>
+                        <option value="divisionid">3002</option>
+                    </select>
+                </div>
             </div>
             <div class="text7">Employee Id</div>
             <div class="form_div6">
@@ -166,6 +179,7 @@ $additionalInfo = $res['additional_info'];
 
 
             <input type="submit" class="button2" name="save-data" value="Save">
+            <input type="submit" class="button3" name="delete-employee" value="Delete"/>
             
         </form>
     </div>

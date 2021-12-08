@@ -15,6 +15,7 @@ echo 'The result is empty';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee</title>
     <link rel="stylesheet" href="../../assets/css/employee.css">
+    <link rel="stylesheet" href="../../assets/css/popup.css">
     <!-----ini Box icon ------>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -148,6 +149,50 @@ echo 'The result is empty';
         }
         ?>
     </div>
+
+    <!--Feedback popup -->
+
+    <?php
+        if(isset($_GET['status'])) {
+
+        
+            if($_GET['status'] == "delete-success") {
+        
+    ?>
+    <div class="popup center">
+        <div class="success-icon">
+            <i class="bx bx-check"></i>
+        </div>
+        <div class="title">Success!</div>
+        <div class="description"> Employee successfully deleted</div>
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn"><a href="<?php echo "employee.php"; ?>">Dismiss</a></button>
+        </div>
+    </div>
+    
+        
+    <?php
+        }
+
+        elseif($_GET['status'] == "invalid") {  
+    
+    ?>
+        <div class="popup center">
+            <div class="fail-icon">
+                <i class="bx bx-x"></i>
+            </div>
+            <div class="title">Failed!</div>
+            <div class="description">Error, Couldn't delete employee.</div>
+            <div class="dismiss-btn">
+                <button id="dismiss-popup-btn"><a class="dismiss" href="<?php echo "employee.php"; ?>">Dismiss</a></button>
+            </div>
+        </div>
+   
+        
+    <?php
+        } 
+    }
+    ?> 
  
    
 

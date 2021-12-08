@@ -2,13 +2,14 @@
 include 'db_connect.php';
 $imgDir="";
 if(isset($_POST['save-data'])) {
-   if(isset($_FILES['input-photo'])){
+    $empid = $_POST['employee-id'];
+   if(isset($_FILES['upload-photo'])){
         $err = array();
         $empid = $_POST['employee-id'];
-        $fileName = $empid . "-" . $_FILES['input-photo']['name'];
-        $fileSize = $_FILES['input-photo']['size'];
-        $fileTmp = $_FILES['input-photo']['tmp_name'];
-        $fileType = $_FILES['input-photo']['type'];
+        $fileName = $empid . "-" . $_FILES['upload-photo']['name'];
+        $fileSize = $_FILES['upload-photo']['size'];
+        $fileTmp = $_FILES['upload-photo']['tmp_name'];
+        $fileType = $_FILES['upload-photo']['type'];
 
         $extractExt = explode('.',$fileName);
         $fileExt = strtolower(end($extractExt));
@@ -40,22 +41,20 @@ if(isset($_POST['save-data'])) {
 
         
     }
+    if($imgDir == "") {
+        $imgDir = "../assets/img/user-icon.jpg";
+    }
     
     
     //*  For default photo
-    // TODO: Stupid bug again
     $readQuery = "SELECT employee_photo FROM employee WHERE employee_id=$empid";
     $res = mysqli_query($con,$readQuery);
 
     if(mysqli_num_rows($res) == 0) {
-        
         if($imgDir == "") {
             $imgDir = "../assets/img/user-icon.jpg";
         }
-    } else {
-        $data = mysqli_fetch_assoc($res);
-        $imgDir = $data['employee_photo'];
-    }
+    } 
 
 
     $empid = $_POST['employee-id'];
@@ -83,11 +82,26 @@ if(isset($_POST['save-data'])) {
     }
     
 }
-elseif(isset($_POST['delete-data'])) {
+elseif(isset($_POST['delete-employee'])) {
     $empid = $_POST['employee-id'];
 
+    // Remove from shift
+    $deleteQuery = "DELETE FROM shift WHERE employee_id=$empid";
+    mysqli_query($con,$deleteQuery);
+
+    // Remove from user_employee
+    $deleteQuery = "DELETE FROM user_employee WHERE username=$empid";
+    mysqli_query($con,$deleteQuery);
+
+    // Updates project PIC
+    $updateQuery = "UPDATE project SET pic_id=null WHERE pic_id=$empid";
+    mysqli_query($con,$updateQuery);
+
+    // Remove employee data
     $Queryfordelete = "DELETE FROM employee WHERE employee_id=$empid";
     mysqli_query($con,$Queryfordelete);
+
+    // Remove related photos from server
     
     header("Location: ../pages/admin/employee.php?status=delete-success");
 }

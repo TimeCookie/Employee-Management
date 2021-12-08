@@ -25,7 +25,32 @@ if(($_SERVER['REQUEST_METHOD'] == "POST") && (isset($_POST['user-login']))) {
             
             if (($access == 1) || ($access == true)) {
                 $_SESSION['userId'] = $data['username'];
-                header("Location: ../pages/user/edit-profile.php?status=authorized");
+                $username = $data['username'];
+                $readQuery = "SELECT * FROM shift WHERE employee_id = $username";
+                $res = mysqli_query($con,$readQuery);
+
+                if(mysqli_num_rows($res) == 0) {
+                    header("Location: ../pages/user/edit-profile.php?status=authorized-new");
+                }
+                else {
+                    $readQuery1 = "SELECT admission_time FROM shift WHERE employee_id=$username";
+                    $res1 = mysqli_query($con,$readQuery1);
+                    $data = mysqli_fetch_assoc($res1);
+                    $curAdmission = $data['admission_time'];
+                    if(empty($curAdmission) || $curAdmission == null) {
+                        $timeNow = date('Y-m-d H:i:s',time());
+                        $updateQuery = "UPDATE shift SET admission_time='$timeNow' WHERE employee_id=$username";
+                        mysqli_query($con,$updateQuery);
+
+                        //echo $timeNow;
+                        //echo $username;
+                        header("Location: ../pages/user/edit-profile.php?status=authorized");
+
+                    }
+                    else {
+                        header("Location: ../pages/user/edit-profile.php?status=authorized");
+                    }
+                }
             }
             else {
                 header("Location: ../pages/user-login.php?status=unauthorized");

@@ -95,6 +95,7 @@ echo 'The result is empty';
             <button type="submit" name="searching" class="search-btn" > 
                 <i class='bx bx-search'></i>
             </button>
+            <input type="submit" class="search-all" name="deptsearch" value="Show all department">
 
         </form>    
         </div>
@@ -110,8 +111,28 @@ echo 'The result is empty';
     <div class="employee-container">
         <div class="row"> <!--Container-->
         <?php
+        if(isset($_POST['deptsearch'])){
+            $query ="SELECT * FROM department dep";
+            $result=mysqli_query($con,$query);
+            while($rows = mysqli_fetch_assoc($result)){
+                $departmentId = $rows['department_id'];
+                $departmentName = $rows['department_name'];
+            
+        ?>
+        <div class="col-lg-4 col-sm-12">
+            <div class="jumbotron card2">
+                <div class="info">
+                    <h4><?php echo $departmentName;?> </h4>
+                    <p> <?php echo $departmentId;?> </p>
+                    <?php echo "<a href='edit-department.php?dept=$departmentId' class='button3'>Edit Department</a>"; ?>
+                </div>
+            </div>
+        </div>
+        <?php
+            }
+        }
         
-        if(isset($_POST["searching"])) {
+        else if(isset($_POST["searching"])) {
 
             $searchRes = mysqli_real_escape_string($con, $_POST['typing']);
             if($searchRes!='') {

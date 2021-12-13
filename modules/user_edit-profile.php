@@ -73,7 +73,7 @@ if(isset($_POST['edit-confirm'])) {
 
 
     // *Saves employee data
-    $userEmail = $_POST['email'];
+    $userEmail = $_POST['email-address'];
     $phoneNumber = $_POST['phone-number'];
     
     if($imgDir == null) {

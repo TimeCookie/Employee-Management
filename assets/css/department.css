@@ -249,6 +249,14 @@ body {
   cursor: pointer;
   border-radius: 0 5px 5px 0;
 }
+.search-all {
+  width: 12em;
+  height: 2em;
+  border-radius: 5px;
+  border: 1px solid #11101d;
+  background: #ffebad;
+  color: #000;
+}
 
 /*------------button add employe----*/
 .button1 {

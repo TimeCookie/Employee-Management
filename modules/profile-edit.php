@@ -1,6 +1,7 @@
 <?php
 include 'db_connect.php';
-$imgDir="";
+
+
 if(isset($_POST['save-data'])) {
     $empid = $_POST['employee-id'];
    if(isset($_FILES['upload-photo'])){
@@ -59,9 +60,9 @@ if(isset($_POST['save-data'])) {
 
     $empid = $_POST['employee-id'];
     $empName = $_POST['employee-name'];
-    $empGen = $_POST['gender'];
+    $empGen = $_POST['gender-list'];
     $empDob = $_POST['date-of-birth'];
-    $empDiv = $_POST['division'];
+    $empDiv = $_POST['division-list'];
     $empEmail = $_POST['email-address'];
     $empPhone = $_POST['phone-number'];
     $additionalInfo = $_POST['additional-report'];
@@ -105,4 +106,5 @@ elseif(isset($_POST['delete-employee'])) {
     
     header("Location: ../pages/admin/employee.php?status=delete-success");
 }
+
 ?>

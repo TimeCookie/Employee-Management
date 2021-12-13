@@ -29,6 +29,9 @@ body {
   padding: 6px 14px;
   transition: all 0.5s ease;
 }
+.info2 h4 {
+  color: black !important;
+}
 
 .sidebar.active {
   width: 240px;
@@ -282,6 +285,12 @@ body {
   border-radius: 1em;
   text-align: center;
   padding-top: 1.5em;
+}
+.job2 .bxs-trash {
+  position: absolute;
+  right: 1em;
+  top: 1.5em;
+  font-size: 20px;
 }
 
 .info2 {

@@ -1,8 +1,11 @@
 <?php
 session_start();
 include '../../modules/db_connect.php';
+include '../../modules/functions.php';
 
 $empid = 0;
+
+$divisionList = dropdownFormat($con,"division","division_id","division_name");
 
 if(isset($_GET['employ'])) {
     $empid = $_GET['employ'];
@@ -14,6 +17,8 @@ $res = mysqli_query($con, $readQuery);
 if(mysqli_num_rows($res) > 0) {
     $res = mysqli_fetch_assoc($res);    
 }
+
+
 $empName = $res['employee_name'];
 $empGen = $res['sex'];
 $empDob = $res['date_of_birth'];
@@ -22,6 +27,13 @@ $empPic = $res['employee_photo'];
 $empEmail = $res['employee_email'];
 $empPhone = $res['employee_phone_no'];
 $additionalInfo = $res['additional_info'];
+
+$readQuery = "SELECT division_name FROM division WHERE division_id=$empDiv";
+$res = mysqli_query($con,$readQuery);
+
+$data = mysqli_fetch_assoc($res);
+
+$divName = $data['division_name'];
 
 ?>
 
@@ -107,7 +119,7 @@ $additionalInfo = $res['additional_info'];
     </div> 
 
    <div class="title1">
-        <form action="../../modules/profile-edit.php" method="POST" enctype="multipart/form-data" >
+        <form id="prof-edit" action="../../modules/profile-edit.php" method="POST" enctype="multipart/form-data" >
             <div class="text1">Employee Name</div>
             <div class="form_div">
                 <?php echo"<input type='text' class='form_input' name='employee-name' placeholder=''Employee Name' value='$empName'>"; ?>
@@ -120,9 +132,9 @@ $additionalInfo = $res['additional_info'];
                 <div class="form_div2">
                     <div class ="form_input2">
                         <select name="gender-list">
-                            <option value=""></option>
-                            <option value="M">M</option>
-                            <option value="F">F</option>
+                            <option><?php echo $empGen; ?></option>
+                            <option>M</option>
+                            <option>F</option>
                         </select>
                     </div>
                 </div>
@@ -138,10 +150,19 @@ $additionalInfo = $res['additional_info'];
             <div class="text6">Division</div>
             <div class="form_div5">
                 <div class ="form_input5">
-                    <select name="gender-list">
-                        <option value=""></option>
-                        <option value="divisionid">3001</option>
-                        <option value="divisionid">3002</option>
+                    <select name="division-list">
+                        <option><?php echo "$empDiv - $divName"; ?></option>
+                        <?php
+                        
+                            for($i=0;$i<count($divisionList);$i++) {
+                                $curDiv = $divisionList[$i];
+                        ?>
+                        
+                        <option><?php echo "$curDiv"; ?></option>
+    
+                        <?php
+                            }
+                        ?>
                     </select>
                 </div>
             </div>
@@ -162,6 +183,8 @@ $additionalInfo = $res['additional_info'];
                             <label class="preview-label">Image Preview</label>
                             <div class="image1">
                                 <?php echo "<img src='../$empPic' onclick='triggerClick()' class='img-fluid rounded-circle image2' id='placeholder-image'>" ?>
+                                <?php echo "<input type='hidden' name='current-photo' value='$empPic'>"; ?>
+
                             </div>
                         
                             <input type="file" id="employee-photo-input" onchange="previewImage(this)" name="upload-photo" style="display:none;"/>
@@ -182,6 +205,8 @@ $additionalInfo = $res['additional_info'];
             <input type="submit" class="button3" name="delete-employee" value="Delete"/>
             
         </form>
+        <input type="submit" id="btn-print" class="button4" onclick="formRoute()" name="print" value="Print"/>
+
     </div>
  <!------------Feedback popup---->
  <?php
@@ -234,5 +259,18 @@ $additionalInfo = $res['additional_info'];
 
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/employee-photo.js"></script>
+    <script>
+        function formRoute() {
+            var btn = document.getElementById("btn-print");
+            var form = document.getElementById("prof-edit");
+
+            btn.addEventListener('click', () => {
+                form.action = "../print-template.php";
+                form.submit();
+
+                return false;
+            })
+        }
+    </script>
 </body>
 </html>

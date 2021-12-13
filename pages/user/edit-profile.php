@@ -55,13 +55,6 @@ $employeePhoto = "../".$data['employee_photo'];
         <ul class="nav_list">
             <li>
                 <a href="">
-                    <i class='bx bx-home'></i>
-                    <span class="link_name">Home</span>
-                </a>
-               <span class="tooltip">Home</span>
-            </li>
-            <li>
-                <a href="">
                     <i class='bx bx-user'></i>
                     <span class="link_name">User</span>
                 </a>
@@ -103,18 +96,18 @@ $employeePhoto = "../".$data['employee_photo'];
     </div> 
 
    <div class="title1">
-    <form action="../../modules/user_edit-profile.php" method="POST" enctype="multipart/form-data">
+    <form id="prof-edit" action="../../modules/user_edit-profile.php" method="POST" enctype="multipart/form-data">
         <div class="text1">Employee Name</div>
         <div class="form_div">
-            <?php echo "<input type='text' class='form_input' value='$employeeName' readonly>"; ?>
+            <?php echo "<input type='text' class='form_input' name='employee-name' value='$employeeName' readonly>"; ?>
         </div>
         <div class="text2">Date of Birth</div>
         <div class="form_div1">
-            <?php echo "<input type='text' class='form_input1' value='$employeeDob' readonly>"; ?>
+            <?php echo "<input type='text' class='form_input1' name='date-of-birth' value='$employeeDob' readonly>"; ?>
         </div>
         <div class="text3">Gender</div>
         <div class="form_div2">
-            <?php echo "<input type='text' class='form_input2' value='$employeeGender' readonly>"; ?>
+            <?php echo "<input type='text' class='form_input2' name='gender-list' value='$employeeGender' readonly>"; ?>
         </div>
         <div class="text4">Phone Number</div>
         <div class="form_div3">
@@ -122,11 +115,11 @@ $employeePhoto = "../".$data['employee_photo'];
         </div>
         <div class="text5">Email Address</div>
         <div class="form_div4">
-            <?php echo "<input type='text' class='form_input4' name='email' placeholder='Email Address' value='$employeeEmail'>"; ?>
+            <?php echo "<input type='text' class='form_input4' name='email-address' placeholder='Email Address' value='$employeeEmail'>"; ?>
         </div>
         <div class="text6">Division</div>
         <div class="form_div5">
-            <?php echo "<input type='text' class='form_input5' value='$divisionId' readonly>"; ?>
+            <?php echo "<input type='text' class='form_input5' name='division-list' value='$divisionId' readonly>"; ?>
         </div>
         <div class="text7">Employee Id</div>
         <div class="form_div6">
@@ -144,7 +137,7 @@ $employeePhoto = "../".$data['employee_photo'];
                             <label class="preview-label">Image Preview</label>
                             <div class="image1">
                                 <?php echo "<img src='$employeePhoto' onclick='triggerClick()' class='img-fluid rounded-circle image2' id='placeholder-image'>" ?>
-                                
+                                <?php echo "<input type='hidden' name='current-photo' value='$employeePhoto'>"; ?>
                             </div>
                         
                             <input type="file" id="employee-photo-input" onchange="previewImage(this)" name="upload-photo" style="display:none"/>
@@ -162,6 +155,8 @@ $employeePhoto = "../".$data['employee_photo'];
 
         <input type="submit" value="Save" name="edit-confirm" class="button2">
     </form>
+    <input type="submit" id="btn-print" class="button4" onclick="formRoute()" name="print" value="Print"/>
+
    </div>
  <!---------Feedback popup------------->
     <?php
@@ -214,5 +209,18 @@ $employeePhoto = "../".$data['employee_photo'];
 
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/employee-photo.js"></script>
+    <script>
+        function formRoute() {
+            var btn = document.getElementById("btn-print");
+            var form = document.getElementById("prof-edit");
+
+            btn.addEventListener('click', () => {
+                form.action = "../print-template.php";
+                form.submit();
+
+                return false;
+            })
+        }
+    </script>
 </body>
 </html>

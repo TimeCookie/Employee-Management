@@ -1,57 +1,75 @@
+
 <?php
-include '../../modules/db_connect.php';
+// code author : Andre Jonathan Harahap (2031095)
 session_start();
+include '../../modules/db_connect.php';
 
-if(!isset($_SESSION['userId'])) {
-    header("Location: ../user-login.php?status=unauthorized");
-    die;
+if(isset($_GET['emp'])) {
+    $employeeId = $_GET['emp'];
+} else {
+    header("Location: admin-dashboard.php");
 }
+ 
 
-$employeeId = $_SESSION['userId'];
-
-$readQuery = "SELECT employee_name, division_name FROM employee e JOIN division d ON e.division_id = d.division_id WHERE employee_id=$employeeId";
-$res = mysqli_query($con, $readQuery);
+$readQuery = "SELECT * FROM shift WHERE employee_id=$employeeId";
+$res = mysqli_query($con,$readQuery);
 
 if(mysqli_num_rows($res) > 0) {
     $data = mysqli_fetch_assoc($res);
 }
-
-$employeeName = $data['employee_name'];
-$divisionName = $data['division_name'];
-
-
-$readQuery = "SELECT * FROM shift WHERE employee_id=$employeeId";
-$res = mysqli_query($con,$readQuery);
-$report = "";
-
-if(mysqli_num_rows($res) == 0) {
-    header("Location: edit-profile.php?status=unauthorized");
-} else {
-    $data = mysqli_fetch_assoc($res);
-    $report = $data['employee_report'];
-    $location = $data['location'];
+else {
+    echo mysqli_error($con);
 }
 
+// Fetch shift data
+$projectId = $data['project_id'];
+$admissionTime = $data['admission_time'];
+$timeOut = $data['time_out'];
+$employeeReport = $data['employee_report'];
+$location = $data['location'];
+$reportStatus = $data['report_status'];
 
+// Fetch employee name
+$readQuery = "SELECT employee_name FROM employee e JOIN shift s ON e.employee_id = s.employee_id WHERE e.employee_id=$employeeId";
+$res = mysqli_query($con, $readQuery);
+
+if(mysqli_num_rows($res) > 0) {
+    $data = mysqli_fetch_assoc($res);
+} else {
+    echo mysqli_error($con);
+}
+
+$employeeName = $data['employee_name'];
+
+
+// Fetch project data
+$readQuery = "SELECT project_title FROM project WHERE project_id=$projectId";
+$res = mysqli_query($con, $readQuery);
+
+if(mysqli_num_rows($res) > 0) {
+    $data = mysqli_fetch_assoc($res);
+} else {
+    echo mysqli_error($con);
+}
+
+$project = $projectId . " - " . $data['project_title'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Report</title>
-    <link rel="stylesheet" href="../../assets/css/task-report.css">
+    <title>Task Read</title>
+    <link rel="stylesheet" href="../../assets/css/task-read.css">
     <link rel="stylesheet" href="../../assets/css/popup.css">
     <!-----ini Box icon ------>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     
 </head>
-<body>
 
-    <!----------Sidebar---------->
+<body>
     <div class="sidebar">
         <div class="logo_content">
             <div class="logo">
@@ -61,18 +79,32 @@ if(mysqli_num_rows($res) == 0) {
         </div>
         <ul class="nav_list">
             <li>
-                <a href="edit-profile.php">
-                    <i class='bx bx-user'></i>
-                    <span class="link_name">User</span>
+                <a href="admin-dashboard.php">
+                    <i class='bx bx-home'></i>
+                    <span class="link_name">Home</span>
                 </a>
-               <span class="tooltip">User</span>
+               <span class="tooltip">Home</span>
             </li>
             <li>
-                <a href="task-report.php">
-                    <i class='bx bxs-report'></i>
-                    <span class="link_name">Task Report</span>
+                <a href="employee.php">
+                    <i class='bx bx-user'></i>
+                    <span class="link_name">Employee</span>
                 </a>
-               <span class="tooltip">Task Report</span>
+               <span class="tooltip">Employee</span>
+            </li>
+            <li>
+                <a href="department.php">
+                    <i class='bx bxs-school'></i>
+                    <span class="link_name">Department</span>
+                </a>
+               <span class="tooltip">Department</span>
+            </li>
+            <li>
+                <a href="add-task.php">
+                    <i class='bx bx-plus'></i>
+                    <span class="link_name">Add</span>
+                </a>
+                <span class="tooltip">Add</span>
             </li>
             <li>
                 <a href="../../modules/logout.php">
@@ -98,45 +130,46 @@ if(mysqli_num_rows($res) == 0) {
     </div>
 
     <div class="task_content">
-        <div class="text">Task Report</div>
+        <div class="text">Task Read </div>
         <h4></h4>
         
     </div> 
 
    <div class="title1">
-        <form action="../../modules/report-task.php" method="POST">
-            <div class="text1">Clock</div>
+        <form action="../../modules/read-task.php" method="POST">
+            <div class="text1">Admission Time </div>
             <div class="form_div">
-                <input type="text" class = "form_input" id="clock" name="time" readonly>
+                <?php echo "<input type='text' class = 'form_input' value='$admissionTime' name='admission-time' readonly>"; ?>
             </div>
-            <div class="text2">Employee ID</div>
+            <div class="text2">Time Out </div>
             <div class="form_div">
-                <?php echo "<input type='text' class='form_input1' name='employee-id' value='$employeeId' placeholder='Employee ID' readonly>"; ?>
+                <?php echo "<input type='text' class='form_input1' name='time-out' value='$timeOut' placeholder='Time Out' readonly>"; ?>
             </div>
-            <div class="text3">Employee Name</div>
+            <div class="text3">Employee ID</div>
             <div class="form_div">
-                <?php echo "<input type='text' class='form_input2' name='employee-name' value='$employeeName' placeholder='Employee Name' readonly>"; ?>
+                <?php echo "<input type='text' class='form_input2' name='employee-id' value='$employeeId' placeholder='Employee ID' readonly>"; ?>
             </div>
             <div class="text4">Report</div>
             <div class="form_div">
-                <?php echo "<textarea name='report' class='form_input3' placeholder='Report'>$report</textarea>"; ?>
+                <textarea name='report' class='form_input3' placeholder='Report'><?php echo $employeeReport; ?></textarea>"; ?>
             </div>
-            <div class="text5">Division</div>
+            <div class="text5">Employee Name</div>
             <div class="form_div">
-                <?php echo "<input type='text' class='form_input4' name='division' value='$divisionName' placeholder='Division' readonly>"; ?>
+                <?php echo "<input type='text' class='form_input4' name='employee-name' value='$employeeName' placeholder='Employee Name' readonly>"; ?>
             </div>
-            <div class="text6">Location</div>
+            <div class="text6">Project</div>
             <div class="form_div">
-                <div class ="form_input5">
+                <?php echo "<input type='text' class='form_input5' name='project' value='$project' placeholder='Project' readonly>"; ?>
+            </div>
+            <div class="text7">Location</div>
+            <div class="form_div">
+                <div class ="form_input6">
                     <select name="location-list">
-                        <?php echo"<option>$location</option>"; ?>
-                        <option value="Office">Office</option>
-                        <option value="Meeting Room">Meeting Room</option>
-                        <option value="Canteen">Canteen</option>
+                        <option value=""><?php echo $location;?></option>
                     </select>
                 </div>
             </div>
-            <input type="submit" class="button2" name="report-confirm" value="Submit">
+            <input type="submit" class="button2" name="read" value="Mark As Read">
         </form>
    </div>
   

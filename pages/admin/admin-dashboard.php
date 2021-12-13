@@ -27,6 +27,7 @@ $totalEmployee = $res['num_of_employee'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/popup.css">
     <!-----ini Box icon ------>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -113,7 +114,7 @@ $totalEmployee = $res['num_of_employee'];
     </div>
   <!---------Container JOB------------->
     <div class="Day">
-        <div class="text3"> Today </div>
+        <div class="text3"> Projects </div>
     </div> 
     <div class="job-container1">
         <div class="row"> <!--Container-->
@@ -128,14 +129,19 @@ $totalEmployee = $res['num_of_employee'];
                 $picName = $data['employee_name'];
         ?>
         <!-- Front-end only -->
+        <form action="../../modules/delete-task.php" method="POST">
             <div class="col-lg-12 col-sm-12">
                 <div class="jumbotron job2">
                     <div class="info2">
-                        <h4><?php echo "<a href='edit-task.php?task=$projectId'>$projectTitle</a>" ?></h4>
+                        
+                        <input type="hidden" name="project-id" value="<?php echo $projectId?>">
+                        <button type="submit" name="confirm-delete-task"><i class='bx bxs-trash'></i></button>
+                        <h4><?php echo $projectTitle; ?></h4>
                         <p><?php echo $picName; ?></p>
                     </div>
                 </div>
             </div>
+        </form>
         <!-- Front-end only -->
         <?php
             }
@@ -157,6 +163,7 @@ $totalEmployee = $res['num_of_employee'];
 
         if(mysqli_num_rows($res) == 0) {
             // Echo "no reports yet"
+            echo "<p>No employee report</p>";
         }
         else {
             while($data = mysqli_fetch_assoc($res)) {
@@ -182,7 +189,7 @@ $totalEmployee = $res['num_of_employee'];
             <div class="col-lg-6 col-sm-12">
                 <div class="jumbotron card1">
                     <div class="info">
-                        <h4><?php echo "<a class='dynamic-link' href='report.php?emp=$curId'>$name</a>"; ?></h4>
+                        <h4><?php echo "<a class='dynamic-link' href='task-read.php?emp=$curId'>$name</a>"; ?></h4>
                         <?php echo "<p class=$statusCls>$statusMsg</p>"; ?>
                     </div>
                 </div>
@@ -206,7 +213,7 @@ $totalEmployee = $res['num_of_employee'];
         <div class="title">Success!</div>
         <div class="description">Project successfully deleted</div>
         <div class="dismiss-btn">
-            <button id="dismiss-popup-btn"><a href="<?php echo "department.php"; ?>">Dismiss</a></button>
+            <button id="dismiss-popup-btn"><a href="<?php echo "admin-dashboard.php"; ?>">Dismiss</a></button>
         </div>
     </div>
     <?php

@@ -91,11 +91,11 @@ echo 'The result is empty';
     <div class="container">
         <div class="search-box">
         <form action="employee.php" method="POST">
-            <input type="text" class="search" name="keyword" placeholder="what are you looking for?"/>
+            <input type="text" class="search" name="keyword" placeholder="Search employee"/>
             <button type="submit" name="find" class="search-btn" > 
                 <i class='bx bx-search'></i>
             </button>
-
+            <input type="submit" class="search-all" name="searchall" value="Show all employee">
         </form>    
         </div>
     </div>
@@ -110,8 +110,33 @@ echo 'The result is empty';
     <div class="employee-container">
         <div class="row"> <!--Container-->
         <?php
+        if(isset($_POST['searchall'])){
+
+            $query ="SELECT employee_id,employee_name,employee_photo,division_name FROM employee e JOIN division d ON e.division_id = d.division_id";
+            $result=mysqli_query($con,$query);
+            while($rows = mysqli_fetch_assoc($result)){
+                $employId =$rows['employee_id'];
+                $imageDir ="../". $rows['employee_photo'];
+                $divisionName=$rows['division_name'];
+            
+        ?>
+        <div class="col-lg-4 col-sm-12">
+            <div class="jumbotron card2">
+                <div class="image1">
+                    <?php echo '<img src="'.$imageDir.'" class="img-fluid rounded-circle image2">'; ?>
+                </div>
+                <div class="info">
+                    <h4><?php echo $rows['employee_name'];?> </h4>
+                    <p> <?php echo $rows['division_name'];?> </p>
+                    <?php echo "<a href='edit-profile.php?employ=$employId' class='button3'>Edit Profile</a>"; ?>
+                </div>
+            </div>
+        </div>
+        <?php
+            }
+        }
         
-        if(isset($_POST["find"])) {
+        elseif(isset($_POST["find"])) {
 
             $searchRes = mysqli_real_escape_string($con, $_POST['keyword']);
             if($searchRes!='') {

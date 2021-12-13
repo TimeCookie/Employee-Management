@@ -87,7 +87,7 @@ button {
   margin-top: 3em;
   margin-bottom: 10em;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: bold;
   font-family: "Nunito", sans-serif;
   background-image: linear-gradient(to left, #7f8c8d, #2c3e50, #7f8c8d);
 }
@@ -165,7 +165,7 @@ button {
 }
 
 .img-text p {
-  font-size: 14px;
+  font-size: 1.05em;
   line-height: 1.5;
 }
 
@@ -183,9 +183,10 @@ button {
 .btn {
   border: none;
   margin: 20px;
-  padding: 24px;
   width: 220px;
-  font-family: sans-serif;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 1em;
   text-transform: uppercase;
   border-radius: 30px;
   cursor: pointer;

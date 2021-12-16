@@ -24,15 +24,17 @@ if(($_SERVER['REQUEST_METHOD'] == "POST") && (isset($_POST['user-login']))) {
             $readQuery = "SELECT * FROM shift WHERE employee_id = $username";
             $res = mysqli_query($con,$readQuery);
 
+            // New user that hasn't changed password
             if(mysqli_num_rows($res) == 0) {
                 header("Location: ../pages/user/edit-profile.php?status=authorized-new");
             }
+            // Old user who hasn't changed password
             else {
                 $readQuery1 = "SELECT admission_time FROM shift WHERE employee_id=$username";
                 $res1 = mysqli_query($con,$readQuery1);
                 $data = mysqli_fetch_assoc($res1);
                 $curAdmission = $data['admission_time'];
-                if($curAdmission == '0000-00-00 00:00:00') {
+                if($curAdmission == '0000-00-00 00:00:00' || empty($curAdmission)) {
                     $timeNow = date('Y-m-d H:i:s');
                     $updateQuery = "UPDATE shift SET admission_time='$timeNow' WHERE employee_id=$username";
                     mysqli_query($con,$updateQuery);
@@ -83,9 +85,14 @@ if(($_SERVER['REQUEST_METHOD'] == "POST") && (isset($_POST['user-login']))) {
                     
                 }
             }
-
+            else {
+                header("Location: ../pages/user-login.php?status=unauthorized");
+            }
         }
-        
+        // User entered wrong password
+        else {
+                header("Location: ../pages/user-login.php?status=unauthorized");
+        }
     }
 
 

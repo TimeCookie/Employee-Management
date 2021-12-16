@@ -9,9 +9,14 @@ if(isset($_GET['emp'])) {
 } else {
     header("Location: admin-dashboard.php");
 }
+if(isset($_GET['task'])) {
+    $projectId = $_GET['task'];
+} else {
+    header("Location: admin-dashboard.php");
+}
  
 
-$readQuery = "SELECT * FROM shift WHERE employee_id=$employeeId";
+$readQuery = "SELECT * FROM shift WHERE employee_id=$employeeId AND project_id=$projectId";
 $res = mysqli_query($con,$readQuery);
 
 if(mysqli_num_rows($res) > 0) {
@@ -137,6 +142,7 @@ $project = $projectId . " - " . $data['project_title'];
 
    <div class="title1">
         <form action="../../modules/read-task.php" method="POST">
+            <input type="hidden" name="project-id" value="<?php echo $projectId;?>">
             <div class="text1">Admission Time </div>
             <div class="form_div">
                 <?php echo "<input type='text' class = 'form_input' value='$admissionTime' name='admission-time' readonly>"; ?>

@@ -7,6 +7,15 @@ if(!isset($_SESSION['userId'])) {
     die;
 }
 
+if(!isset($_GET['task'])) {
+    header("Location: ../user-login.php?status=unauthorized");
+    die;
+}
+else {
+    $projectId = $_GET['task'];
+}
+
+
 $employeeId = $_SESSION['userId'];
 
 $readQuery = "SELECT employee_name, division_name FROM employee e JOIN division d ON e.division_id = d.division_id WHERE employee_id=$employeeId";
@@ -20,7 +29,7 @@ $employeeName = $data['employee_name'];
 $divisionName = $data['division_name'];
 
 
-$readQuery = "SELECT * FROM shift WHERE employee_id=$employeeId";
+$readQuery = "SELECT * FROM shift WHERE employee_id=$employeeId AND project_id=$projectId";
 $res = mysqli_query($con,$readQuery);
 $report = "";
 
@@ -30,6 +39,19 @@ if(mysqli_num_rows($res) == 0) {
     $data = mysqli_fetch_assoc($res);
     $report = $data['employee_report'];
     $location = $data['location'];
+}
+
+$projectList = array();
+
+$readQuery = "SELECT s.project_id,p.project_title FROM shift s JOIN project p ON s.project_id = p.project_id WHERE employee_id=$employeeId";
+$res = mysqli_query($con,$readQuery);
+
+if(mysqli_num_rows($res) > 0) {
+    $i = 0;
+    while($data = mysqli_fetch_assoc($res)) {
+        $projectList[$i] = $data['project_id'] . " - " . $data['project_title'];
+        $i++;
+    }
 }
 
 
@@ -125,6 +147,26 @@ if(mysqli_num_rows($res) == 0) {
             <div class="form_div">
                 <?php echo "<input type='text' class='form_input4' name='division' value='$divisionName' placeholder='Division' readonly>"; ?>
             </div>
+            <div class="text7">Project</div>
+            <div class="form_div">
+                <div class ="form_input6">
+                    <select name="project-list" id="project" onchange="redirect()">
+                        <?php
+                            $readQuery = "SELECT project_title FROM project WHERE project_id=$projectId";
+                            $res = mysqli_query($con,$readQuery);
+                            $data = mysqli_fetch_assoc($res);
+                            $projectTitle = $data['project_title'];
+
+                            echo "<option value='$projectId'>$projectId - $projectTitle</option>";
+                        ?>
+                        <?php 
+                            foreach($projectList as $el) {
+                                echo "<option value='$el'>$el</option>";
+                            }
+                        ?>
+                    </select>
+                </div>
+            </div>
             <div class="text6">Location</div>
             <div class="form_div">
                 <div class ="form_input5">
@@ -157,7 +199,7 @@ if(mysqli_num_rows($res) == 0) {
         <div class="title">Success!</div>
         <div class="description">Report submitted</div>
         <div class="dismiss-btn">
-            <button id="dismiss-popup-btn"><a href="task-report.php">Dismiss</a></button>
+            <button id="dismiss-popup-btn"><a href="<?php echo "task-report.php?task=$projectId"; ?>">Dismiss</a></button>
         </div>
     </div>
     
@@ -175,7 +217,7 @@ if(mysqli_num_rows($res) == 0) {
             <div class="title">Failed!</div>
             <div class="description">Error, please check your data.</div>
             <div class="dismiss-btn">
-                <button id="dismiss-popup-btn"><a class="dismiss" href="task-report.php">Dismiss</a></button>
+                <button id="dismiss-popup-btn"><a class="dismiss" href="<?php echo "task-report.php?task=$projectId"; ?>">Dismiss</a></button>
             </div>
         </div>
    
@@ -189,5 +231,17 @@ if(mysqli_num_rows($res) == 0) {
 
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/clock.js"></script>
+    <script>
+        var projectDropdown = document.getElementById("project");
+
+        function redirect() {
+            var selectedProject = projectDropdown.value;
+            var projectId = selectedProject.split(" - ");
+            projectId = projectId[0];
+
+            window.location.href = "task-report.php?task=" + String(projectId);
+        }
+        
+    </script>
 </body>
 </html>

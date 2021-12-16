@@ -20,6 +20,18 @@ session_start();
             <form action="../modules/user-login-check.php" method="POST">
 
                 <h2>User Sign In</h2>
+                <?php
+                    // Code Author: Andre Jonathan Harahap (203105)
+                    if(isset($_GET['status'])) {
+                        if ($_GET['status'] == "unauthorized") {
+                ?>
+                    <div class="unauthorized-user">
+                        <p>User not authorized!</p>
+                    </div>
+                <?php
+                        }
+                    }
+                ?>
                 <label>
                     <span>Username</span>
                     <input type="Username" name="username">

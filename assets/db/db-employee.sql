@@ -1,9 +1,5 @@
--- MySQL Script
--- Employee Management System
--- 3SIMD
+CREATE DATABASE dbemployee;
 
--- CREATE DATABASE dbemployee;
--- This will be removed later
 CREATE TABLE Department
 (
     department_id int NOT NULL,
@@ -82,17 +78,23 @@ INSERT INTO Division VALUES (3001, 'Software Development', 2001),
 (3003, 'Accounting', 2002),
 (3004, 'Advertisement', 2003);
 
-INSERT INTO Employee VALUES (4001, 'Marvin Christian', 'marvin@gmail.com', '0819000000', 'M', '2000-12-25', 3001, '..assets/img/user-icon.jpg'),
-(4002, 'Andre Jonathan Harahap', 'andre@gmail.com', '0819000000', 'M', '2000-12-25', 3001, '..assets/img/user-icon.jpg'),
-(4003, 'Bryan Tandian', 'bryan@gmail.com', '0819000000', 'M', '2000-12-25', 3001, '..assets/img/user-icon.jpg'),
-(4004, 'Pangestu', 'pangestu@gmail.com', '0819000000', 'M', '2000-12-25', 3001, '..assets/img/user-icon.jpg'),
-(4005, 'Someone', 'someone@gmail.com', '0819000000', 'M', '2000-12-25', 3002, '..assets/img/user-icon.jpg');
+INSERT INTO Employee VALUES (4001, 'Marvin Christian', 'marvin@gmail.com', '0819000000', 'M', '2000-12-25', 3001, '../assets/img/user-icon.jpg',NULL),
+(4002, 'Andre Jonathan Harahap', 'andre@gmail.com', '0819000000', 'M', '2000-12-25', 3001, '../assets/img/user-icon.jpg', NULL),
+(4003, 'Bryan Tandian', 'bryan@gmail.com', '0819000000', 'M', '2000-12-25', 3001, '../assets/img/user-icon.jpg',NULL),
+(4004, 'Pangestu', 'pangestu@gmail.com', '0819000000', 'M', '2000-12-25', 3001, '../assets/img/user-icon.jpg',NULL),
+(4005, 'Someone', 'someone@gmail.com', '0819000000', 'M', '2000-12-25', 3002, '../assets/img/user-icon.jpg',NULL);
 
 INSERT INTO Project VALUES
 (1001, 'App 01', 'It is an app', 4002, 3001),
 (1002, 'Financial Statements', 'This is the financial statement of magentacorp', 4005, 3003),
 (1003, 'App 02', 'It is another app', 4001, 3001),
 (1004, 'App Advertisement', 'It is an app ad', 4002, 3004);
+
+INSERT INTO Shift VALUES
+(4001,1001,NULL,NULL,NULL,NULL,0),
+(4002,1002,NULL,NULL,NULL,NULL,0),
+(4003,1003,NULL,NULL,NULL,NULL,0),
+(4004,1004,NULL,NULL,NULL,NULL,0);
 
 INSERT INTO user_employee VALUES(4001, '123'),
 (4002, '123'),

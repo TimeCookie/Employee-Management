@@ -133,9 +133,8 @@ $totalEmployee = $res['num_of_employee'];
             <div class="col-lg-12 col-sm-12">
                 <div class="jumbotron job2">
                     <div class="info2">
-                        
-                        <input type="hidden" name="project-id" value="<?php echo $projectId?>">
-                        <button type="submit" name="confirm-delete-task"><i class='bx bxs-trash'></i></button>
+                        <input type="hidden" name="project-id" value="<?php echo $projectId?>"/>
+                        <button class="button-container" type="submit" name="confirm-delete-task"><i class='bx bxs-trash'></i></button>
                         <h4><?php echo $projectTitle; ?></h4>
                         <p><?php echo $picName; ?></p>
                     </div>
@@ -168,18 +167,10 @@ $totalEmployee = $res['num_of_employee'];
         else {
             while($data = mysqli_fetch_assoc($res)) {
                 $curId = $data['employee_id'];
+                $projectId = $data['project_id'];
                 $statusMsg = "Not read"; //Default
                 $statusCls = "not-read"; //Default
-                switch ($data['report_status']) {
-                    case 0:
-                        $statusMsg = "Read";
-                        $statusCls = "read";
-                        break;
-                    case 1:
-                        $statusMsg = "Not Read";
-                        $statusCls = "not-read";
-                        break;
-                }
+                
 
                 $readQuery1 = "SELECT employee_name FROM employee e JOIN shift s ON e.employee_id = s.employee_id WHERE e.employee_id=$curId";
                 $res1 = mysqli_query($con,$readQuery1);
@@ -189,7 +180,7 @@ $totalEmployee = $res['num_of_employee'];
             <div class="col-lg-6 col-sm-12">
                 <div class="jumbotron card1">
                     <div class="info">
-                        <h4><?php echo "<a class='dynamic-link' href='task-read.php?emp=$curId'>$name</a>"; ?></h4>
+                        <h4><?php echo "<a class='dynamic-link' href='task-read.php?emp=$curId&task=$projectId'>$name</a>"; ?></h4>
                         <?php echo "<p class=$statusCls>$statusMsg</p>"; ?>
                     </div>
                 </div>
@@ -212,6 +203,23 @@ $totalEmployee = $res['num_of_employee'];
         </div>
         <div class="title">Success!</div>
         <div class="description">Project successfully deleted</div>
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn"><a href="<?php echo "admin-dashboard.php"; ?>">Dismiss</a></button>
+        </div>
+    </div>
+    <?php
+        }
+    }
+    elseif(isset($_GET['report'])) {
+        if($_GET['report'] == "read") {
+
+    ?>
+    <div class="popup center">
+        <div class="success-icon">
+            <i class="bx bx-check"></i>
+        </div>
+        <div class="title">Success!</div>
+        <div class="description">Report has been marked as read!</div>
         <div class="dismiss-btn">
             <button id="dismiss-popup-btn"><a href="<?php echo "admin-dashboard.php"; ?>">Dismiss</a></button>
         </div>

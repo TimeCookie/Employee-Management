@@ -18,6 +18,7 @@ if(mysqli_num_rows($res) <= 0) {
 else {
     $data = mysqli_fetch_assoc($res);
 }
+
 $employeeName = $data['employee_name'];
 $employeeGender = $data['sex'];
 $employeeDob = $data['date_of_birth'];
@@ -26,6 +27,17 @@ $employeePhoto = $data['employee_photo'];
 $employeeEmail = $data['employee_email'];
 $employeePhone = $data['employee_phone_no'];
 $employeePhoto = "../".$data['employee_photo'];
+
+$readQuery = "SELECT project_id FROM shift WHERE employee_id=$userId LIMIT 1";
+$res = mysqli_query($con, $readQuery);
+
+if(mysqli_num_rows($res) > 0) {
+    $data = mysqli_fetch_assoc($res);
+}
+
+$projectId = $data['project_id'];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +73,7 @@ $employeePhoto = "../".$data['employee_photo'];
                <span class="tooltip">User</span>
             </li>
             <li>
-                <a href="task-report.php">
+                <a href="<?php echo "task-report.php?task=$projectId"; ?>">
                     <i class='bx bxs-report'></i>
                     <span class="link_name">Task Report</span>
                 </a>

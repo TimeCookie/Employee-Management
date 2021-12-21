@@ -39,23 +39,28 @@ if(isset($_POST['save-data'])) {
             print_r($err);
             header("Location: ../pages/admin/add-employee.php?status=invalid");
         }
-
+        
         
     }
-    if($imgDir == "") {
-        $imgDir = "../assets/img/user-icon.jpg";
-    }
-    
-    
-    //*  For default photo
-    $readQuery = "SELECT employee_photo FROM employee WHERE employee_id=$empid";
-    $res = mysqli_query($con,$readQuery);
 
-    if(mysqli_num_rows($res) == 0) {
-        if($imgDir == "") {
-            $imgDir = "../assets/img/user-icon.jpg";
-        }
-    } 
+
+    //*  For default photo
+    if($imgDir == "") {
+
+		$readQuery = "SELECT employee_photo FROM Employee WHERE employee_id=$empid";
+		$res = mysqli_query($con,$readQuery);
+
+		if(mysqli_num_rows($res) == 0) {
+			if($imgDir == "") {
+				$imgDir = "../assets/img/user-icon.jpg";
+			}
+		}
+		else {
+			$data = mysqli_fetch_assoc($res);
+			$imgDir = $data['employee_photo'];
+		}
+	}
+    
 
 
     $empid = $_POST['employee-id'];
@@ -95,7 +100,7 @@ elseif(isset($_POST['delete-employee'])) {
     mysqli_query($con,$deleteQuery);
 
     // Updates project PIC
-    $updateQuery = "UPDATE project SET pic_id=null WHERE pic_id=$empid";
+    $updateQuery = "UPDATE project SET pic_id=0 WHERE pic_id=$empid";
     mysqli_query($con,$updateQuery);
 
     // Remove employee data

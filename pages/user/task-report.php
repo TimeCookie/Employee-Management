@@ -90,7 +90,7 @@ if(mysqli_num_rows($res) > 0) {
                <span class="tooltip">User</span>
             </li>
             <li>
-                <a href="task-report.php">
+                <?php echo "<a href='task-report.php?task=$projectId'>"; ?>
                     <i class='bx bxs-report'></i>
                     <span class="link_name">Task Report</span>
                 </a>

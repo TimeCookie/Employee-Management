@@ -118,6 +118,7 @@ echo 'The result is empty';
                 $employId =$rows['employee_id'];
                 $imageDir ="../". $rows['employee_photo'];
                 $divisionName=$rows['division_name'];
+                if($employId > 0) {
             
         ?>
         <div class="col-lg-4 col-sm-12">
@@ -133,6 +134,7 @@ echo 'The result is empty';
             </div>
         </div>
         <?php
+                }
             }
         }
         
@@ -152,8 +154,7 @@ echo 'The result is empty';
                     // Image dir reconstruction
                     $imageDir = "../" . $rows['employee_photo'];
                     $employId = $rows['employee_id'];
-
-                                 
+                    if ($employId > 0) {            
         ?>
             <div class="col-lg-4 col-sm-12">
                 <div class="jumbotron card2">
@@ -168,6 +169,7 @@ echo 'The result is empty';
                 </div>
             </div>
         <?php
+                        }
                     }
                 }
             }

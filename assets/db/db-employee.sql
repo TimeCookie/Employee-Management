@@ -82,7 +82,8 @@ INSERT INTO Employee VALUES (4001, 'Marvin Christian', 'marvin@gmail.com', '0819
 (4002, 'Andre Jonathan Harahap', 'andre@gmail.com', '0819000000', 'M', '2000-12-25', 3001, '../assets/img/user-icon.jpg', NULL),
 (4003, 'Bryan Tandian', 'bryan@gmail.com', '0819000000', 'M', '2000-12-25', 3001, '../assets/img/user-icon.jpg',NULL),
 (4004, 'Pangestu', 'pangestu@gmail.com', '0819000000', 'M', '2000-12-25', 3001, '../assets/img/user-icon.jpg',NULL),
-(4005, 'Someone', 'someone@gmail.com', '0819000000', 'M', '2000-12-25', 3002, '../assets/img/user-icon.jpg',NULL);
+(4005, 'Someone', 'someone@gmail.com', '0819000000', 'M', '2000-12-25', 3002, '../assets/img/user-icon.jpg',NULL),
+(0, 'NO PIC', NULL, NULL, 'M', '2000-12-25', 3002, '../assets/img/user-icon.jpg', NULL);
 
 INSERT INTO Project VALUES
 (1001, 'App 01', 'It is an app', 4002, 3001),
